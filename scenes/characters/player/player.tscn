@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bldfpa3blq6jy"]
+
+[ext_resource type="Script" uid="uid://wygm1ofai61n" path="res://scenes/characters/player/player.gd" id="1_t61fv"]
+[ext_resource type="Texture2D" uid="uid://ufjwd60440e3" path="res://assets/chicken_right.png" id="2_686vu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hss88"]
+size = Vector2(26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd3e3"]
+atlas = ExtResource("2_686vu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6avc5"]
+atlas = ExtResource("2_686vu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk55u"]
+atlas = ExtResource("2_686vu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuses"]
+atlas = ExtResource("2_686vu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42irl"]
+atlas = ExtResource("2_686vu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xnwo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd3e3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6avc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk55u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuses")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42irl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=217472232]
+script = ExtResource("1_t61fv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1890574487]
+shape = SubResource("RectangleShape2D_hss88")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2102837302]
+scale = Vector2(1.625, 1.625)
+sprite_frames = SubResource("SpriteFrames_3xnwo")
+animation = &"walk"

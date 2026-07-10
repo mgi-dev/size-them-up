@@ -32,6 +32,7 @@ func _ready() -> void:
 	hitbox.scale = initial_scale_transform
 	mouse_detector.scale = initial_scale_transform
 
+
 func debug():
 	print(position, sprite.position, sprite.scale, hitbox.position, hitbox.shape.size)
 
@@ -42,8 +43,8 @@ func _process(delta):
 	# print(RESIZE_SPEED)
 	if abs(current_sprite_scale_multiplier - new_scale_multiplier) >= RESIZE_SPEED:
 		process_sprite_resize()
-		
-		
+
+
 func _physics_process(delta: float) -> void:
 	# called 60 times per second. do not lag this.
 	if Input.is_action_pressed("size_up"):	
@@ -68,14 +69,15 @@ func can_size_up() -> bool:
 func can_size_down() -> bool:
 	return selected and GameState.can_size_down()
 
+
 func size_up() -> void:
 	new_scale_multiplier = current_scale_muliplier + RESIZE_SPEED
 	SignalBus.resized.emit(new_scale_multiplier - current_scale_muliplier)
 	
+	
 func size_down() -> void:
 	new_scale_multiplier = current_scale_muliplier - RESIZE_SPEED
 	SignalBus.resized.emit(new_scale_multiplier - current_scale_muliplier)
-
 
 
 func get_transformed_scale(_scale: Vector2, transform: float) -> Vector2:
@@ -88,7 +90,6 @@ func get_transformed_scale(_scale: Vector2, transform: float) -> Vector2:
 		return Vector2(_scale.x, _scale.y * transform)
 	else: 
 		return _scale * transform
-
 
 	
 func process_hitbox_resize() -> void:
