@@ -10,11 +10,6 @@ extends RigidBody2D
 	
 var RESIZE_SPEED = 0.01
 
-"""
-scaling du sprirte correcteùment instancié, 
-dernier bloc posé controle tou les autres.
-"""
-
 var current_scale: float = 1.0
 var new_scale : float = 1.0
 var current_sprite_scale : float = 1.0
@@ -23,7 +18,6 @@ var selected : bool = false
 
 var _default_size: Vector2
 var _default_mouse_detector_size: Vector2
-var locked = false
 
 func _ready() -> void:
 	# dedup allow to resizeonly one box. collision shapes are shared are shared ressources by default.
@@ -47,20 +41,11 @@ func _process(delta):
 		
 func _physics_process(delta: float) -> void:
 	# called 60 times per second. do not lag this.
-	if Input.is_action_pressed("size_up"):
-		
-		if locked:
-			return
-		if selected:
-			print(position.x, position.y)
-			size_up()
-			process_hitbox_resize()
-			process_mouse_detector_resize()
-			print("sprite : ", sprite.scale, new_scale)
-			print("hitbox : ", hitbox.shape.size)
-			print("position sprite : ", sprite.position)
-			print("position hitbox : ", hitbox.position)
-			# locked = true
+	if Input.is_action_pressed("size_up"):	
+		size_up()
+		process_hitbox_resize()
+		process_mouse_detector_resize()
+
 		
 	elif Input.is_action_pressed("size_down"):
 		size_down()
@@ -90,17 +75,10 @@ func process_mouse_detector_resize() -> void:
 
 func process_sprite_resize() -> void:
 	sprite.scale = Vector2.ONE * new_scale
-	#sprite.position.x = sprite.position.x * new_scale
 	
-func process_rigid_body_resize() -> void:
-	scale = _default_size * new_scale
-
-
 func _on_mouse_dedector_mouse_entered():
 	selected = true
-	print("true")
 
 
 func _on_mouse_dedector_mouse_exited():
 	selected = false
-	print("false")
