@@ -8,8 +8,11 @@ size = Vector2(56, 54)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxfvr"]
 size = Vector2(57, 54)
 
-[node name="ResizableV2" type="RigidBody2D" unique_id=2113696681]
+[node name="ResizableV2" type="RigidBody2D" unique_id=2113696681 node_paths=PackedStringArray("sprite", "hitbox", "mouse_detector")]
 script = ExtResource("1_27yq0")
+sprite = NodePath("Polygon2D")
+hitbox = NodePath("CollisionShape2D")
+mouse_detector = NodePath("MouseDedector/MouseDetectorCollisionShape")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1724077664]
 visible = false
