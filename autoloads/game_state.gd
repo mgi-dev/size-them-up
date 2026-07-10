@@ -1,0 +1,27 @@
+extends Node
+
+
+var _can_size_up: bool = false
+var _can_size_down: bool = false
+
+func _ready():
+	SignalBus.gauge_changed.connect(au_gauge_changed)
+	
+
+func au_gauge_changed(percentage: float) -> void:
+	if percentage >= 100:
+		_can_size_up = false
+		_can_size_down = true
+	elif percentage <= 0:
+		_can_size_up = true
+		_can_size_down = false
+	else:
+		_can_size_up = true
+		_can_size_down = true
+
+
+func can_size_up() -> bool:
+	return _can_size_up
+	
+func can_size_down() -> bool:
+	return _can_size_down

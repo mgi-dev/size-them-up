@@ -52,15 +52,22 @@ func _physics_process(delta: float) -> void:
 		process_hitbox_resize()
 		process_mouse_detector_resize()
 
+func can_size_up() -> bool:
+	return selected and GameState.can_size_up()
 	
+	
+func can_size_down() -> bool:
+	return selected and GameState.can_size_down()
+
 func size_up() -> void:
-	if selected:
+	if can_size_up():
 		new_scale = current_scale + RESIZE_SPEED
-	
+		SignalBus.resized.emit(new_scale - current_scale)
 	
 func size_down() -> void:
-	if selected:
+	if can_size_down():
 		new_scale = current_scale - RESIZE_SPEED
+		SignalBus.resized.emit(new_scale - current_scale)
 	
 	
 func process_hitbox_resize() -> void:

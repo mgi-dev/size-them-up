@@ -1,0 +1,4 @@
+- move the center of object.
+- create different resizable
+	- resize shape
+	- resize density
