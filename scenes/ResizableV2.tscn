@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c513vd3w5aj6j"]
+
+[ext_resource type="Script" uid="uid://dm3of42vqtu4u" path="res://scenes/resizable_v_2.gd" id="1_27yq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27yq0"]
+size = Vector2(56, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxfvr"]
+size = Vector2(57, 54)
+
+[node name="ResizableV2" type="RigidBody2D" unique_id=2113696681]
+script = ExtResource("1_27yq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1724077664]
+visible = false
+shape = SubResource("RectangleShape2D_27yq0")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1652323958]
+polygon = PackedVector2Array(-29, -27, 28, -27, 28, 27, -29, 27)
+
+[node name="MouseDedector" type="Area2D" parent="." unique_id=1279288288]
+
+[node name="MouseDetectorCollisionShape" type="CollisionShape2D" parent="MouseDedector" unique_id=1088231173]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_oxfvr")
+
+[connection signal="mouse_entered" from="MouseDedector" to="." method="_on_mouse_dedector_mouse_entered"]
+[connection signal="mouse_exited" from="MouseDedector" to="." method="_on_mouse_dedector_mouse_exited"]
