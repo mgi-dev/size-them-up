@@ -13,19 +13,7 @@ polygon = PackedVector2Array(21, 307, 697, 307, 697, 355, 18, 356)
 polygon = PackedVector2Array(20, 305, 696, 306, 695, 355, 16, 355)
 
 [node name="ResizableV2" parent="." unique_id=2113696681 instance=ExtResource("1_o5qli")]
-position = Vector2(229, 230)
+position = Vector2(256, 228)
 
-[node name="ResizableV3" parent="." unique_id=345261820 instance=ExtResource("1_o5qli")]
-position = Vector2(384, 230)
-
-[node name="ResizableV4" parent="." unique_id=716104190 instance=ExtResource("1_o5qli")]
-position = Vector2(275, 154)
-
-[node name="ResizableV5" parent="." unique_id=1347174295 instance=ExtResource("1_o5qli")]
-position = Vector2(485, 269)
-
-[node name="ResizableV6" parent="." unique_id=561176680 instance=ExtResource("1_o5qli")]
-position = Vector2(548, 271)
-
-[node name="ResizableV7" parent="." unique_id=380328803 instance=ExtResource("1_o5qli")]
-position = Vector2(523, 197)
+[node name="ResizableV3" parent="." unique_id=945991924 instance=ExtResource("1_o5qli")]
+position = Vector2(421, 200)
