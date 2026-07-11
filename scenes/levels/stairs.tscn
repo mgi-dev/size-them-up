@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://tvapy2nmb4dv"]
+
+[ext_resource type="PackedScene" uid="uid://bldfpa3blq6jy" path="res://scenes/characters/player/player.tscn" id="1_m6nbs"]
+[ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_fnp8j"]
+[ext_resource type="PackedScene" uid="uid://cdtat8xupelfn" path="res://scenes/ui/size_gauge/size_gauge.tscn" id="3_fnp8j"]
+
+[node name="Stairs" type="Node2D" unique_id=706268353]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1430677686]
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" unique_id=2047690293]
+polygon = PackedVector2Array(21, 307, 697, 307, 697, 355, 18, 356)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=650515627]
+polygon = PackedVector2Array(20, 305, 696, 306, 695, 355, 16, 355)
+
+[node name="Player" parent="." unique_id=217472232 instance=ExtResource("1_m6nbs")]
+position = Vector2(51, 279)
+
+[node name="ResizableV2" parent="." unique_id=2113696681 instance=ExtResource("2_fnp8j")]
+position = Vector2(203, 225)
+scale = Vector2(1.5600001, 1.5600001)
+
+[node name="ResizableV3" parent="." unique_id=622839987 instance=ExtResource("2_fnp8j")]
+position = Vector2(339, 192)
+scale = Vector2(1.2990484, 4.589756)
+
+[node name="ResizableV4" parent="." unique_id=976304671 instance=ExtResource("2_fnp8j")]
+position = Vector2(472, 271)
+
+[node name="ResizableV5" parent="." unique_id=58262826 instance=ExtResource("2_fnp8j")]
+position = Vector2(575, 274)
+
+[node name="SizeGauge" parent="." unique_id=1367314203 instance=ExtResource("3_fnp8j")]
+position = Vector2(675, 291)

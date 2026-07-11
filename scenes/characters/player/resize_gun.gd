@@ -41,12 +41,12 @@ func select_laser_color() -> void:
 
 
 func handle_colliding(delta):
-	var far_away_position = to_local(get_viewport().get_mouse_position()).normalized() * 5000 
+	# debug()
+	var far_away_position = to_local(get_global_mouse_position()).normalized() * 5000 
 	target_position = far_away_position
 	force_raycast_update()
 
 	if is_colliding():
-		# debug()
 		var collision_position = to_local(get_collision_point())
 		target_position = collision_position
 		visible_laser.set_point_position(1, collision_position)
@@ -86,5 +86,7 @@ func debug():
 		true_count += 1
 	else:
 		false_count += 1
-	print("false: ", false_count, ", true: ", true_count)	
+		
+	if Input.is_action_pressed("size_up"): 
+		print("false: ", false_count, ", true: ", true_count)	
 	

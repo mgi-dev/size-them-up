@@ -1,0 +1,3 @@
+- smooth camera scroll
+--> base scene inherited with all the ui plugued in
+- preconfigured sized elements

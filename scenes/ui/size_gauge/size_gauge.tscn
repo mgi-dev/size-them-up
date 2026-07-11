@@ -6,10 +6,10 @@
 script = ExtResource("1_mujeh")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=250899039]
-offset_left = -17.999998
-offset_top = -318.0
-offset_right = 20.137522
-offset_bottom = -1.588623
+offset_left = -18.480043
+offset_top = -210.39272
+offset_right = 19.657476
+offset_bottom = -1.5896912
 rotation = 0.00446105
 scale = Vector2(1.0359246, 1)
 max_value = 5.0
