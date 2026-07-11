@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://wygm1ofai61n" path="res://scenes/characters/player/player.gd" id="1_t61fv"]
 [ext_resource type="Texture2D" uid="uid://ufjwd60440e3" path="res://assets/chicken_right.png" id="2_686vu"]
+[ext_resource type="Script" uid="uid://cmotlk3fb5hxh" path="res://scenes/characters/player/ray_cast_2d.gd" id="3_686vu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hss88"]
 size = Vector2(26, 26)
@@ -64,3 +65,12 @@ shape = SubResource("RectangleShape2D_hss88")
 scale = Vector2(1.625, 1.625)
 sprite_frames = SubResource("SpriteFrames_3xnwo")
 animation = &"walk"
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=834290949]
+target_position = Vector2(38, -23)
+script = ExtResource("3_686vu")
+
+[node name="Line2D" type="Line2D" parent="RayCast2D" unique_id=1175857094]
+points = PackedVector2Array(0, 0, 38, -23)
+width = 2.0
+default_color = Color(0.7250944, 0.13440046, 0.4800086, 1)

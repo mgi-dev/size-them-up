@@ -16,7 +16,6 @@ func _ready():
 
 
 func fill_the_gauge(amount: float):
-	
 	gauge.value += amount
 	SignalBus.gauge_changed.emit(to_percentage(gauge.value))
 

@@ -38,4 +38,4 @@ scale = Vector2(0.33333334, 0.33333334)
 skew = 0.45378554
 
 [node name="Player" parent="." unique_id=217472232 instance=ExtResource("3_sugp2")]
-position = Vector2(201, 236)
+position = Vector2(425, 14)

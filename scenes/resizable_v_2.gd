@@ -19,8 +19,6 @@ var new_scale_multiplier : float = 1.0
 # UI is seperated from physics, need it's own var for now.
 var current_sprite_scale_multiplier : float = 1.0
 
-var selected : bool = false
-
 
 func _ready() -> void:
 	# storing size allow to start with various size for component. else will default to (1, 1)
@@ -34,8 +32,8 @@ func _ready() -> void:
 
 
 func debug():
-	print(position, sprite.position, sprite.scale, hitbox.position, hitbox.shape.size)
-
+	print("selected : ", hitbox == GameState.resize_ray_target , " ", position, sprite.position, sprite.scale, hitbox.position, hitbox.shape.size)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -52,9 +50,6 @@ func _physics_process(delta: float) -> void:
 			size_up()
 			process_hitbox_resize()
 			process_mouse_detector_resize()
-		if selected:
-			# debug()
-			pass
 		
 	elif Input.is_action_pressed("size_down"):
 		if can_size_down():
@@ -63,11 +58,11 @@ func _physics_process(delta: float) -> void:
 			process_mouse_detector_resize()
 
 func can_size_up() -> bool:
-	return selected and GameState.can_size_up()
+	return GameState.resize_ray_target == hitbox and GameState.can_size_up()
 	
 	
 func can_size_down() -> bool:
-	return selected and GameState.can_size_down()
+	return GameState.resize_ray_target == hitbox and GameState.can_size_down()
 
 
 func size_up() -> void:
@@ -107,10 +102,9 @@ func process_sprite_resize() -> void:
 	
 	
 func _on_mouse_dedector_mouse_entered():
-	print("entered")
-	selected = true
-
+	# print("entered")
+	pass
 
 func _on_mouse_dedector_mouse_exited():
-	print("pas entered")
-	selected = false
+	# print("pas entered")
+	pass
