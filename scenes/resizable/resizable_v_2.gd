@@ -23,10 +23,12 @@ var current_sprite_scale_multiplier : float = 1.0
 
 func _ready() -> void:
 	# storing size allow to start with various size for component. else will default to (1, 1)
-	initial_size = hitbox.shape.size * scale
-	
+	# why storing size ? keeping the original size allow to apply bigger and bigger scaling on a base value.
+	# this keep the transformation linear. If we apply the transformation on scale at each frame the transformation is logarithmic. And that's bad.
+	initial_size = hitbox.shape.get_rect().size * scale
 	# setting size for hitbox based on parent transfom scale (1.5, 1.5)
 	initial_scale_transform = scale
+	
 	sprite.scale = initial_scale_transform
 	hitbox.scale = initial_scale_transform
 	
@@ -35,7 +37,7 @@ func _ready() -> void:
 
 
 func debug():
-	print("selected : ", hitbox == GameState.resize_ray_target , " ", position, sprite.position, sprite.scale, hitbox.position, hitbox.shape.size)
+	print("selected : ", hitbox == GameState.resize_ray_target , " ", position, sprite.position, sprite.scale, hitbox.position)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,6 +54,7 @@ func _physics_process(delta: float) -> void:
 
 func resize_up(target: CollisionShape2D) -> void:
 	if target == hitbox:
+		CircleShape2D
 		if can_size_up():
 			size_up()
 			process_hitbox_resize()
