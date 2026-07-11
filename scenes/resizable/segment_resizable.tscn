@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cfd3uikiuifyx"]
+
+[ext_resource type="Script" uid="uid://dm3of42vqtu4u" path="res://scenes/resizable/resizable_v_2.gd" id="1_x3m85"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0twtu"]
+a = Vector2(0, -64)
+b = Vector2(0, 64)
+
+[node name="SegmentResizable" type="RigidBody2D" unique_id=501017971 node_paths=PackedStringArray("sprite", "hitbox")]
+script = ExtResource("1_x3m85")
+sprite = NodePath("Polygon2D")
+hitbox = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1610755944]
+shape = SubResource("SegmentShape2D_0twtu")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1795758011]
+polygon = PackedVector2Array(-2, -64, 2, -64, 2, 64, -2, 64)
