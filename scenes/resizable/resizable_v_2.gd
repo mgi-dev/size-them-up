@@ -4,7 +4,6 @@ class_name Resizable
 
 @export var sprite: Polygon2D
 @export var hitbox: CollisionShape2D
-@export var mouse_detector: CollisionShape2D
 
 
 enum RESIZE_MODE {ALL, VERTICAL, HORIZONTAL}
@@ -30,7 +29,6 @@ func _ready() -> void:
 	initial_scale_transform = scale
 	sprite.scale = initial_scale_transform
 	hitbox.scale = initial_scale_transform
-	mouse_detector.scale = initial_scale_transform
 	
 	SignalBus.resize_ray_resize_up.connect(resize_up)
 	SignalBus.resize_ray_resize_down.connect(resize_down)
@@ -57,14 +55,14 @@ func resize_up(target: CollisionShape2D) -> void:
 		if can_size_up():
 			size_up()
 			process_hitbox_resize()
-			process_mouse_detector_resize()
+
 
 func resize_down(target: CollisionShape2D) -> void:		
 	if target == hitbox:
 		if can_size_down():
 			size_down()
 			process_hitbox_resize()
-			process_mouse_detector_resize()
+
 
 func can_size_up() -> bool:
 	return GameState.can_size_up()
@@ -99,10 +97,6 @@ func get_transformed_scale(_scale: Vector2, transform: float) -> Vector2:
 func process_hitbox_resize() -> void:
 	hitbox.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
 	current_scale_muliplier = new_scale_multiplier
-
-
-func process_mouse_detector_resize() -> void:
-	mouse_detector.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
 
 
 func process_sprite_resize() -> void:
