@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://btaph64xx2gfe"]
+
+[ext_resource type="Script" uid="uid://dm3of42vqtu4u" path="res://scenes/resizable/resizable_v_2.gd" id="1_m3jqf"]
+
+[node name="OvalResizable" type="Node2D" unique_id=703707538]
+script = ExtResource("1_m3jqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=919832315]

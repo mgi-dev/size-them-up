@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Resizable 
+
 @export var sprite: Polygon2D
 @export var hitbox: CollisionShape2D
 @export var mouse_detector: CollisionShape2D
@@ -29,6 +31,9 @@ func _ready() -> void:
 	sprite.scale = initial_scale_transform
 	hitbox.scale = initial_scale_transform
 	mouse_detector.scale = initial_scale_transform
+	
+	SignalBus.resize_ray_resize_up.connect(resize_up)
+	SignalBus.resize_ray_resize_down.connect(resize_down)
 
 
 func debug():
@@ -44,25 +49,29 @@ func _process(delta):
 
 
 func _physics_process(delta: float) -> void:
-	# called 60 times per second. do not lag this.
-	if Input.is_action_pressed("size_up"):	
+	# called 60 times per second. do not lag this.	
+	pass
+
+func resize_up(target: CollisionShape2D) -> void:
+	if target == hitbox:
 		if can_size_up():
 			size_up()
 			process_hitbox_resize()
 			process_mouse_detector_resize()
-		
-	elif Input.is_action_pressed("size_down"):
+
+func resize_down(target: CollisionShape2D) -> void:		
+	if target == hitbox:
 		if can_size_down():
 			size_down()
 			process_hitbox_resize()
 			process_mouse_detector_resize()
 
 func can_size_up() -> bool:
-	return GameState.resize_ray_target == hitbox and GameState.can_size_up()
+	return GameState.can_size_up()
 	
 	
 func can_size_down() -> bool:
-	return GameState.resize_ray_target == hitbox and GameState.can_size_down()
+	return GameState.can_size_down()
 
 
 func size_up() -> void:
@@ -99,12 +108,3 @@ func process_mouse_detector_resize() -> void:
 func process_sprite_resize() -> void:
 	sprite.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
 	current_sprite_scale_multiplier = new_scale_multiplier
-	
-	
-func _on_mouse_dedector_mouse_entered():
-	# print("entered")
-	pass
-
-func _on_mouse_dedector_mouse_exited():
-	# print("pas entered")
-	pass
