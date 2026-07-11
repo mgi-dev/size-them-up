@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dolyu31t53k65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eypxk"]
+size = Vector2(384, 384)
+
+[node name="GreyBloc" type="StaticBody2D" unique_id=555845978]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=401184407]
+polygon = PackedVector2Array(-192, -192, 192, -192, 192, 192, -192, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1763942668]
+shape = SubResource("RectangleShape2D_eypxk")
