@@ -27,7 +27,7 @@ scale = Vector2(2, 2)
 resize_mode = 1
 
 [node name="SizeGauge" parent="." unique_id=1367314203 instance=ExtResource("2_0wfyh")]
-position = Vector2(587, 301)
+position = Vector2(776, 257)
 scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." unique_id=217472232 instance=ExtResource("3_sugp2")]

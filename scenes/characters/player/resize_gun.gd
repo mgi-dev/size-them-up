@@ -12,6 +12,7 @@ var is_resizing_laser_enabled: bool = false
 func _ready():
 	visible_laser.width = laser_min_width
 
+
 func _process(delta):
 	handle_laser_visible_width()
 	select_laser_color()
@@ -30,16 +31,18 @@ func handle_laser_visible_width() -> void:
 		# no mouse click --> laser reset.
 		is_resizing_laser_enabled = false
 		visible_laser.width = laser_min_width
-		
+
+
 func select_laser_color() -> void:
 	if Input.is_action_pressed("size_up"): 
 		visible_laser.default_color = Color(0.856, 0.002, 0.001, 1.0)
 	elif Input.is_action_pressed("size_down"):
 		visible_laser.default_color = Color(0.108, 0.345, 1.0, 1.0)
-	
+
+
 func handle_colliding(delta):
-	var mouse_position = to_local(get_viewport().get_mouse_position())	
-	target_position = mouse_position
+	var far_away_position = to_local(get_viewport().get_mouse_position()).normalized() * 5000 
+	target_position = far_away_position
 	force_raycast_update()
 
 	if is_colliding():
@@ -49,7 +52,7 @@ func handle_colliding(delta):
 		visible_laser.set_point_position(1, collision_position)
 		handle_resizing()
 	else:
-		visible_laser.set_point_position(1, mouse_position)
+		visible_laser.set_point_position(1, far_away_position)
 		
 
 func handle_resizing():
