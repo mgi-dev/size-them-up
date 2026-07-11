@@ -41,4 +41,3 @@ position = Vector2(618, 246)
 
 [node name="SegmentResizable" parent="." unique_id=110265520 instance=ExtResource("5_tbgi4")]
 position = Vector2(129, -92)
-resize_mode = 2

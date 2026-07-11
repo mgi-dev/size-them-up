@@ -10,11 +10,11 @@ func _ready():
 
 func on_gauge_changed(percentage: float) -> void:
 	if percentage >= 100:
-		_can_size_up = false
-		_can_size_down = true
-	elif percentage <= 0:
 		_can_size_up = true
 		_can_size_down = false
+	elif percentage <= 0:
+		_can_size_up = false
+		_can_size_down = true
 	else:
 		_can_size_up = true
 		_can_size_down = true

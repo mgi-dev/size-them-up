@@ -16,7 +16,13 @@ func _ready():
 
 
 func fill_the_gauge(amount: float):
-	gauge.value += amount
+	if amount > 0:
+		# shape has been sized up, draining the gauge.
+		gauge.value -= abs(amount)
+	elif amount < 0:
+		# shape has been sized down, filling the gauge.
+		gauge.value += abs(amount)
+	
 	SignalBus.gauge_changed.emit(to_percentage(gauge.value))
 
 

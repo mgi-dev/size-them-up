@@ -1,5 +1,7 @@
 extends RayCast2D
 
+class_name ResizeGun
+
 @onready var visible_laser = $Line2D
 @export var laser_min_width: float = 0.0
 @export var laser_max_width: float = 10.0
