@@ -1,6 +1,7 @@
 extends Label
 
 
+const MESSAGE_DISPLAY_DURATION = 0.5
 
 var messages_text = {
 	Enums.GAME_EVENT.EMPTY_GAUGE: "Gauge Vide",
@@ -9,29 +10,30 @@ var messages_text = {
 }
 var messages_queue = []
 
-# a displayed message go here and cannot be displayed again for a time.
-# TODO: code the thing
-var displayed_messages = {}
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalBus.game_event_happened.connect(on_player_info_emitted)
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	display_messages()
-	print(messages_queue)
 	pass
 
 
 func display_messages() -> void:
 	if text == "" and messages_queue:
 		text = messages_queue[-1]
-		await get_tree().create_timer(0.5).timeout
-		text = " "
-		await get_tree().create_timer(0.5).timeout
+		modulate.a = 0.0
+		var tween = create_tween()
+		tween.tween_property(self, "modulate:a", 1.0, 0.1)
+		tween.tween_interval(0.8)
+		tween.parallel().tween_property(self, "modulate:a", 0.0, MESSAGE_DISPLAY_DURATION)
+		tween.parallel().tween_property(self, "position:y", position.y - 20, MESSAGE_DISPLAY_DURATION)
+
+		await tween.finished
+		
+		position.y += 20
 		text = ""
 		messages_queue.pop_back()
 
