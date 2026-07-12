@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ce4p0x7jmejpa"]
+
+[ext_resource type="Script" uid="uid://ch24wddbbqnl5" path="res://scenes/ui/debug_display/scene_info.gd" id="1_d8j8n"]
+
+[node name="SceneInfo" type="Node2D" unique_id=1796122062]
+script = ExtResource("1_d8j8n")
+
+[node name="Label" type="Label" parent="." unique_id=695345255]
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 24.0
+offset_bottom = 15.0
+text = "lorem ipsum"
