@@ -6,6 +6,7 @@ size = Vector2(384, 384)
 [node name="GreyBloc" type="StaticBody2D" unique_id=555845978]
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=401184407]
+color = Color(0.5729883, 0.5729883, 0.5729883, 1)
 polygon = PackedVector2Array(-192, -192, 192, -192, 192, 192, -192, 192)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1763942668]

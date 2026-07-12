@@ -4,31 +4,10 @@
 [ext_resource type="Script" uid="uid://bhob24jboj3e1" path="res://scenes/levels/base_level.gd" id="1_ukglk"]
 [ext_resource type="PackedScene" uid="uid://cjenegqkyul3s" path="res://scenes/ui/camera/camera.tscn" id="2_uk53i"]
 [ext_resource type="PackedScene" uid="uid://cdtat8xupelfn" path="res://scenes/ui/size_gauge/size_gauge.tscn" id="4_wwrw0"]
-[ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="5_o1chu"]
+[ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="6_3rriw"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1818539085]
 script = ExtResource("1_ukglk")
-
-[node name="floor" type="StaticBody2D" parent="." unique_id=1982672426]
-
-[node name="Polygon2D" type="Polygon2D" parent="floor" unique_id=1574417678]
-position = Vector2(-704, 272)
-polygon = PackedVector2Array(-192, 368, 3776, 368, 3776, 432, -192, 432)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor" unique_id=1081622848]
-position = Vector2(431.99997, 344)
-scale = Vector2(1.5175304, 0.9999999)
-polygon = PackedVector2Array(-875.106, 296.00003, -458.00806, 294.99988, 436.85474, 294.99976, 1739.6687, 296.00003, 1739.6687, 360.00003, -875.106, 360.00003)
-
-[node name="left_wall" type="StaticBody2D" parent="." unique_id=958165113]
-
-[node name="Polygon2D" type="Polygon2D" parent="left_wall" unique_id=802901734]
-position = Vector2(-656, 112)
-polygon = PackedVector2Array(592, -304, 656, -304, 656, 528, 592, 528)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="left_wall" unique_id=1963890722]
-position = Vector2(32, 280)
-polygon = PackedVector2Array(-96, -472, -32, -472, -32, 360, -96, 360)
 
 [node name="Camera" parent="." unique_id=1438112420 instance=ExtResource("2_uk53i")]
 position = Vector2(8, 328)
@@ -40,6 +19,11 @@ scale = Vector2(1, 1.0069584)
 [node name="Player" parent="." unique_id=217472232 instance=ExtResource("1_md458")]
 position = Vector2(32, 624)
 
-[node name="GreyBloc" parent="." unique_id=1500970773 instance=ExtResource("5_o1chu")]
-position = Vector2(448, 400)
-scale = Vector2(0.15902889, 0.8763151)
+[node name="Floor" parent="." unique_id=555845978 instance=ExtResource("6_3rriw")]
+position = Vector2(1280, 656.00006)
+scale = Vector2(-11.778803, 0.083827905)
+
+[node name="GreyBloc" parent="." unique_id=843350838 instance=ExtResource("6_3rriw")]
+position = Vector2(-111.99999, -744.00006)
+rotation = 0.0037749915
+scale = Vector2(-0.2775043, 7.2069564)

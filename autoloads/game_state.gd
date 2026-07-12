@@ -1,8 +1,9 @@
 extends Node
 
-
-var _can_size_up: bool = false
-var _can_size_down: bool = false
+# values are true by default to allow scaling in debug mode.
+# if a gauge is present in the scene it will send 0 on_ready()
+var _can_size_up: bool = true
+var _can_size_down: bool = true
 
 func _ready():
 	SignalBus.gauge_changed.connect(on_gauge_changed)

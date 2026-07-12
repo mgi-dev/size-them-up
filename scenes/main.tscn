@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cdtat8xupelfn" path="res://scenes/ui/size_gauge/size_gauge.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bldfpa3blq6jy" path="res://scenes/characters/player/player.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://btaph64xx2gfe" path="res://scenes/resizable/oval_resizable.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://cfd3uikiuifyx" path="res://scenes/resizable/segment_resizable.tscn" id="5_tbgi4"]
 
 [node name="main" type="Node2D" unique_id=522903474]
+position = Vector2(1, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1342336857]
 
@@ -17,7 +17,7 @@ polygon = PackedVector2Array(21, 307, 697, 307, 697, 355, 18, 356)
 polygon = PackedVector2Array(20, 305, 696, 306, 695, 355, 16, 355)
 
 [node name="ResizableV2" parent="." unique_id=2113696681 instance=ExtResource("1_o5qli")]
-position = Vector2(321, 226)
+position = Vector2(609, 46)
 scale = Vector2(2, 0.2)
 resize_mode = 2
 
@@ -36,8 +36,14 @@ position = Vector2(81, 226)
 [node name="OvalResizable" parent="." unique_id=1772709671 instance=ExtResource("4_jyhfs")]
 position = Vector2(618, 246)
 
-[node name="SegmentResizable" parent="." unique_id=110265520 instance=ExtResource("5_tbgi4")]
-position = Vector2(129, -92)
-
 [node name="Player" parent="." unique_id=217472232 instance=ExtResource("3_sugp2")]
 position = Vector2(193, 212)
+
+[node name="ResizableV4" parent="." unique_id=262791409 instance=ExtResource("1_o5qli")]
+position = Vector2(449, 79)
+
+[node name="ResizableV6" parent="." unique_id=355969626 instance=ExtResource("1_o5qli")]
+position = Vector2(84, 78)
+
+[node name="ResizableV7" parent="." unique_id=557844422 instance=ExtResource("1_o5qli")]
+position = Vector2(306, 249)

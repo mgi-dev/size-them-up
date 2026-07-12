@@ -41,7 +41,7 @@ func select_laser_color() -> void:
 
 
 func handle_colliding(delta):
-	# debug()
+	debug()
 	var far_away_position = to_local(get_global_mouse_position()).normalized() * 5000 
 	target_position = far_away_position
 	force_raycast_update()

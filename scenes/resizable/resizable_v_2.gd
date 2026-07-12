@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends PhysicsBody2D
 
 class_name Resizable 
 
@@ -54,7 +54,6 @@ func _physics_process(delta: float) -> void:
 
 func resize_up(target: CollisionShape2D) -> void:
 	if target == hitbox:
-		CircleShape2D
 		if can_size_up():
 			size_up()
 			process_hitbox_resize()
