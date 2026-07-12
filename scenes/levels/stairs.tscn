@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_fnp8j"]
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_fnp8j"]
 [ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="3_a4rrn"]
+[ext_resource type="PackedScene" uid="uid://bvdw55jt5odq4" path="res://scenes/resizable/flying_rect.tscn" id="4_a4rrn"]
 
 [node name="stairs_level" unique_id=1818539085 instance=ExtResource("1_fnp8j")]
 
@@ -11,16 +12,53 @@ position = Vector2(235, 602)
 scale = Vector2(1, 1.360005)
 
 [node name="ResizableV3" parent="." index="5" unique_id=1835094337 instance=ExtResource("2_fnp8j")]
-position = Vector2(453, 495)
+position = Vector2(364.99997, 509)
 scale = Vector2(1.56, 5.3599977)
 
 [node name="ResizableV4" parent="." index="6" unique_id=1726779183 instance=ExtResource("2_fnp8j")]
-position = Vector2(782, 564.00006)
+position = Vector2(538, 572)
 scale = Vector2(1.36, 2.7600026)
 
 [node name="ResizableV5" parent="." index="7" unique_id=1403647603 instance=ExtResource("2_fnp8j")]
-position = Vector2(933, 502)
+position = Vector2(654, 516)
 scale = Vector2(1.6400001, 5.08)
 
 [node name="GreyBloc2" parent="." index="8" unique_id=555845978 instance=ExtResource("3_a4rrn")]
-position = Vector2(1246, 446)
+position = Vector2(1113, 514)
+scale = Vector2(1, 0.6399988)
+
+[node name="ResizableV6" parent="." index="9" unique_id=282690473 instance=ExtResource("2_fnp8j")]
+position = Vector2(802, 564.00006)
+scale = Vector2(1.44, 2.9599974)
+
+[node name="GreyBloc3" parent="." index="10" unique_id=1294631470 instance=ExtResource("3_a4rrn")]
+position = Vector2(1762, 494.99997)
+scale = Vector2(0.91062593, 0.7458361)
+
+[node name="ResizableV7" parent="." index="11" unique_id=495201642 instance=ExtResource("2_fnp8j")]
+position = Vector2(1439, 610)
+
+[node name="FlyingRect" parent="." index="12" unique_id=116391965 instance=ExtResource("4_a4rrn")]
+position = Vector2(2136, 384)
+resize_mode = 2
+
+[node name="GreyBloc4" parent="." index="13" unique_id=392511413 instance=ExtResource("3_a4rrn")]
+position = Vector2(2528, 491.00003)
+scale = Vector2(1, 0.76000005)
+
+[node name="GreyBloc5" parent="." index="14" unique_id=2140932527 instance=ExtResource("3_a4rrn")]
+position = Vector2(2916.9998, 512.99994)
+scale = Vector2(0.6763089, 0.6330912)
+
+[node name="GreyBloc6" parent="." index="15" unique_id=400400075 instance=ExtResource("3_a4rrn")]
+position = Vector2(3136, 281)
+scale = Vector2(0.6122009, 0.34293872)
+
+[node name="ResizableV8" parent="." index="16" unique_id=479031640 instance=ExtResource("2_fnp8j")]
+position = Vector2(2975, 327.99997)
+scale = Vector2(1.5762751, 2.4359686)
+resize_mode = 1
+
+[node name="GreyBloc7" parent="." index="17" unique_id=1695737385 instance=ExtResource("3_a4rrn")]
+position = Vector2(2833, 176)
+scale = Vector2(0.4939946, 0.5864949)

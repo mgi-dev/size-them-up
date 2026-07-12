@@ -3,3 +3,9 @@
 - preconfigured sized elements
 - detector for round shape (gl)
 - reusable "quadri" detector 
+- avoid soft lock
+ --> reset button
+ --> min size to avoid queue_free
+ - cinefeedback
+--> empty gauge
+-- too close
