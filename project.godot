@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Enums="*uid://b2xjtk2kbwjd8"
 SignalBus="*uid://c4r46dbqecicl"
 GameState="*uid://cnfkex8r8br8g"
 

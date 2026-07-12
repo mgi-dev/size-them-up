@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://wygm1ofai61n" path="res://scenes/characters/player/player.gd" id="1_t61fv"]
 [ext_resource type="Texture2D" uid="uid://ufjwd60440e3" path="res://assets/chicken_right.png" id="2_686vu"]
 [ext_resource type="PackedScene" uid="uid://bhcxwjxq6h7ai" path="res://scenes/characters/player/resize_gun.tscn" id="3_686vu"]
+[ext_resource type="Script" uid="uid://b0cm5ude3n4w2" path="res://scenes/characters/player/info_label.gd" id="4_hss88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hss88"]
 size = Vector2(26, 26)
@@ -67,3 +68,10 @@ sprite_frames = SubResource("SpriteFrames_3xnwo")
 animation = &"walk"
 
 [node name="ResizeGun" parent="." unique_id=2093382897 instance=ExtResource("3_686vu")]
+
+[node name="InfoLabel" type="Label" parent="." unique_id=1250531134]
+offset_left = -19.0
+offset_top = -39.0
+offset_right = 20.0
+offset_bottom = -16.0
+script = ExtResource("4_hss88")

@@ -32,18 +32,23 @@ scale = Vector2(0.5, 0.5)
 
 [node name="ResizableV5" parent="." unique_id=1898947486 instance=ExtResource("1_o5qli")]
 position = Vector2(81, 226)
+resize_mode = null
 
 [node name="OvalResizable" parent="." unique_id=1772709671 instance=ExtResource("4_jyhfs")]
 position = Vector2(618, 246)
+resize_mode = null
 
 [node name="Player" parent="." unique_id=217472232 instance=ExtResource("3_sugp2")]
 position = Vector2(193, 212)
 
 [node name="ResizableV4" parent="." unique_id=262791409 instance=ExtResource("1_o5qli")]
 position = Vector2(449, 79)
+resize_mode = null
 
 [node name="ResizableV6" parent="." unique_id=355969626 instance=ExtResource("1_o5qli")]
 position = Vector2(84, 78)
+resize_mode = null
 
 [node name="ResizableV7" parent="." unique_id=557844422 instance=ExtResource("1_o5qli")]
 position = Vector2(306, 249)
+resize_mode = null

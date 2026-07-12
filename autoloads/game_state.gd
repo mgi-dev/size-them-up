@@ -30,9 +30,18 @@ func on_gauge_changed(percentage: float) -> void:
 func can_size_up() -> bool:
 	if god_mode:
 		return true
-	return _can_size_up
+	if _can_size_up:
+		return true
+	else:
+		SignalBus.game_event_happened.emit(Enums.GAME_EVENT.EMPTY_GAUGE)
+	return false
+	
 	
 func can_size_down() -> bool:
 	if god_mode:
 		return true
-	return _can_size_down
+	if _can_size_down:
+		return true
+	else:
+		SignalBus.game_event_happened.emit(Enums.GAME_EVENT.FULL_GAUGE)
+	return false

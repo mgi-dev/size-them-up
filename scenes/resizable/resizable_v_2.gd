@@ -49,7 +49,7 @@ func _ready() -> void:
 
 
 func debug():
-	print("selected : ", hitbox == GameState.resize_ray_target , " ", position, sprite.position, sprite.scale, hitbox.position)
+	print(position, sprite.position, sprite.scale, hitbox.position)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -135,5 +135,6 @@ func is_player_colliding():
 	for i in range(player_detector.get_collision_count()):
 		var collider = player_detector.get_collider(i)
 		if collider is Player:
+			SignalBus.game_event_happened.emit(Enums.GAME_EVENT.PLAYER_CLOSE_TO_RESIZABLE)
 			return true
 	return false
