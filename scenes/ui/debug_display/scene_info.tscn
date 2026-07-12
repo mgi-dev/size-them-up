@@ -6,6 +6,7 @@
 script = ExtResource("1_d8j8n")
 
 [node name="Label" type="Label" parent="." unique_id=695345255]
+z_index = 10
 offset_left = -24.0
 offset_top = -16.0
 offset_right = 24.0

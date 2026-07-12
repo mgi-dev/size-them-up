@@ -2,11 +2,17 @@ extends Node
 
 # values are true by default to allow scaling in debug mode.
 # if a gauge is present in the scene it will send 0 on_ready()
+var god_mode: bool = false
 var _can_size_up: bool = true
 var _can_size_down: bool = true
 
 func _ready():
 	SignalBus.gauge_changed.connect(on_gauge_changed)
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("toggle_god_mode"): 
+		god_mode = !god_mode
+		print("god mode is ", "on" if god_mode else "off")
 
 
 func on_gauge_changed(percentage: float) -> void:
@@ -22,7 +28,11 @@ func on_gauge_changed(percentage: float) -> void:
 
 
 func can_size_up() -> bool:
+	if god_mode:
+		return true
 	return _can_size_up
 	
 func can_size_down() -> bool:
+	if god_mode:
+		return true
 	return _can_size_down

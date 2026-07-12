@@ -4,9 +4,11 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	info_text.text = get_tree().current_scene.name
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	info_text.text = get_tree().current_scene.name 
+	info_text.text += " | god mode : "
+	info_text.text += "on" if GameState.god_mode else "off" 
