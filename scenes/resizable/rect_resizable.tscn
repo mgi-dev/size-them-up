@@ -7,14 +7,13 @@ size = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08c7m"]
 
-[node name="ResizableV2" type="RigidBody2D" unique_id=2113696681 node_paths=PackedStringArray("sprite", "hitbox", "player_detector", "contact_detector")]
+[node name="ResizableV2" type="RigidBody2D" unique_id=2113696681 node_paths=PackedStringArray("sprite", "hitbox", "player_detector")]
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_27yq0")
 sprite = NodePath("Polygon2D")
 hitbox = NodePath("CollisionShape2D")
 player_detector = NodePath("CollisionShape2D/ShapeCast2D")
-contact_detector = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1724077664]
 shape = SubResource("RectangleShape2D_27yq0")

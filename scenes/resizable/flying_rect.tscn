@@ -5,7 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrm5n"]
 size = Vector2(56, 54)
 
-[node name="FlyingRect" type="AnimatableBody2D" unique_id=1557438471 node_paths=PackedStringArray("sprite", "hitbox")]
+[node name="FlyingRect" type="RigidBody2D" unique_id=116391965 node_paths=PackedStringArray("sprite", "hitbox")]
+gravity_scale = 0.0
+freeze_mode = 1
 script = ExtResource("1_e2te2")
 sprite = NodePath("Polygon2D")
 hitbox = NodePath("CollisionShape2D")

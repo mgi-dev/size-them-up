@@ -1,11 +1,11 @@
 extends RigidBody2D
-
+# AnimatableBody2D
 class_name Resizable 
 
 @export var sprite: Polygon2D
 @export var hitbox: CollisionShape2D
 @export var player_detector: ShapeCast2D
-@export var contact_detector: CollisionShape2D
+
 
 enum RESIZE_MODE {ALL, VERTICAL, HORIZONTAL}
 
@@ -20,7 +20,6 @@ var new_scale_multiplier : float = 1.0
 # UI is seperated from physics, need it's own var for now.
 var current_sprite_scale_multiplier : float = 1.0
 
-var player_is_close: bool = false
 
 """
 ADR
@@ -41,10 +40,9 @@ func _ready() -> void:
 	
 	sprite.scale = initial_scale_transform
 	hitbox.scale = initial_scale_transform
-	
-	player_detector.target_position.y = hitbox.position.y + 5
-	
-	player_detector.force_shapecast_update()
+	if player_detector:
+		player_detector.target_position.y = hitbox.position.y + 5
+		player_detector.force_shapecast_update()
 	
 	SignalBus.resize_ray_resize_up.connect(resize_up)
 	SignalBus.resize_ray_resize_down.connect(resize_down)
@@ -118,8 +116,9 @@ func process_hitbox_resize() -> void:
 		else:
 			freeze = false
 		hitbox.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
-		player_detector.target_position.y = hitbox.position.y + 5
-		player_detector.force_shapecast_update()
+		if player_detector:
+			player_detector.target_position.y = hitbox.position.y + 5
+			player_detector.force_shapecast_update()
 		current_scale_muliplier = new_scale_multiplier
 	else:
 		freeze = false
@@ -131,6 +130,8 @@ func process_sprite_resize() -> void:
 
 
 func is_player_colliding():
+	if not player_detector:
+		return false
 	for i in range(player_detector.get_collision_count()):
 		var collider = player_detector.get_collider(i)
 		if collider is Player:

@@ -1,3 +1,5 @@
 - smooth camera scroll
 --> base scene inherited with all the ui plugued in
 - preconfigured sized elements
+- detector for round shape (gl)
+- reusable "quadri" detector 
