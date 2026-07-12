@@ -112,12 +112,16 @@ func get_transformed_scale(_scale: Vector2, transform: float) -> Vector2:
 	
 func process_hitbox_resize() -> void:
 	if new_scale_multiplier != current_scale_muliplier:
-		# when resizing, thing become woobly wibly when in contact with other phycical object, freeze reduce this. And it's cool.
-		freeze = true
+		if new_scale_multiplier < current_scale_muliplier:
+			# when sizing down, thing become woobly wibly when in contact with other phycical object, freeze reduce this. And add a super cool effect.
+			freeze = true
+		else:
+			freeze = false
 		hitbox.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
 		player_detector.target_position.y = hitbox.position.y + 5
 		player_detector.force_shapecast_update()
 		current_scale_muliplier = new_scale_multiplier
+	else:
 		freeze = false
 
 
