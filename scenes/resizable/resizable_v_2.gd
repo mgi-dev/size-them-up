@@ -4,7 +4,8 @@ class_name Resizable
 
 @export var sprite: Polygon2D
 @export var hitbox: CollisionShape2D
-
+@export var player_detector: ShapeCast2D
+@export var contact_detector: CollisionShape2D
 
 enum RESIZE_MODE {ALL, VERTICAL, HORIZONTAL}
 
@@ -13,24 +14,37 @@ enum RESIZE_MODE {ALL, VERTICAL, HORIZONTAL}
 var RESIZE_SPEED: float = 0.01
 
 var initial_scale_transform: Vector2 # (2, 2) 
-var initial_size: Vector2 # (56, 56) 
 
 var current_scale_muliplier: float = 1.0
 var new_scale_multiplier : float = 1.0
 # UI is seperated from physics, need it's own var for now.
 var current_sprite_scale_multiplier : float = 1.0
 
+var player_is_close: bool = false
+
+"""
+ADR
+shape cast 2D usage for player detection instead of area 2D
+when scaling area with float, detection area can becomes 10 times bigger than the Poule.
+raycast allow for hardcoded target positioning. only work for top edge though. Need to extract the detector into 4 raycast working together.
+no need for now, will see later if it become mandatory.
+"""
+
 
 func _ready() -> void:
 	# storing size allow to start with various size for component. else will default to (1, 1)
 	# why storing size ? keeping the original size allow to apply bigger and bigger scaling on a base value.
 	# this keep the transformation linear. If we apply the transformation on scale at each frame the transformation is logarithmic. And that's bad.
-	initial_size = hitbox.shape.get_rect().size * scale
+	# TODO: actually useless, see later
 	# setting size for hitbox based on parent transfom scale (1.5, 1.5)
 	initial_scale_transform = scale
 	
 	sprite.scale = initial_scale_transform
 	hitbox.scale = initial_scale_transform
+	
+	player_detector.target_position.y = hitbox.position.y + 5
+	
+	player_detector.force_shapecast_update()
 	
 	SignalBus.resize_ray_resize_up.connect(resize_up)
 	SignalBus.resize_ray_resize_down.connect(resize_down)
@@ -50,7 +64,6 @@ func _process(delta):
 
 func _physics_process(delta: float) -> void:
 	# called 60 times per second. do not lag this.	
-	pre_process_resize()
 	process_hitbox_resize()
 
 func resize_up(target: CollisionShape2D) -> void:
@@ -68,11 +81,11 @@ func resize_down(target: CollisionShape2D) -> void:
 
 
 func can_size_up() -> bool:
-	return GameState.can_size_up()
+	return GameState.can_size_up() and !is_player_colliding()
 	
 	
 func can_size_down() -> bool:
-	return GameState.can_size_down()
+	return GameState.can_size_down() and !is_player_colliding()
 
 
 func size_up() -> void:
@@ -98,8 +111,11 @@ func get_transformed_scale(_scale: Vector2, transform: float) -> Vector2:
 
 	
 func process_hitbox_resize() -> void:
-	hitbox.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
-	current_scale_muliplier = new_scale_multiplier
+	if new_scale_multiplier != current_scale_muliplier:
+		hitbox.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
+		player_detector.target_position.y = hitbox.position.y + 5
+		player_detector.force_shapecast_update()
+		current_scale_muliplier = new_scale_multiplier
 
 
 func process_sprite_resize() -> void:
@@ -107,19 +123,9 @@ func process_sprite_resize() -> void:
 	current_sprite_scale_multiplier = new_scale_multiplier
 
 
-func pre_process_resize()-> void:
-	# this allow to stabilizible resizable when player is on top.
-	# not perfect, do the job for now.
-	for colliding_body in get_colliding_bodies():
-		if colliding_body is Player:
-			if to_local(colliding_body.position).y < hitbox.position.y:
-				var increased_size = (
-					initial_size * get_transformed_scale(
-						initial_scale_transform, 
-						new_scale_multiplier
-					) - initial_size * get_transformed_scale(
-						initial_scale_transform, 
-						current_scale_muliplier
-					)
-				).y
-				colliding_body.position.y -= increased_size.y + 0.3
+func is_player_colliding():
+	for i in range(player_detector.get_collision_count()):
+		var collider = player_detector.get_collider(i)
+		if collider is Player:
+			return true
+	return false

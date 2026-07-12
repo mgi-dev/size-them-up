@@ -6,10 +6,11 @@
 [node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
 
 [node name="Player" parent="." index="1" unique_id=217472232]
-position = Vector2(288, 400)
+position = Vector2(290.01996, 94.70355)
 
 [node name="ResizableV2" parent="." index="4" unique_id=2113696681 instance=ExtResource("2_p0r41")]
-position = Vector2(288, 584)
-contact_monitor = true
-max_contacts_reported = 5
-resize_mode = 1
+position = Vector2(296, 408)
+scale = Vector2(2.3013175, 8.583436)
+
+[node name="ResizableV3" parent="." index="5" unique_id=2023618698 instance=ExtResource("2_p0r41")]
+position = Vector2(488, 584)
