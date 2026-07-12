@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d1jgctgaw3ylo"]
+
+[ext_resource type="Script" uid="uid://dm3of42vqtu4u" path="res://scenes/resizable/resizable_v_2.gd" id="1_8bmq7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op5q8"]
+size = Vector2(32, 32)
+
+[node name="RectResizableFloored" type="RigidBody2D" unique_id=329045400 node_paths=PackedStringArray("sprite", "hitbox")]
+script = ExtResource("1_8bmq7")
+sprite = NodePath("Polygon2D")
+hitbox = NodePath("CollisionShape2D")
+resize_mode = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130806697]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_op5q8")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=899909056]
+position = Vector2(0, -16)
+polygon = PackedVector2Array(-16, 16, 16, 16, 16, -16, -16, -16)

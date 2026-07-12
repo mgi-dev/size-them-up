@@ -1,5 +1,15 @@
 [gd_scene format=3 uid="uid://ck7rpm0lni6wt"]
 
 [ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_nwlxf"]
+[ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_p0r41"]
 
-[node name="BaseLevel" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
+[node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
+
+[node name="Player" parent="." index="1" unique_id=217472232]
+position = Vector2(288, 400)
+
+[node name="ResizableV2" parent="." index="4" unique_id=2113696681 instance=ExtResource("2_p0r41")]
+position = Vector2(288, 584)
+contact_monitor = true
+max_contacts_reported = 5
+resize_mode = 1

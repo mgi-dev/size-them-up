@@ -16,7 +16,6 @@ func _ready():
 
 
 func fill_the_gauge(amount: float):
-	print("resized by ", amount)
 	if amount > 0:
 		# shape has been sized up, draining the gauge.
 		gauge.value -= abs(amount)

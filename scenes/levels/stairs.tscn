@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_fnp8j"]
 [ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="3_a4rrn"]
 
-[node name="BaseLevel" unique_id=1818539085 instance=ExtResource("1_fnp8j")]
+[node name="stairs_level" unique_id=1818539085 instance=ExtResource("1_fnp8j")]
 
 [node name="ResizableV2" parent="." index="4" unique_id=2113696681 instance=ExtResource("2_fnp8j")]
 position = Vector2(235, 602)

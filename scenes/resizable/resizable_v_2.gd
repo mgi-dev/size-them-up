@@ -1,4 +1,4 @@
-extends PhysicsBody2D
+extends RigidBody2D
 
 class_name Resizable 
 
@@ -50,20 +50,21 @@ func _process(delta):
 
 func _physics_process(delta: float) -> void:
 	# called 60 times per second. do not lag this.	
-	pass
+	pre_process_resize()
+	process_hitbox_resize()
 
 func resize_up(target: CollisionShape2D) -> void:
 	if target == hitbox:
 		if can_size_up():
 			size_up()
-			process_hitbox_resize()
+			#process_hitbox_resize()
 
 
 func resize_down(target: CollisionShape2D) -> void:		
 	if target == hitbox:
 		if can_size_down():
 			size_down()
-			process_hitbox_resize()
+			#process_hitbox_resize()
 
 
 func can_size_up() -> bool:
@@ -104,3 +105,21 @@ func process_hitbox_resize() -> void:
 func process_sprite_resize() -> void:
 	sprite.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
 	current_sprite_scale_multiplier = new_scale_multiplier
+
+
+func pre_process_resize()-> void:
+	# this allow to stabilizible resizable when player is on top.
+	# not perfect, do the job for now.
+	for colliding_body in get_colliding_bodies():
+		if colliding_body is Player:
+			if to_local(colliding_body.position).y < hitbox.position.y:
+				var increased_size = (
+					initial_size * get_transformed_scale(
+						initial_scale_transform, 
+						new_scale_multiplier
+					) - initial_size * get_transformed_scale(
+						initial_scale_transform, 
+						current_scale_muliplier
+					)
+				).y
+				colliding_body.position.y -= increased_size.y + 0.3
