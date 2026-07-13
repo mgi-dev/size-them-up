@@ -2,10 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_nwlxf"]
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_p0r41"]
-[ext_resource type="PackedScene" uid="uid://btaph64xx2gfe" path="res://scenes/resizable/oval_resizable.tscn" id="3_ulekh"]
-[ext_resource type="PackedScene" uid="uid://bvdw55jt5odq4" path="res://scenes/resizable/flying_rect.tscn" id="4_xs65t"]
-[ext_resource type="PackedScene" uid="uid://cfd3uikiuifyx" path="res://scenes/resizable/segment_resizable.tscn" id="5_h7x1a"]
-[ext_resource type="PackedScene" uid="uid://d1jgctgaw3ylo" path="res://scenes/resizable/rect_resizable_floored.tscn" id="6_gd5e8"]
 
 [node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
 
@@ -16,17 +12,13 @@ position = Vector2(290.01996, 94.70355)
 position = Vector2(831.99994, 360)
 scale = Vector2(2.3013175, 8.583436)
 
-[node name="ResizableV3" parent="." index="5" unique_id=2023618698 instance=ExtResource("2_p0r41")]
-position = Vector2(488, 584)
+[node name="ResizableV3" parent="." index="5" unique_id=462912311 instance=ExtResource("2_p0r41")]
+position = Vector2(336, 512)
+resize_mode = 2
 
-[node name="OvalResizable" parent="." index="6" unique_id=1772709671 instance=ExtResource("3_ulekh")]
-position = Vector2(384, 464)
+[node name="ResizableV4" parent="." index="6" unique_id=2125065801 instance=ExtResource("2_p0r41")]
+position = Vector2(448, 568)
+resize_mode = 1
 
-[node name="FlyingRect" parent="." index="7" unique_id=1557438471 instance=ExtResource("4_xs65t")]
-position = Vector2(192, 592)
-
-[node name="SegmentResizable" parent="." index="8" unique_id=501017971 instance=ExtResource("5_h7x1a")]
-position = Vector2(640, 456)
-
-[node name="RectResizableFloored" parent="." index="9" unique_id=329045400 instance=ExtResource("6_gd5e8")]
-position = Vector2(552, 480)
+[node name="ResizableV5" parent="." index="7" unique_id=1073293426 instance=ExtResource("2_p0r41")]
+position = Vector2(544, 560)

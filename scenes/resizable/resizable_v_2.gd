@@ -2,7 +2,7 @@ extends RigidBody2D
 # AnimatableBody2D
 class_name Resizable 
 
-@export var sprite: Polygon2D
+@export var sprite: Sprite2D
 @export var hitbox: CollisionShape2D
 @export var player_detector: ShapeCast2D
 
@@ -46,6 +46,8 @@ func _ready() -> void:
 	
 	SignalBus.resize_ray_resize_up.connect(resize_up)
 	SignalBus.resize_ray_resize_down.connect(resize_down)
+	
+	parametrize_sprite_shader()
 
 
 func debug():
@@ -138,3 +140,13 @@ func is_player_colliding():
 			SignalBus.game_event_happened.emit(Enums.GAME_EVENT.PLAYER_CLOSE_TO_RESIZABLE)
 			return true
 	return false
+	
+	
+func parametrize_sprite_shader() -> void:
+	var gradiant_config = {
+		RESIZE_MODE.HORIZONTAL: 0,
+		RESIZE_MODE.VERTICAL: 1,
+		RESIZE_MODE.ALL: 2,
+	}
+	sprite.material = sprite.material.duplicate()
+	sprite.material.set_shader_parameter("mode", gradiant_config[resize_mode])
