@@ -62,3 +62,10 @@ resize_mode = 1
 [node name="GreyBloc7" parent="." index="17" unique_id=1695737385 instance=ExtResource("3_a4rrn")]
 position = Vector2(2833, 176)
 scale = Vector2(0.4939946, 0.5864949)
+
+[node name="Label" type="Label" parent="." index="18" unique_id=820814174]
+offset_left = 3441.0
+offset_top = 569.0
+offset_right = 3481.0
+offset_bottom = 592.0
+text = "The End."

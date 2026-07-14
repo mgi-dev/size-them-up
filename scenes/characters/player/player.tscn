@@ -60,7 +60,11 @@ animations = [{
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd3e3"]
+size = Vector2(26, 26)
+
 [node name="Player" type="CharacterBody2D" unique_id=217472232]
+z_index = 5
 script = ExtResource("1_t61fv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1890574487]
@@ -83,3 +87,11 @@ label_settings = SubResource("LabelSettings_hss88")
 horizontal_alignment = 1
 autowrap_mode = 3
 script = ExtResource("4_hss88")
+
+[node name="detector" type="Area2D" parent="." unique_id=1971936224]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector" unique_id=821097815]
+shape = SubResource("RectangleShape2D_qd3e3")
+
+[connection signal="area_shape_entered" from="detector" to="." method="_on_detector_area_shape_entered"]
+[connection signal="area_shape_exited" from="detector" to="." method="_on_detector_area_shape_exited"]

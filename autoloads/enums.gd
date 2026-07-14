@@ -8,7 +8,7 @@ enum GAME_EVENT {
 	PLAYER_CLOSE_TO_RESIZABLE
 }
 
-
+const CLIMBABLE_GROUP = "climbable"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
