@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_p0r41"]
 [ext_resource type="PackedScene" uid="uid://nyjv81jh5kks" path="res://scenes/landscape/Ladder.tscn" id="3_ulekh"]
 [ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="4_xs65t"]
+[ext_resource type="PackedScene" uid="uid://bvdw55jt5odq4" path="res://scenes/resizable/flying_rect.tscn" id="5_04m7m"]
+[ext_resource type="PackedScene" uid="uid://btaph64xx2gfe" path="res://scenes/resizable/oval_resizable.tscn" id="6_h7x1a"]
 
 [node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
 
@@ -33,3 +35,9 @@ position = Vector2(344, 320)
 [node name="GreyBloc2" parent="." index="10" unique_id=555845978 instance=ExtResource("4_xs65t")]
 position = Vector2(152, 480)
 scale = Vector2(0.19865529, 0.24965566)
+
+[node name="FlyingRect" parent="." index="11" unique_id=116391965 instance=ExtResource("5_04m7m")]
+position = Vector2(624, 440)
+
+[node name="OvalResizable" parent="." index="12" unique_id=1772709671 instance=ExtResource("6_h7x1a")]
+position = Vector2(672, 552)

@@ -1,17 +1,23 @@
 [gd_scene format=3 uid="uid://btaph64xx2gfe"]
 
 [ext_resource type="Script" uid="uid://dm3of42vqtu4u" path="res://scenes/resizable/resizable_v_2.gd" id="1_m3jqf"]
+[ext_resource type="Texture2D" uid="uid://rauu87h82ibh" path="res://assets/images/white_round.png" id="2_r8tl7"]
+[ext_resource type="Shader" uid="uid://cnapufjsgpl1e" path="res://scenes/resizable/oval_resizable.gdshader" id="2_ykc1h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3jqf"]
-radius = 59.07622
+radius = 25.317978
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5v4m6"]
+shader = ExtResource("2_ykc1h")
 
 [node name="OvalResizable" type="RigidBody2D" unique_id=1772709671 node_paths=PackedStringArray("sprite", "hitbox")]
 script = ExtResource("1_m3jqf")
-sprite = NodePath("Polygon2D")
+sprite = NodePath("Sprite2D")
 hitbox = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=919832315]
 shape = SubResource("CircleShape2D_m3jqf")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1887864243]
-polygon = PackedVector2Array(-60, 0, -57, -16, -52, -29, -42, -42, -29, -52, -14, -57, 0, -60, 16, -56, 29, -52, 41, -41, 49, -29, 56, -15, 59, 2, 55, 16, 49, 34, 41, 43, 27, 53, 13, 59, -1, 59, -16, 57, -29, 52, -42, 41, -53, 29, -58, 16)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=525968209]
+material = SubResource("ShaderMaterial_5v4m6")
+texture = ExtResource("2_r8tl7")

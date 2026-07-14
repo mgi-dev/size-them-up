@@ -4,8 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_fnp8j"]
 [ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="3_a4rrn"]
 [ext_resource type="PackedScene" uid="uid://bvdw55jt5odq4" path="res://scenes/resizable/flying_rect.tscn" id="4_a4rrn"]
+[ext_resource type="PackedScene" uid="uid://nyjv81jh5kks" path="res://scenes/landscape/Ladder.tscn" id="5_4o547"]
+[ext_resource type="PackedScene" uid="uid://btaph64xx2gfe" path="res://scenes/resizable/oval_resizable.tscn" id="6_v4mhk"]
 
 [node name="stairs_level" unique_id=1818539085 instance=ExtResource("1_fnp8j")]
+
+[node name="Player" parent="." index="1" unique_id=217472232]
+position = Vector2(88, 528)
 
 [node name="ResizableV2" parent="." index="4" unique_id=2113696681 instance=ExtResource("2_fnp8j")]
 position = Vector2(235, 602)
@@ -63,9 +68,43 @@ resize_mode = 1
 position = Vector2(2833, 176)
 scale = Vector2(0.4939946, 0.5864949)
 
-[node name="Label" type="Label" parent="." index="18" unique_id=820814174]
-offset_left = 3441.0
-offset_top = 569.0
-offset_right = 3481.0
-offset_bottom = 592.0
-text = "The End."
+[node name="GreyBloc8" parent="." index="18" unique_id=810092850 instance=ExtResource("3_a4rrn")]
+position = Vector2(3340, -63)
+scale = Vector2(1, 1.4400003)
+
+[node name="GreyBloc9" parent="." index="19" unique_id=1034197476 instance=ExtResource("3_a4rrn")]
+position = Vector2(2057, -146.00002)
+scale = Vector2(-5.3807898, 0.408693)
+
+[node name="Ladder" parent="." index="20" unique_id=1163521122 instance=ExtResource("5_4o547")]
+position = Vector2(3115, 108)
+
+[node name="Ladder2" parent="." index="21" unique_id=797690031 instance=ExtResource("5_4o547")]
+position = Vector2(3117, -112)
+
+[node name="Ladder3" parent="." index="22" unique_id=80766480 instance=ExtResource("5_4o547")]
+position = Vector2(3057, -331)
+
+[node name="GreyBloc10" parent="." index="23" unique_id=782147434 instance=ExtResource("3_a4rrn")]
+position = Vector2(2921, -344.00003)
+scale = Vector2(0.5000921, 0.61413074)
+
+[node name="GreyBloc11" parent="." index="24" unique_id=1068917820 instance=ExtResource("3_a4rrn")]
+position = Vector2(2663, -277.00003)
+scale = Vector2(0.8345405, 0.26780397)
+
+[node name="OvalResizable" parent="." index="25" unique_id=1772709671 instance=ExtResource("6_v4mhk")]
+position = Vector2(2784, -400)
+scale = Vector2(0.60450524, 0.6411011)
+
+[node name="FlyingRect4" parent="." index="26" unique_id=1589021466 instance=ExtResource("4_a4rrn")]
+position = Vector2(2852, -495)
+resize_mode = 2
+
+[node name="ResizableV9" parent="." index="27" unique_id=258871235 instance=ExtResource("2_fnp8j")]
+position = Vector2(2776, -352)
+resize_mode = 1
+
+[node name="ResizableV10" parent="." index="28" unique_id=423111472 instance=ExtResource("2_fnp8j")]
+position = Vector2(2712, -352)
+resize_mode = 1

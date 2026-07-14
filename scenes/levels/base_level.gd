@@ -2,11 +2,12 @@ extends Node2D
 
 @onready var camera: Camera2D = $Camera
 @onready var player: Player = $Player
+@onready var background_music_player: AudioStreamPlayer = $AudioStreamPlayer
 
-@export var scroll_speed: float = 5.0
+@export var scroll_speed: float = 5000.0
 
 func _ready():
-	pass
+	background_music_player.pitch_scale = 0.8
 
 
 func _process(delta):

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddqe1q701abgj"
+path="res://.godot/imported/D&D Music - Industrial Factory - Ambience.mp3-ba00733b60bab8e08c9f750b87b858b7.mp3str"
+
+[deps]
+
+source_file="res://assets/musics/D&D Music - Industrial Factory - Ambience.mp3"
+dest_files=["res://.godot/imported/D&D Music - Industrial Factory - Ambience.mp3-ba00733b60bab8e08c9f750b87b858b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

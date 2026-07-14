@@ -1,6 +1,4 @@
 - smooth camera scroll
---> base scene inherited with all the ui plugued in
-- preconfigured sized elements
 - detector for round shape (gl)
 - reusable "quadri" detector 
 - avoid soft lock
@@ -8,4 +6,5 @@
  --> min size to avoid queue_free
  - cinefeedback
 --> empty gauge
--- too close
+- flying_rect bug
+--> physics force from others objects still apply.

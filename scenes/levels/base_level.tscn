@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ce4p0x7jmejpa" path="res://scenes/ui/debug_display/scene_info.tscn" id="4_3rriw"]
 [ext_resource type="PackedScene" uid="uid://cdtat8xupelfn" path="res://scenes/ui/size_gauge/size_gauge.tscn" id="4_wwrw0"]
 [ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="6_3rriw"]
+[ext_resource type="AudioStream" uid="uid://ddqe1q701abgj" path="res://assets/musics/D&D Music - Industrial Factory - Ambience.mp3" id="7_h4ce7"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1818539085]
 script = ExtResource("1_ukglk")
@@ -31,3 +32,9 @@ scale = Vector2(-11.778803, 0.083827905)
 position = Vector2(-111.99999, -744.00006)
 rotation = 0.0037749915
 scale = Vector2(-0.2775043, 7.2069564)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1472266117]
+stream = ExtResource("7_h4ce7")
+volume_db = -9.589
+autoplay = true
+parameters/looping = false

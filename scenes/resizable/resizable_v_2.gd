@@ -85,7 +85,7 @@ func can_size_up() -> bool:
 	
 	
 func can_size_down() -> bool:
-	return GameState.can_size_down() and !is_player_colliding()
+	return GameState.can_size_down() and !is_player_colliding() and current_scale_muliplier > 0.02
 
 
 func size_up() -> void:

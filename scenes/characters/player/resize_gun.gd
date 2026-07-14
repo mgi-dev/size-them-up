@@ -7,6 +7,14 @@ class_name ResizeGun
 @export var laser_max_width: float = 10.0
 @export var laser_ready_speed: float = 0.2
 
+@onready var sound_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio_size_down : AudioStreamPlayer2D = $AudioSizeDown
+@onready var audio_size_up : AudioStreamPlayer2D = $AudioSizeUp
+
+var audio_size_down_playing = false
+var audio_size_up_playing = false
+
+
 var is_resizing_laser_enabled: bool = false
 
 func _ready():
@@ -14,9 +22,19 @@ func _ready():
 
 
 func _process(delta):
+	manage_sound_and_find_a_better_name()
 	handle_laser_visible_width()
 	select_laser_color()
 	handle_colliding(delta)
+	
+
+
+func manage_sound_and_find_a_better_name():
+	# TODO: scale db gradually.
+	if Input.is_action_just_pressed("size_up") or Input.is_action_just_pressed("size_down"):		
+		sound_player.play()
+	if Input.is_action_just_released("size_up") or Input.is_action_just_released("size_down"):
+		sound_player.stop()
 
 
 func handle_laser_visible_width() -> void:
@@ -58,11 +76,30 @@ func handle_colliding(delta):
 func handle_resizing():
 	if is_resizing_laser_enabled and is_target_resizable():
 		if Input.is_action_pressed("size_up"): 
+			if !audio_size_up_playing:
+				audio_size_up_playing = true
+				audio_size_up.play()
 			SignalBus.resize_ray_resize_up.emit(get_collision_shape())
 		elif Input.is_action_pressed("size_down"):
+			if !audio_size_down_playing:
+				audio_size_down_playing = true
+				audio_size_down.play()
 			SignalBus.resize_ray_resize_down.emit(get_collision_shape())
-
-
+		else:
+			if audio_size_down_playing:
+				audio_size_down.stop()
+				audio_size_down_playing = false
+			if audio_size_up_playing:
+				audio_size_up.stop()
+				audio_size_up_playing = false
+	else:
+		if audio_size_down_playing:
+			audio_size_down.stop()
+			audio_size_down_playing = false
+		if audio_size_up_playing:
+			audio_size_up.stop()
+			audio_size_up_playing = false
+		
 func is_target_resizable() -> bool:
 	var collider = get_collider()
 	return collider is Resizable

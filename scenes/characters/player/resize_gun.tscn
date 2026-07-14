@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bhcxwjxq6h7ai"]
 
 [ext_resource type="Script" uid="uid://cmotlk3fb5hxh" path="res://scenes/characters/player/resize_gun.gd" id="1_56cs2"]
+[ext_resource type="AudioStream" uid="uid://ccbjqkhq5fs65" path="res://assets/sound/laser_charging.mp3" id="2_ekrq1"]
+[ext_resource type="AudioStream" uid="uid://d0np4ieiuat7u" path="res://assets/sound/size_down_laser_sound.mp3" id="3_sdg0e"]
+[ext_resource type="AudioStream" uid="uid://du4yq8j0017am" path="res://assets/sound/size_up_laser_sound.mp3" id="4_yhvcd"]
 
 [node name="ResizeGun" type="RayCast2D" unique_id=2093382897]
 target_position = Vector2(38, -23)
@@ -10,3 +13,14 @@ script = ExtResource("1_56cs2")
 points = PackedVector2Array(0, 0, 38, -23)
 width = 2.0
 default_color = Color(0.7250944, 0.13440046, 0.4800086, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=789249523]
+stream = ExtResource("2_ekrq1")
+parameters/looping = false
+
+[node name="AudioSizeDown" type="AudioStreamPlayer2D" parent="." unique_id=1161606591]
+stream = ExtResource("3_sdg0e")
+parameters/looping = true
+
+[node name="AudioSizeUp" type="AudioStreamPlayer2D" parent="." unique_id=888614223]
+stream = ExtResource("4_yhvcd")
