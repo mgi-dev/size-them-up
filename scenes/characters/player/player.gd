@@ -4,6 +4,8 @@ class_name Player
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var hitbox = $CollisionShape2D
+@onready var audio_fx_player = $AudioFXPlayer
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0

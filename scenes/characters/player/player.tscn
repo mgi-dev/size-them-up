@@ -93,5 +93,7 @@ script = ExtResource("4_hss88")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detector" unique_id=821097815]
 shape = SubResource("RectangleShape2D_qd3e3")
 
+[node name="AudioFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1470378959]
+
 [connection signal="area_shape_entered" from="detector" to="." method="_on_detector_area_shape_entered"]
 [connection signal="area_shape_exited" from="detector" to="." method="_on_detector_area_shape_exited"]
