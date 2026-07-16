@@ -20,9 +20,9 @@ texture = ExtResource("1_c320i")
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_3du54")
 
-[node name="TopLadderZone" type="StaticBody2D" parent="." unique_id=1614344304]
+[node name="TopLadderZone" type="StaticBody2D" parent="." unique_id=1614344304 groups=["climbable"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLadderZone" unique_id=566941972]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLadderZone" unique_id=566941972 groups=["climbable"]]
 position = Vector2(0, -111)
 shape = SubResource("RectangleShape2D_c320i")
 one_way_collision = true

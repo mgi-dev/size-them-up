@@ -19,6 +19,9 @@ var is_resizing_laser_enabled: bool = false
 
 func _ready():
 	visible_laser.width = laser_min_width
+	for node in get_tree().get_nodes_in_group(Enums.CLIMBABLE_GROUP):
+		if node is CollisionObject2D:
+			add_exception(node)
 
 
 func _process(delta):

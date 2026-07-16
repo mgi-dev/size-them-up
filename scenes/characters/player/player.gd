@@ -50,11 +50,6 @@ func get_next_state()-> PlayerState:
 	
 	return player_state_machine.idle_state
 	
-
-func debug():
-	print(player_state_machine.current_state)
-		
-
 func _on_detector_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if area.is_in_group(Enums.CLIMBABLE_GROUP):
 		current_ladders.append(area)
@@ -69,3 +64,12 @@ func _on_detector_area_shape_exited(area_rid, area, area_shape_index, local_shap
 	if not current_ladders:
 		is_near_ladder = false
 		is_climbing = false
+
+
+func _input(event):
+	if event.is_action_pressed("interact"):
+		SignalBus.player_interact.emit()
+
+
+func debug():
+	print(player_state_machine.current_state)

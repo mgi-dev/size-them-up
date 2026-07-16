@@ -7,9 +7,9 @@ const int VERTICAL = 1;
 const int FULL = 2;
 
 
-uniform vec4 edge_color : source_color = vec4(1.0,1.0,1.0,1.0);
+uniform vec4 edge_color : source_color = vec4(0.47, 0.69, 1.00, 1.0);
 
-uniform vec4 center_color : source_color = vec4(0.6,0.8,1.0,1.0);
+uniform vec4 center_color : source_color = vec4(0.0, 0.0, 1.0, 1.0);
 
 
 vec4 get_color_for_horizontal_mode(vec2 _UV){
@@ -20,13 +20,13 @@ vec4 get_color_for_horizontal_mode(vec2 _UV){
 	//float gradiant = 1.0; // --> white
 	//float gradiant = 0.0; // --> blue
 	float t = smoothstep(0.0, 2, gradiant);
-	return mix(vec4(1, 1, 1, 1), vec4(0, 1, 1, 1), t);
+	return mix(center_color, edge_color, t);
 }
 
 vec4 get_color_for_vertical_mode(vec2 _UV){
 	float gradiant = abs(_UV.y - 0.5) * 2.0;
 	float t = smoothstep(0.0, 2, gradiant);
-	return mix(vec4(1, 1, 1, 1), vec4(0, 1, 1, 1), t);
+	return mix(center_color, edge_color, t);
 }
 
 vec4 get_color_for_full_mode(vec2 _UV){
@@ -38,7 +38,7 @@ vec4 get_color_for_full_mode(vec2 _UV){
 		abs(_UV.y - 0.5) * 2.0
     );
   	float t = smoothstep(0.0, 2, d);
-	return mix(vec4(1, 1, 1, 1), vec4(0, 1, 1, 1), t);
+	return mix(center_color, edge_color, t);
 }
 
 
@@ -56,7 +56,6 @@ void fragment()
             COLOR = get_color_for_full_mode(UV);
             break;
     }
-	
 }
 
 

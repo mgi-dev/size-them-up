@@ -10,6 +10,7 @@ target_position = Vector2(38, -23)
 script = ExtResource("1_56cs2")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=294019691]
+z_index = 50
 points = PackedVector2Array(0, 0, 38, -23)
 width = 2.0
 default_color = Color(0.7250944, 0.13440046, 0.4800086, 1)
