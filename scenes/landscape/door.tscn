@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d0wm0gwwok5lw" path="res://scenes/landscape/door.gd" id="1_4yke3"]
 [ext_resource type="Texture2D" uid="uid://iq3gm2oa4umg" path="res://assets/images/door_1_outside_frame.png" id="2_ugi6p"]
 [ext_resource type="Texture2D" uid="uid://d4a05iwptveo8" path="res://assets/images/door_1_inside_frame.png" id="3_foxjj"]
+[ext_resource type="AudioStream" uid="uid://cldmf5552e216" path="res://assets/sound/door_sound.mp3" id="4_ugi6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yke3"]
 size = Vector2(66, 97)
@@ -32,6 +33,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(0, 0, 1061.346, 1700)]
+}
+
+[sub_resource type="Animation" id="Animation_foxjj"]
+resource_name = "close"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1OutsideFrame/Door1InsideFrame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-7.6293945e-06, 1010.6253), Vector2(17.424568, 87.12286)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door1OutsideFrame/Door1InsideFrame:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 1061.346, 0), Rect2(0, 0, 1061.346, 1700)]
 }
 
 [sub_resource type="Animation" id="Animation_ugi6p"]
@@ -65,6 +94,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_foxjj"]
 _data = {
 &"RESET": SubResource("Animation_4yke3"),
+&"close": SubResource("Animation_foxjj"),
 &"open": SubResource("Animation_ugi6p")
 }
 
@@ -81,6 +111,7 @@ scale = Vector2(0.057390206, 0.057390213)
 texture = ExtResource("2_ugi6p")
 
 [node name="Door1InsideFrame" type="Sprite2D" parent="Door1OutsideFrame" unique_id=1475018288]
+z_index = 1
 position = Vector2(17.424568, 87.12286)
 scale = Vector2(0.9984168, 1.0114841)
 texture = ExtResource("3_foxjj")
@@ -89,3 +120,11 @@ region_rect = Rect2(0, 0, 1061.346, 1700)
 
 [node name="DoorAnimation" type="AnimationPlayer" parent="." unique_id=2030148554]
 libraries/ = SubResource("AnimationLibrary_foxjj")
+
+[node name="backgroud" type="Sprite2D" parent="." unique_id=163554309]
+position = Vector2(0.9999962, 5)
+scale = Vector2(0.056238186, 0.05623818)
+texture = ExtResource("3_foxjj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1434544030]
+stream = ExtResource("4_ugi6p")

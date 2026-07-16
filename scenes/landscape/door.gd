@@ -1,7 +1,10 @@
 extends Area2D
 
 @onready var collision_shape = $CollisionShape2D
+@onready var background_sprite = $backgroud
 @onready var door_animation = $DoorAnimation
+@onready var door_audio = $AudioStreamPlayer
+
 
 
 @export var is_open : bool = false
@@ -9,6 +12,7 @@ extends Area2D
 
 func _ready():
 	SignalBus.player_interact.connect(on_player_interact)
+	background_sprite.modulate  = Color("1A1E29")
 
 
 func _process(delta):
@@ -33,10 +37,16 @@ func is_player_colliding() -> bool:
 
 func open_door():
 	door_animation.play("open")
+	door_audio.play()
 	await door_animation.animation_finished
-	var node := next_scene.instantiate()
-	get_tree().change_scene_to_node(node)
+	if next_scene:
+		var node := next_scene.instantiate()
+		get_tree().change_scene_to_node(node)
+	else:
+		print("NO NEXT SCENE")
+	
 	
 	
 func close_door():
-	door_animation.play("open", -1, -1.0)
+	door_animation.play("close")
+	door_audio.play()

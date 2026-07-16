@@ -93,6 +93,13 @@ skew = -0.14785826
 [node name="Polygon2D" type="Polygon2D" parent="ClkerFreeVectorImagesMouse24188" index="2" unique_id=1127636234]
 polygon = PackedVector2Array(-26.933105, -7.4262695, -0.075927734, -7.4262695, -0.075927734, -31.299316, -14.996582, -31.299316, -26.933105, -19.362793)
 
-[node name="Door" parent="." index="11" unique_id=8401334 instance=ExtResource("7_53ba7")]
+[node name="Door2" parent="." index="11" unique_id=8401334 instance=ExtResource("7_53ba7")]
 position = Vector2(1024, 441)
 next_scene = ExtResource("8_2ryl4")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." index="12" unique_id=1555215118]
+offset_left = 865.0
+offset_top = 347.0
+offset_right = 996.0
+offset_bottom = 378.0
+text = "E to open door"

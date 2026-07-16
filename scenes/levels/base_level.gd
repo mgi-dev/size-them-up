@@ -7,10 +7,7 @@ extends Node2D
 @export var scroll_speed: float = 5000.0
 
 func _ready():
-	print(background_music_player.stream.loop)
 	background_music_player.pitch_scale = 0.8
-	print(background_music_player.stream.loop)
-	print(background_music_player.stream.get_class())
 
 func _process(delta):
 	pass
