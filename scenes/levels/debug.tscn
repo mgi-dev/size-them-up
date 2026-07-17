@@ -24,7 +24,6 @@ position = Vector2(464, 539)
 
 [node name="ResizableV5" parent="." index="6" unique_id=1073293426 instance=ExtResource("2_p0r41")]
 position = Vector2(544, 560)
-resize_mode = 1
 
 [node name="Ladder" parent="." index="7" unique_id=1163521122 instance=ExtResource("3_ulekh")]
 position = Vector2(152, 528)
@@ -35,7 +34,6 @@ scale = Vector2(3.0043395, 0.2203301)
 
 [node name="FlyingRect" parent="." index="9" unique_id=116391965 instance=ExtResource("5_04m7m")]
 position = Vector2(624, 440)
-resize_mode = 2
 
 [node name="Door2" parent="." index="11" unique_id=1108318652 instance=ExtResource("7_gd5e8")]
 position = Vector2(347, 586)

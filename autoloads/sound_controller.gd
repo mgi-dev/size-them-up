@@ -26,5 +26,6 @@ func _ready():
 	
 func player_jump_sound():
 	audio_players[0].stream = JUMP_SOUND
+	audio_players[0].pitch_scale = 0.4
 	audio_players[0].play()
 	

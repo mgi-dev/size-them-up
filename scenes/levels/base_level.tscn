@@ -3,9 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bldfpa3blq6jy" path="res://scenes/characters/player/player.tscn" id="1_md458"]
 [ext_resource type="Script" uid="uid://bhob24jboj3e1" path="res://scenes/levels/base_level.gd" id="1_ukglk"]
 [ext_resource type="PackedScene" uid="uid://cjenegqkyul3s" path="res://scenes/ui/camera/camera.tscn" id="2_uk53i"]
-[ext_resource type="PackedScene" uid="uid://ce4p0x7jmejpa" path="res://scenes/ui/debug_display/scene_info.tscn" id="4_3rriw"]
-[ext_resource type="PackedScene" uid="uid://cdtat8xupelfn" path="res://scenes/ui/size_gauge/size_gauge.tscn" id="4_wwrw0"]
-[ext_resource type="PackedScene" uid="uid://bfmf272pkq14c" path="res://scenes/ui/weapon_selection_info/weapon_selection_info.tscn" id="5_53c65"]
+[ext_resource type="PackedScene" uid="uid://dgxponf4wnc2v" path="res://scenes/ui/hud.tscn" id="6_3rriw"]
 [ext_resource type="Texture2D" uid="uid://rauu87h82ibh" path="res://assets/images/white_round.png" id="8_43bxi"]
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="8_53c65"]
 
@@ -503,16 +501,8 @@ script = ExtResource("1_ukglk")
 position = Vector2(80, 472)
 zoom = Vector2(1.6, 1.6)
 
-[node name="SizeGauge" parent="Camera" unique_id=1367314203 instance=ExtResource("4_wwrw0")]
-position = Vector2(-296, 48)
-scale = Vector2(0.62962794, 0.6340091)
-
-[node name="SceneInfo" parent="Camera" unique_id=1796122062 instance=ExtResource("4_3rriw")]
-position = Vector2(-208, -176)
-
-[node name="WeaponSelector" parent="Camera" unique_id=745918523 instance=ExtResource("5_53c65")]
-position = Vector2(-296, -112)
-scale = Vector2(0.116000004, 0.116)
+[node name="Hud" parent="Camera" unique_id=1601095639 instance=ExtResource("6_3rriw")]
+position = Vector2(-254.98163, -14.848816)
 
 [node name="Player" parent="." unique_id=217472232 instance=ExtResource("1_md458")]
 position = Vector2(32, 624)
