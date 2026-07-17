@@ -16,9 +16,15 @@ var resize_mode_textures = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	texture = resize_mode_textures[GameState.current_resize_mode]
+	set_weapon_selector_texture()
 	
-
+	
+	
+func set_weapon_selector_texture():
+	if GameState.multi_resize_mode_enabled:
+		texture = resize_mode_textures[GameState.current_resize_mode]
+	else:
+		texture = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,4 +39,5 @@ func _input(event):
 			next_index = 0
 			
 		SignalBus.resize_mode_selected.emit(resize_modes[next_index])
-		texture = resize_mode_textures[resize_modes[next_index]]
+		set_weapon_selector_texture()
+		

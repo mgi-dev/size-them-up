@@ -15,7 +15,7 @@ func _ready():
 	
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("toggle_god_mode"): 
+	if Input.is_action_just_pressed("toggle_god_mode"):
 		god_mode = !god_mode
 		print("god mode is ", "on" if god_mode else "off")
 
