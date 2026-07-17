@@ -17,6 +17,8 @@ func _ready():
 func _physics_process(delta):
 	if Input.is_action_just_pressed("toggle_god_mode"):
 		god_mode = !god_mode
+		multi_resize_mode_enabled = !multi_resize_mode_enabled
+		
 		print("god mode is ", "on" if god_mode else "off")
 
 

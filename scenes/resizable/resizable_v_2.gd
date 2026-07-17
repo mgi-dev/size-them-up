@@ -1,13 +1,11 @@
 extends RigidBody2D
-# AnimatableBody2D
+
 class_name Resizable 
 
 @export var sprite: Sprite2D
 @export var hitbox: CollisionShape2D
 @export var player_detector: ShapeCast2D
 
-
-@export var resize_mode: Enums.RESIZE_MODE = Enums.RESIZE_MODE.ALL
 
 var RESIZE_SPEED: float = 0.01
 
@@ -33,7 +31,6 @@ func _ready() -> void:
 	# storing size allow to start with various size for component. else will default to (1, 1)
 	# why storing size ? keeping the original size allow to apply bigger and bigger scaling on a base value.
 	# this keep the transformation linear. If we apply the transformation on scale at each frame the transformation is logarithmic. And that's bad.
-	# TODO: actually useless, see later
 	# setting size for hitbox based on parent transfom scale (1.5, 1.5)
 	initial_scale_transform = scale
 	
@@ -55,11 +52,7 @@ func debug():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# called every now and then, for display, animations, etc.
-	# print(RESIZE_SPEED)
-	var vector_diff = current_sprite_scale_multiplier_vector - new_scale_muliplier_vector
-	if abs(vector_diff.x) >= RESIZE_SPEED or abs(vector_diff.y) >= RESIZE_SPEED:
-		process_sprite_resize()
+	process_sprite_resize()
 
 
 func _physics_process(delta: float) -> void:
@@ -91,23 +84,24 @@ func can_size_down() -> bool:
 
 
 func size_up(resize_mode: Enums.RESIZE_MODE) -> void:
-	var _transform = get_transmation_vector(RESIZE_SPEED, resize_mode)
+	var _transform = get_transformation_vector(RESIZE_SPEED, resize_mode)
 	new_scale_muliplier_vector = current_scale_muliplier_vector + _transform
-	
-	var diff_vector = new_scale_muliplier_vector - current_scale_muliplier_vector
-	SignalBus.resized.emit(diff_vector.x + diff_vector.y)
-	
+	emit_resized_event(current_scale_muliplier_vector, new_scale_muliplier_vector)
+
 	
 func size_down(resize_mode: Enums.RESIZE_MODE) -> void:
-	var _transform = get_transmation_vector(RESIZE_SPEED, resize_mode)
+	var _transform = get_transformation_vector(RESIZE_SPEED, resize_mode)
 	new_scale_muliplier_vector = current_scale_muliplier_vector - _transform
+	emit_resized_event(current_scale_muliplier_vector, new_scale_muliplier_vector)
 
+
+func emit_resized_event(current_scale_muliplier_vector: Vector2, new_scale_muliplier_vector: Vector2):
 	var diff_vector = new_scale_muliplier_vector - current_scale_muliplier_vector
 	SignalBus.resized.emit(diff_vector.x + diff_vector.y)
 
 
-func get_transmation_vector(transform: float, resize_mode: Enums.RESIZE_MODE) -> Vector2:
-	# Get the vector to apply to the chape dependning on resize mode.
+func get_transformation_vector(transform: float, resize_mode: Enums.RESIZE_MODE) -> Vector2:
+	# Get the vector to apply to the chape depending on resize mode.
 	if resize_mode == Enums.RESIZE_MODE.ALL:
 		return  Vector2(transform, transform)
 	elif resize_mode == Enums.RESIZE_MODE.HORIZONTAL:
@@ -116,7 +110,6 @@ func get_transmation_vector(transform: float, resize_mode: Enums.RESIZE_MODE) ->
 		return Vector2(0.0, transform)
 	else: 
 		return Vector2(transform, transform)
-	
 	
 	
 func process_hitbox_resize() -> void:
@@ -136,8 +129,10 @@ func process_hitbox_resize() -> void:
 	
 	
 func process_sprite_resize() -> void:
-	sprite.scale = initial_scale_transform * new_scale_muliplier_vector
-	current_sprite_scale_multiplier_vector = new_scale_muliplier_vector
+	var vector_diff = current_sprite_scale_multiplier_vector - new_scale_muliplier_vector
+	if abs(vector_diff.x) >= RESIZE_SPEED or abs(vector_diff.y) >= RESIZE_SPEED:
+		sprite.scale = initial_scale_transform * new_scale_muliplier_vector
+		current_sprite_scale_multiplier_vector = new_scale_muliplier_vector
 
 
 func is_player_colliding():
@@ -158,4 +153,5 @@ func parametrize_sprite_shader() -> void:
 		Enums.RESIZE_MODE.ALL: 2,
 	}
 	sprite.material = sprite.material.duplicate()
-	sprite.material.set_shader_parameter("mode", gradiant_config[resize_mode])
+	# What to do with this shader ? dynamic change ? link current resize to component ?
+	sprite.material.set_shader_parameter("mode", 2)

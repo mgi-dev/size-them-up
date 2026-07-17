@@ -62,7 +62,6 @@ func select_laser_color() -> void:
 
 
 func handle_colliding(delta):
-	debug()
 	var far_away_position = to_local(get_global_mouse_position()).normalized() * 5000 
 	target_position = far_away_position
 	force_raycast_update()
@@ -115,18 +114,16 @@ func get_collision_shape() -> CollisionShape2D:
 	return collider.shape_owner_get_owner(owner_id)
 
 
+var resize_modes = [
+	Enums.RESIZE_MODE.ALL,
+	Enums.RESIZE_MODE.HORIZONTAL,
+	Enums.RESIZE_MODE.VERTICAL,
+]
 
-### DEBUG MODE.
 
-var false_count = 0
-var true_count = 0
-	
-func debug():
-	if is_colliding():
-		true_count += 1
-	else:
-		false_count += 1
-		
-	if Input.is_action_pressed("size_up"): 
-		print("false: ", false_count, ", true: ", true_count)	
-	
+func _input(event):
+	if event.is_action_pressed("change_resize_mode"):		
+		var next_index = resize_modes.find(GameState.current_resize_mode) + 1
+		if next_index == 3:
+			next_index = 0
+		SignalBus.resize_mode_selected.emit(resize_modes[next_index])

@@ -8,3 +8,4 @@
 --> empty gauge
 - flying_rect bug
 --> physics force from others objects still apply.
+- refacto sound in resize gun (also finish lazer one day.)

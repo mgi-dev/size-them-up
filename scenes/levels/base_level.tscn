@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjenegqkyul3s" path="res://scenes/ui/camera/camera.tscn" id="2_uk53i"]
 [ext_resource type="PackedScene" uid="uid://ce4p0x7jmejpa" path="res://scenes/ui/debug_display/scene_info.tscn" id="4_3rriw"]
 [ext_resource type="PackedScene" uid="uid://cdtat8xupelfn" path="res://scenes/ui/size_gauge/size_gauge.tscn" id="4_wwrw0"]
-[ext_resource type="PackedScene" uid="uid://bfmf272pkq14c" path="res://scenes/ui/weapon_selector/weapon_selector.tscn" id="5_53c65"]
+[ext_resource type="PackedScene" uid="uid://bfmf272pkq14c" path="res://scenes/ui/weapon_selection_info/weapon_selection_info.tscn" id="5_53c65"]
 [ext_resource type="Texture2D" uid="uid://rauu87h82ibh" path="res://assets/images/white_round.png" id="8_43bxi"]
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="8_53c65"]
 
