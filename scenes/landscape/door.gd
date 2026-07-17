@@ -6,7 +6,7 @@ class_name Door
 @onready var background_sprite = $backgroud
 @onready var door_animation = $DoorAnimation
 @onready var door_audio = $AudioStreamPlayer
-
+@onready var door_status = $door_status
 
 
 @export var is_open : bool = false
@@ -16,13 +16,18 @@ func _ready():
 	SignalBus.player_interact.connect(on_player_interact)
 	background_sprite.modulate  = Color("1A1E29")
 
+	if next_scene:
+		door_status.modulate = Color("a6cfcf")
+	else:
+		door_status.modulate = Color("a01b02ff")
+
 
 func _process(delta):
 	pass
 
 
 func on_player_interact():
-	if is_player_colliding():
+	if is_player_colliding() and next_scene:
 		if !is_open:
 			open_door()
 			is_open = true

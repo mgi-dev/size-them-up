@@ -19,6 +19,7 @@ func update(delta):
 	var direction_x = Input.get_axis("player_move_right", "player_move_left")
 	if direction_x:
 		player.velocity.x = direction_x * player.CLIMB_SPEED
+		player.animated_sprite.flip_h = player.velocity.x < 0
 	else:
 		player.velocity.x = 0
 		
