@@ -8,7 +8,7 @@ class_name Player
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -350.0
 const CLIMB_SPEED = 200.0
 
 # Todo: make a player state object.

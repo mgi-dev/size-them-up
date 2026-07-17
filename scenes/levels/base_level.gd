@@ -23,9 +23,8 @@ func _physics_process(delta: float):
 	update_camera_position()
 	pass
 
-
 func update_camera_position():
-	camera.position.x = move_toward(camera.position.x, player.position.x, scroll_speed)
+	camera.position.x = move_toward(camera.position.x, player.position.x + 100, scroll_speed)
 	camera.position.y = move_toward(camera.position.y, player.position.y - 75, scroll_speed)
 
 func display_transition_out_from_level(next_level):
