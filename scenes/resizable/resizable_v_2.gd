@@ -7,18 +7,17 @@ class_name Resizable
 @export var player_detector: ShapeCast2D
 
 
-enum RESIZE_MODE {ALL, VERTICAL, HORIZONTAL}
-
-@export var resize_mode: RESIZE_MODE = RESIZE_MODE.ALL
+@export var resize_mode: Enums.RESIZE_MODE = Enums.RESIZE_MODE.ALL
 
 var RESIZE_SPEED: float = 0.01
 
 var initial_scale_transform: Vector2 # (2, 2) 
 
-var current_scale_muliplier: float = 1.0
-var new_scale_multiplier : float = 1.0
+var current_scale_muliplier_vector = Vector2(1.0, 1.0)
+var new_scale_muliplier_vector = Vector2(1.0, 1.0)
+
 # UI is seperated from physics, need it's own var for now.
-var current_sprite_scale_multiplier : float = 1.0
+var current_sprite_scale_multiplier_vector : Vector2 = Vector2(1.0, 1.0)
 
 
 """
@@ -58,25 +57,27 @@ func debug():
 func _process(delta):
 	# called every now and then, for display, animations, etc.
 	# print(RESIZE_SPEED)
-	if abs(current_sprite_scale_multiplier - new_scale_multiplier) >= RESIZE_SPEED:
+	var vector_diff = current_sprite_scale_multiplier_vector - new_scale_muliplier_vector
+	if abs(vector_diff.x) >= RESIZE_SPEED or abs(vector_diff.y) >= RESIZE_SPEED:
 		process_sprite_resize()
 
 
 func _physics_process(delta: float) -> void:
 	# called 60 times per second. do not lag this.	
 	process_hitbox_resize()
+	
 
-func resize_up(target: CollisionShape2D) -> void:
+func resize_up(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> void:
 	if target == hitbox:
 		if can_size_up():
-			size_up()
+			size_up(resize_mode)
 			#process_hitbox_resize()
 
 
-func resize_down(target: CollisionShape2D) -> void:		
+func resize_down(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> void:		
 	if target == hitbox:
 		if can_size_down():
-			size_down()
+			size_down(resize_mode)
 			#process_hitbox_resize()
 
 
@@ -85,50 +86,58 @@ func can_size_up() -> bool:
 	
 	
 func can_size_down() -> bool:
-	return GameState.can_size_down() and !is_player_colliding() and current_scale_muliplier > 0.02
+	var obj_min_size_reached = current_scale_muliplier_vector.x <= 0.02 or current_scale_muliplier_vector.y <= 0.02
+	return GameState.can_size_down() and !is_player_colliding() and !obj_min_size_reached
 
 
-func size_up() -> void:
-	new_scale_multiplier = current_scale_muliplier + RESIZE_SPEED
-	SignalBus.resized.emit(new_scale_multiplier - current_scale_muliplier)
+func size_up(resize_mode: Enums.RESIZE_MODE) -> void:
+	var _transform = get_transmation_vector(RESIZE_SPEED, resize_mode)
+	new_scale_muliplier_vector = current_scale_muliplier_vector + _transform
+	
+	var diff_vector = new_scale_muliplier_vector - current_scale_muliplier_vector
+	SignalBus.resized.emit(diff_vector.x + diff_vector.y)
 	
 	
-func size_down() -> void:
-	new_scale_multiplier = current_scale_muliplier - RESIZE_SPEED
-	SignalBus.resized.emit(new_scale_multiplier - current_scale_muliplier)
+func size_down(resize_mode: Enums.RESIZE_MODE) -> void:
+	var _transform = get_transmation_vector(RESIZE_SPEED, resize_mode)
+	new_scale_muliplier_vector = current_scale_muliplier_vector - _transform
+
+	var diff_vector = new_scale_muliplier_vector - current_scale_muliplier_vector
+	SignalBus.resized.emit(diff_vector.x + diff_vector.y)
 
 
-func get_transformed_scale(_scale: Vector2, transform: float) -> Vector2:
-	# Transform the given Vector depending on selected resize mode.
-	if resize_mode == RESIZE_MODE.ALL:
-		return _scale * transform
-	if resize_mode == RESIZE_MODE.HORIZONTAL:
-		return Vector2(_scale.x * transform, _scale.y)
-	if resize_mode == RESIZE_MODE.VERTICAL:
-		return Vector2(_scale.x, _scale.y * transform)
+func get_transmation_vector(transform: float, resize_mode: Enums.RESIZE_MODE) -> Vector2:
+	# Get the vector to apply to the chape dependning on resize mode.
+	if resize_mode == Enums.RESIZE_MODE.ALL:
+		return  Vector2(transform, transform)
+	elif resize_mode == Enums.RESIZE_MODE.HORIZONTAL:
+		return  Vector2(transform, 0.0)
+	elif resize_mode == Enums.RESIZE_MODE.VERTICAL:
+		return Vector2(0.0, transform)
 	else: 
-		return _scale * transform
-
+		return Vector2(transform, transform)
+	
+	
 	
 func process_hitbox_resize() -> void:
-	if new_scale_multiplier != current_scale_muliplier:
-		if new_scale_multiplier < current_scale_muliplier:
+	if new_scale_muliplier_vector != current_scale_muliplier_vector:
+		if new_scale_muliplier_vector < current_scale_muliplier_vector:
 			# when sizing down, thing become woobly wibly when in contact with other phycical object, freeze reduce this. And add a super cool effect.
 			freeze = true
 		else:
 			freeze = false
-		hitbox.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
+		hitbox.scale = initial_scale_transform * new_scale_muliplier_vector
 		if player_detector:
 			player_detector.target_position.y = hitbox.position.y + 5
 			player_detector.force_shapecast_update()
-		current_scale_muliplier = new_scale_multiplier
+		current_scale_muliplier_vector = new_scale_muliplier_vector
 	else:
 		freeze = false
-
-
+	
+	
 func process_sprite_resize() -> void:
-	sprite.scale = get_transformed_scale(initial_scale_transform, new_scale_multiplier)
-	current_sprite_scale_multiplier = new_scale_multiplier
+	sprite.scale = initial_scale_transform * new_scale_muliplier_vector
+	current_sprite_scale_multiplier_vector = new_scale_muliplier_vector
 
 
 func is_player_colliding():
@@ -144,9 +153,9 @@ func is_player_colliding():
 	
 func parametrize_sprite_shader() -> void:
 	var gradiant_config = {
-		RESIZE_MODE.HORIZONTAL: 0,
-		RESIZE_MODE.VERTICAL: 1,
-		RESIZE_MODE.ALL: 2,
+		Enums.RESIZE_MODE.HORIZONTAL: 0,
+		Enums.RESIZE_MODE.VERTICAL: 1,
+		Enums.RESIZE_MODE.ALL: 2,
 	}
 	sprite.material = sprite.material.duplicate()
 	sprite.material.set_shader_parameter("mode", gradiant_config[resize_mode])

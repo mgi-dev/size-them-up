@@ -24,8 +24,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta):
-	if Input.is_action_pressed("size_up"):
-		debug()
 	player_state_machine.set_state(get_next_state())
 	player_state_machine.update(delta)
 	move_and_slide()

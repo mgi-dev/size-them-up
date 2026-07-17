@@ -82,12 +82,12 @@ func handle_resizing():
 			if !audio_size_up_playing:
 				audio_size_up_playing = true
 				audio_size_up.play()
-			SignalBus.resize_ray_resize_up.emit(get_collision_shape())
+			SignalBus.resize_ray_resize_up.emit(get_collision_shape(), GameState.current_resize_mode)
 		elif Input.is_action_pressed("size_down"):
 			if !audio_size_down_playing:
 				audio_size_down_playing = true
 				audio_size_down.play()
-			SignalBus.resize_ray_resize_down.emit(get_collision_shape())
+			SignalBus.resize_ray_resize_down.emit(get_collision_shape(), GameState.current_resize_mode)
 		else:
 			if audio_size_down_playing:
 				audio_size_down.stop()

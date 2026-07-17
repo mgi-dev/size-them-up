@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bfmf272pkq14c"]
+
+[ext_resource type="Texture2D" uid="uid://05c7ujsqyndp" path="res://assets/images/gun_selector/unselected_selector.png" id="1_ml120"]
+[ext_resource type="Script" uid="uid://drm1my7o7ukns" path="res://scenes/ui/weapon_selector/weapon_selector.gd" id="2_fy3s6"]
+
+[node name="WeaponSelector" type="Sprite2D" unique_id=745918523]
+z_index = 10
+texture = ExtResource("1_ml120")
+script = ExtResource("2_fy3s6")

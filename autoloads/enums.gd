@@ -9,6 +9,9 @@ enum GAME_EVENT {
 	PLAYER_JUMP
 }
 
+
+enum RESIZE_MODE {ALL, VERTICAL, HORIZONTAL}
+
 const CLIMBABLE_GROUP = "climbable"
 
 # Called when the node enters the scene tree for the first time.

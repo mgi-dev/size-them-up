@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://nyjv81jh5kks" path="res://scenes/landscape/Ladder.tscn" id="3_ulekh"]
 [ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="4_xs65t"]
 [ext_resource type="PackedScene" uid="uid://bvdw55jt5odq4" path="res://scenes/resizable/flying_rect.tscn" id="5_04m7m"]
-[ext_resource type="PackedScene" uid="uid://btaph64xx2gfe" path="res://scenes/resizable/oval_resizable.tscn" id="6_h7x1a"]
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="7_gd5e8"]
 
 [node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
@@ -22,23 +21,21 @@ scale = Vector2(2.3013175, 8.583436)
 
 [node name="ResizableV4" parent="." index="5" unique_id=2125065801 instance=ExtResource("2_p0r41")]
 position = Vector2(464, 539)
-resize_mode = 1
 
 [node name="ResizableV5" parent="." index="6" unique_id=1073293426 instance=ExtResource("2_p0r41")]
 position = Vector2(544, 560)
+resize_mode = 1
 
 [node name="Ladder" parent="." index="7" unique_id=1163521122 instance=ExtResource("3_ulekh")]
 position = Vector2(152, 528)
 
 [node name="GreyBloc2" parent="." index="8" unique_id=555845978 instance=ExtResource("4_xs65t")]
-position = Vector2(152, 480)
-scale = Vector2(0.19865529, 0.24965566)
+position = Vector2(801, 687)
+scale = Vector2(3.0043395, 0.2203301)
 
 [node name="FlyingRect" parent="." index="9" unique_id=116391965 instance=ExtResource("5_04m7m")]
 position = Vector2(624, 440)
+resize_mode = 2
 
-[node name="OvalResizable" parent="." index="10" unique_id=1772709671 instance=ExtResource("6_h7x1a")]
-position = Vector2(672, 552)
-
-[node name="Door2" parent="." index="12" unique_id=1108318652 instance=ExtResource("7_gd5e8")]
+[node name="Door2" parent="." index="11" unique_id=1108318652 instance=ExtResource("7_gd5e8")]
 position = Vector2(347, 586)

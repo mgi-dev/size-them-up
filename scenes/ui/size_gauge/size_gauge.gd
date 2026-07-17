@@ -12,6 +12,7 @@ func _ready():
 	gauge.min_value = min_value
 	gauge.max_value = max_value
 	gauge.value = start_value
+	gauge.step = 0.005
 	SignalBus.gauge_changed.emit(to_percentage(gauge.value))
 
 
@@ -22,7 +23,6 @@ func fill_the_gauge(amount: float):
 	elif amount < 0:
 		# shape has been sized down, filling the gauge.
 		gauge.value += abs(amount)
-	
 	SignalBus.gauge_changed.emit(to_percentage(gauge.value))
 
 

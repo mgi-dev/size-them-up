@@ -4,6 +4,7 @@
 
 [node name="SizeGauge" type="Node2D" unique_id=1367314203]
 z_index = 10
+scale = Vector2(0.67999953, 0.67999953)
 script = ExtResource("1_mujeh")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=250899039]

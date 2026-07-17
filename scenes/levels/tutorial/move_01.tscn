@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="5_7nbbt"]
 [ext_resource type="Script" uid="uid://1uyhfmvdf148" path="res://scenes/levels/tutorial/mouse_left_light.gd" id="6_mnhpp"]
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="7_53ba7"]
-[ext_resource type="PackedScene" uid="uid://du477n2oi1ai1" path="res://scenes/levels/stairs.tscn" id="8_2ryl4"]
+[ext_resource type="PackedScene" uid="uid://du477n2oi1ai1" path="res://scenes/levels/stairs_02.tscn" id="8_2ryl4"]
 
 [node name="tutorial_move_01" unique_id=1818539085 instance=ExtResource("1_dt453")]
 
@@ -61,8 +61,8 @@ position = Vector2(648, 589)
 scale = Vector2(2.0982356, 2.0982356)
 
 [node name="ResizableV3" parent="." index="9" unique_id=302386312 instance=ExtResource("5_7nbbt")]
-position = Vector2(906.00006, 614)
-resize_mode = 1
+position = Vector2(906.00006, 607)
+scale = Vector2(1.3199999, 1.3199999)
 
 [node name="ClkerFreeVectorImagesMouse24188" type="Sprite2D" parent="." index="10" unique_id=1504553526]
 position = Vector2(821.02545, 486.48862)
