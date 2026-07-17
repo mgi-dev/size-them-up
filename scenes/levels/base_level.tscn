@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjenegqkyul3s" path="res://scenes/ui/camera/camera.tscn" id="2_uk53i"]
 [ext_resource type="PackedScene" uid="uid://ce4p0x7jmejpa" path="res://scenes/ui/debug_display/scene_info.tscn" id="4_3rriw"]
 [ext_resource type="PackedScene" uid="uid://cdtat8xupelfn" path="res://scenes/ui/size_gauge/size_gauge.tscn" id="4_wwrw0"]
-[ext_resource type="AudioStream" uid="uid://c6entbxund46w" path="res://assets/musics/D_D-Music-Industrial-Factory-Ambience.ogg" id="6_h4ce7"]
+[ext_resource type="Texture2D" uid="uid://rauu87h82ibh" path="res://assets/images/white_round.png" id="8_43bxi"]
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="8_53c65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43bxi"]
@@ -508,18 +508,12 @@ position = Vector2(-208, -176)
 [node name="Player" parent="." unique_id=217472232 instance=ExtResource("1_md458")]
 position = Vector2(32, 624)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1472266117]
-stream = ExtResource("6_h4ce7")
-volume_db = -9.589
-autoplay = true
-parameters/looping = true
-
 [node name="TileMap" type="TileMap" parent="." unique_id=1431608523]
 tile_set = SubResource("TileSet_j7gcg")
 format = 2
 layer_0/tile_data = PackedInt32Array(2686965, 0, 1, 2686966, 65536, 1, 2686967, 131072, 1, 2686968, 196608, 1, 2686969, 262144, 1, 2686970, 327680, 1, 2686971, 393216, 1, 2686972, 458752, 1, 2686973, 524288, 1, 2686974, 589824, 1, 2686975, 655360, 1, 2621440, 720896, 1, 2621441, 0, 1, 2621442, 65536, 1, 2621443, 131072, 1, 2621444, 196608, 1, 2621445, 262144, 1, 2621446, 327680, 1, 2621447, 393216, 1, 2621448, 458752, 1, 2621449, 524288, 1, 2621450, 589824, 1, 2621451, 655360, 1, 2621452, 720896, 1, 2621453, 0, 1, 2621454, 65536, 1, 2621455, 131072, 1, 2621456, 196608, 1, 2621457, 262144, 1, 2621458, 327680, 1, 2621459, 393216, 1, 2621460, 458752, 1, 2621461, 524288, 1, 2621462, 589824, 1, 2621463, 655360, 1, 2621464, 720896, 1)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=241421075]
+[node name="BackgroundRectColor" type="ColorRect" parent="." unique_id=241421075]
 z_index = -999
 offset_left = -2352.0
 offset_top = -2583.9998
@@ -529,3 +523,9 @@ scale = Vector2(173.50731, 117.829056)
 color = Color(0.11372549, 0.12941177, 0.1764706, 1)
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
+
+[node name="TransitionSprite2D" type="Sprite2D" parent="." unique_id=1077565752]
+z_index = 5
+position = Vector2(-5948.6157, -2332.3223)
+scale = Vector2(0.19232178, 0.18008931)
+texture = ExtResource("8_43bxi")

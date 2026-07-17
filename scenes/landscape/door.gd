@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Door
+
 @onready var collision_shape = $CollisionShape2D
 @onready var background_sprite = $backgroud
 @onready var door_animation = $DoorAnimation
@@ -40,9 +42,11 @@ func open_door():
 	door_audio.play()
 	await door_animation.animation_finished
 	if next_scene:
-		var node := next_scene.instantiate()
-		get_tree().change_scene_to_node(node)
+		SignalBus.next_level.emit(next_scene)
+		# var node := next_scene.instantiate()
+		# get_tree().change_scene_to_node(node)
 	else:
+		SignalBus.next_level.emit(next_scene)
 		print("NO NEXT SCENE")
 	
 	
@@ -50,3 +54,14 @@ func open_door():
 func close_door():
 	door_animation.play("close")
 	door_audio.play()
+	
+	
+func reset_open():
+	door_animation.play("reset_open")
+
+
+func reset_close():
+	door_animation.play("RESET")
+
+	
+		

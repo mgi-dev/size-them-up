@@ -91,11 +91,28 @@ tracks/1/keys = {
 "values": [Rect2(0, 0, 1061.346, 1701.1365), Rect2(0, 0, 1061.346, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_e08mm"]
+resource_name = "reset_open"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1OutsideFrame/Door1InsideFrame:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 1061.346, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_foxjj"]
 _data = {
 &"RESET": SubResource("Animation_4yke3"),
 &"close": SubResource("Animation_foxjj"),
-&"open": SubResource("Animation_ugi6p")
+&"open": SubResource("Animation_ugi6p"),
+&"reset_open": SubResource("Animation_e08mm")
 }
 
 [node name="Door" type="Area2D" unique_id=8401334]
@@ -113,7 +130,7 @@ texture = ExtResource("2_ugi6p")
 [node name="Door1InsideFrame" type="Sprite2D" parent="Door1OutsideFrame" unique_id=1475018288]
 z_index = 1
 position = Vector2(17.424568, 87.12286)
-scale = Vector2(0.9984168, 1.0114841)
+scale = Vector2(0.991892, 1.0048739)
 texture = ExtResource("3_foxjj")
 region_enabled = true
 region_rect = Rect2(0, 0, 1061.346, 1700)
