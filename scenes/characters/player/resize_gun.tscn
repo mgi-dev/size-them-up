@@ -4,6 +4,47 @@
 [ext_resource type="AudioStream" uid="uid://ccbjqkhq5fs65" path="res://assets/sound/laser_charging.mp3" id="2_ekrq1"]
 [ext_resource type="AudioStream" uid="uid://d0np4ieiuat7u" path="res://assets/sound/size_down_laser_sound.mp3" id="3_sdg0e"]
 [ext_resource type="AudioStream" uid="uid://du4yq8j0017am" path="res://assets/sound/size_up_laser_sound.mp3" id="4_yhvcd"]
+[ext_resource type="Texture2D" uid="uid://fjjnlavafjin" path="res://assets/images/glowing_circle.png" id="5_m4gqi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4gqi"]
+
+[sub_resource type="Curve" id="Curve_m4gqi"]
+_data = [Vector2(0.005347591, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_q1q1o"]
+curve = SubResource("Curve_m4gqi")
+
+[sub_resource type="Curve" id="Curve_lpl0y"]
+_data = [Vector2(0.013368979, 0.07976067), 0.0, 0.0, 0, 0, Vector2(0.48395717, 0.9675971), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dbw3v"]
+width = 56
+curve = SubResource("Curve_lpl0y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_prdhn"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.2, 0.2, 1)
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_dbw3v")
+alpha_curve = SubResource("CurveTexture_q1q1o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m4gqi"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(30, 2.5, 1)
+direction = Vector3(0, 0, 0)
+spread = 0.0
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
 
 [node name="ResizeGun" type="RayCast2D" unique_id=2093382897]
 target_position = Vector2(38, -23)
@@ -11,9 +52,12 @@ script = ExtResource("1_56cs2")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=294019691]
 z_index = 50
+material = SubResource("ShaderMaterial_m4gqi")
 points = PackedVector2Array(0, 0, 38, -23)
 width = 2.0
 default_color = Color(0.7250944, 0.13440046, 0.4800086, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=789249523]
 stream = ExtResource("2_ekrq1")
@@ -25,3 +69,17 @@ parameters/looping = true
 
 [node name="AudioSizeUp" type="AudioStreamPlayer2D" parent="." unique_id=888614223]
 stream = ExtResource("4_yhvcd")
+
+[node name="CastingParticles2D" type="GPUParticles2D" parent="." unique_id=1104749485]
+emitting = false
+texture = ExtResource("5_m4gqi")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_prdhn")
+
+[node name="BeamParticles2D" type="GPUParticles2D" parent="." unique_id=1415289433]
+position = Vector2(1.9073486e-06, 0)
+emitting = false
+amount = 200
+texture = ExtResource("5_m4gqi")
+lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_m4gqi")

@@ -21,7 +21,7 @@ func _ready():
 	music_player.pitch_scale = 0.8
 	music_player.stream = MUSIC_ONE
 	music_player.stream.loop = true
-	music_player.play()
+	#music_player.play()
 	
 	
 func player_jump_sound():

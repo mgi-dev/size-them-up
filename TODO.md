@@ -11,3 +11,4 @@ TODAY:
 - better laser
 - pretty gauge
 - reusable highlight for interractable.
+- sound for picking up objects
