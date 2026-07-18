@@ -36,6 +36,8 @@ func _process(delta):
 	
 func _physics_process(delta):
 	pass
+	
+	
 func manage_sound_and_find_a_better_name():
 	# TODO: scale db gradually.
 	if Input.is_action_just_pressed("size_up") or Input.is_action_just_pressed("size_down"):		

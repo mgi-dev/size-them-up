@@ -36,7 +36,8 @@ func on_gauge_changed(percentage: float) -> void:
 		_can_size_down = true
 
 func on_resize_mode_changed(resize_mode: Enums.RESIZE_MODE):
-	current_resize_mode = resize_mode
+	if multi_resize_mode_enabled:
+		current_resize_mode = resize_mode
 
 
 func can_size_up() -> bool:

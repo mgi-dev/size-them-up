@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://bvdw55jt5odq4"]
 
 [ext_resource type="Script" uid="uid://dm3of42vqtu4u" path="res://scenes/resizable/resizable_v_2.gd" id="1_e2te2"]
+[ext_resource type="Script" uid="uid://b3wpdew1o2r4p" path="res://scenes/resizable/quadri_detector_2000.gd" id="2_gdllp"]
 [ext_resource type="Texture2D" uid="uid://b30i0atbl10hn" path="res://assets/images/rect_white_48.png" id="2_nrm5n"]
 [ext_resource type="Shader" uid="uid://bbvqq5xavboub" path="res://scenes/resizable/rect_resizable.gdshader" id="2_qom0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrm5n"]
 size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qom0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdllp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7e5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkoek"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdllp"]
 shader = ExtResource("2_qom0d")
@@ -13,15 +22,41 @@ shader_parameter/mode = 0
 shader_parameter/edge_color = Color(0.37254903, 0.41960785, 0.47843137, 1)
 shader_parameter/center_color = Color(0.8509804, 0.8784314, 0.9019608, 1)
 
-[node name="FlyingRect" type="RigidBody2D" unique_id=116391965 node_paths=PackedStringArray("sprite", "hitbox")]
+[node name="FlyingRect" type="RigidBody2D" unique_id=116391965 node_paths=PackedStringArray("sprite", "hitbox", "collision_detector")]
 gravity_scale = 0.0
 freeze_mode = 1
 script = ExtResource("1_e2te2")
 sprite = NodePath("Sprite2D")
 hitbox = NodePath("CollisionShape2D")
+collision_detector = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1998122283]
 shape = SubResource("RectangleShape2D_nrm5n")
+script = ExtResource("2_gdllp")
+
+[node name="TopShapeCast2D" type="ShapeCast2D" parent="CollisionShape2D" unique_id=1945850327]
+position = Vector2(-0.15621983, -20.234625)
+scale = Vector2(2.1200004, -0.283)
+shape = SubResource("RectangleShape2D_qom0d")
+target_position = Vector2(0.07368858, 9.771637)
+
+[node name="BottomShapeCast2D" type="ShapeCast2D" parent="CollisionShape2D" unique_id=313099052]
+position = Vector2(0, 18.000002)
+scale = Vector2(2.0400012, 0.55999875)
+shape = SubResource("RectangleShape2D_gdllp")
+target_position = Vector2(0, 5)
+
+[node name="RightShapeCast2D" type="ShapeCast2D" parent="CollisionShape2D" unique_id=1109025067]
+position = Vector2(14, 0)
+scale = Vector2(0.4000002, 2.0399992)
+shape = SubResource("RectangleShape2D_k7e5d")
+target_position = Vector2(19.999989, 0)
+
+[node name="LeftShapeCast2D" type="ShapeCast2D" parent="CollisionShape2D" unique_id=719368249]
+position = Vector2(-16, 0)
+scale = Vector2(1, 2.1199987)
+shape = SubResource("RectangleShape2D_gkoek")
+target_position = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535026065]
 material = SubResource("ShaderMaterial_gdllp")
