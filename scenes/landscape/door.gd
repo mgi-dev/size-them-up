@@ -13,7 +13,6 @@ class_name Door
 @export var next_scene : PackedScene
 
 func _ready():
-	SignalBus.player_interact.connect(on_player_interact)
 	background_sprite.modulate  = Color("1A1E29")
 
 	if next_scene:
@@ -25,34 +24,21 @@ func _ready():
 func _process(delta):
 	pass
 
-
-func on_player_interact():
-	if is_player_colliding() and next_scene:
+func on_interact():
+	if next_scene:
 		if !is_open:
 			open_door()
 			is_open = true
 		else:
 			close_door()
 			is_open = false
-	
-func is_player_colliding() -> bool:
-	for body in get_overlapping_bodies():
-		if body is Player:
-			return true
-	return false
 
 
 func open_door():
 	door_animation.play("open")
 	door_audio.play()
 	await door_animation.animation_finished
-	if next_scene:
-		SignalBus.next_level.emit(next_scene)
-		# var node := next_scene.instantiate()
-		# get_tree().change_scene_to_node(node)
-	else:
-		SignalBus.next_level.emit(next_scene)
-		print("NO NEXT SCENE")
+	SignalBus.next_level.emit(next_scene)
 	
 	
 	

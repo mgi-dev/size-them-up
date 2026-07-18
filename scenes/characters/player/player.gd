@@ -48,21 +48,23 @@ func get_next_state()-> PlayerState:
 	
 	return player_state_machine.idle_state
 	
+var toto = []
+	
 func _on_detector_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if area.is_in_group(Enums.CLIMBABLE_GROUP):
 		current_ladders.append(area)
 		is_near_ladder = true
 		is_climbing = false
 
-
 func _on_detector_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
-	if area.is_in_group(Enums.CLIMBABLE_GROUP):
-		current_ladders.erase(area)
-	
-	if not current_ladders:
-		is_near_ladder = false
-		is_climbing = false
-
+	if area:
+		# If the entered area is queue_free, this will receive None
+		if area.is_in_group(Enums.CLIMBABLE_GROUP):
+			current_ladders.erase(area)
+		
+		if not current_ladders:
+			is_near_ladder = false
+			is_climbing = false
 
 func _input(event):
 	if event.is_action_pressed("interact"):

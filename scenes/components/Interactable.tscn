@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cujngdsg4ikqc"]
+
+[ext_resource type="Script" uid="uid://b0fbvpsq5fnk0" path="res://scenes/components/Interractable.gd" id="1_ihtmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihtmk"]
+size = Vector2(64, 64)
+
+[node name="Interractable" type="Area2D" unique_id=19942530]
+script = ExtResource("1_ihtmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794658870]
+shape = SubResource("RectangleShape2D_ihtmk")

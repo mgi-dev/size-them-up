@@ -1,6 +1,7 @@
 - smooth camera scroll
 - detector for round shape (gl)
 - reusable "quadri" detector 
+--> etre plus fin sur le collisionneur.
 - avoid soft lock
  --> reset button
  --> min size to avoid queue_free

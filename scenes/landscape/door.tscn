@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d4a05iwptveo8" path="res://assets/images/door_1_inside_frame.png" id="3_foxjj"]
 [ext_resource type="AudioStream" uid="uid://cldmf5552e216" path="res://assets/sound/door_sound.mp3" id="4_ugi6p"]
 [ext_resource type="Texture2D" uid="uid://dokykm6qtui2l" path="res://assets/images/cyan_bar.png" id="5_foxjj"]
+[ext_resource type="PackedScene" uid="uid://cujngdsg4ikqc" path="res://scenes/components/Interactable.tscn" id="6_e08mm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yke3"]
 size = Vector2(66, 97)
@@ -120,6 +121,7 @@ _data = {
 script = ExtResource("1_4yke3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1813075548]
+visible = false
 position = Vector2(1, 4.5)
 shape = SubResource("RectangleShape2D_4yke3")
 
@@ -151,3 +153,8 @@ stream = ExtResource("4_ugi6p")
 position = Vector2(0.99999815, -49.000004)
 scale = Vector2(0.06068965, 0.21052623)
 texture = ExtResource("5_foxjj")
+
+[node name="Interractable" parent="." unique_id=19942530 instance=ExtResource("6_e08mm")]
+z_index = 1
+position = Vector2(0, 3.0000005)
+scale = Vector2(0.98673, 1.5710976)
