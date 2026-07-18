@@ -18,6 +18,7 @@ var resize_mode_textures = {
 func _ready():
 	set_weapon_selector_texture(GameState.current_resize_mode)
 	SignalBus.resize_mode_selected.connect(set_weapon_selector_texture)
+	SignalBus.multi_resize_mode_changed.connect(func(_enabled):set_weapon_selector_texture(GameState.current_resize_mode))
 	
 	
 func set_weapon_selector_texture(resize_mode: Enums.RESIZE_MODE):

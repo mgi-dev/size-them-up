@@ -11,6 +11,5 @@ func _process(delta):
 	pass
 
 func on_interact():
+	SignalBus.multi_resize_mode_changed.emit(true)
 	queue_free()
-	# TODO: Euuuh.
-	GameState.multi_resize_mode_enabled = true

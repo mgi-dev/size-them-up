@@ -12,6 +12,8 @@ var multi_resize_mode_enabled: bool = false
 func _ready():
 	SignalBus.gauge_changed.connect(on_gauge_changed)
 	SignalBus.resize_mode_selected.connect(on_resize_mode_changed)
+	SignalBus.multi_resize_mode_changed.connect(func(enabled): multi_resize_mode_enabled=enabled)
+	
 	
 
 func _physics_process(delta):
