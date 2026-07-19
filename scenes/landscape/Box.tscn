@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dmo3siywfanyf"]
+
+[ext_resource type="Texture2D" uid="uid://cf0qhs2x756x1" path="res://assets/images/wooden_crate.png" id="1_ruabt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro64l"]
+size = Vector2(48, 48)
+
+[node name="Box" type="RigidBody2D" unique_id=1110912954]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1093272171]
+position = Vector2(1.4305115e-06, 1.4305115e-06)
+scale = Vector2(1.4999999, 1.4999999)
+texture = ExtResource("1_ruabt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=29933790]
+shape = SubResource("RectangleShape2D_ro64l")

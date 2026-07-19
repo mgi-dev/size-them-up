@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bmajklqcgfqyi" path="res://assets/images/arrow.png" id="1_y6e1e"]
 
 [node name="Arrow" type="Sprite2D" unique_id=693014094]
-z_index = 5
+z_index = 4
 texture = ExtResource("1_y6e1e")
 region_rect = Rect2(50, 100, 500, 200)

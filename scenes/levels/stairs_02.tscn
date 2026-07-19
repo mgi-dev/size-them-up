@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cj1w1b0ghswrx" path="res://scenes/embelish/arrow.tscn" id="7_v4mhk"]
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="8_xvnfm"]
 
-[node name="stairs_level" unique_id=1818539085 node_paths=PackedStringArray("entrance_door", "exit_door") instance=ExtResource("1_fnp8j")]
+[node name="stairs_level_02" unique_id=1818539085 node_paths=PackedStringArray("entrance_door", "exit_door") instance=ExtResource("1_fnp8j")]
 entrance_door = NodePath("Door")
 exit_door = NodePath("ExitDoor")
 

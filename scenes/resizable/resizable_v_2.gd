@@ -5,6 +5,7 @@ class_name Resizable
 @export var sprite: Sprite2D
 @export var hitbox: CollisionShape2D
 @export var collision_detector: QuadriDetector
+@export var ignore_collision_for: Node2D
 
 
 var RESIZE_SPEED: float = 0.01
@@ -38,6 +39,8 @@ func _ready() -> void:
 	hitbox.scale = initial_scale_transform
 	if collision_detector:
 		collision_detector.ignore(self)
+		if ignore_collision_for:
+			collision_detector.ignore(ignore_collision_for)
 
 	
 	SignalBus.resize_ray_resize_up.connect(resize_up)
@@ -75,7 +78,7 @@ func resize_down(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> vo
 
 
 func can_size_up() -> bool:
-	return GameState.can_size_up() and !is_player_colliding() and !collision_detector.is_shape_blocked()
+	return GameState.can_size_up() and !is_player_colliding() and !is_shape_blocked()
 	
 	
 func can_size_down() -> bool:
@@ -136,12 +139,16 @@ func process_sprite_resize() -> void:
 func is_player_colliding():
 	if collision_detector:
 		var colliding = collision_detector.is_player_colliding()
-		print(colliding)
 		if colliding:
 			SignalBus.game_event_happened.emit(Enums.GAME_EVENT.PLAYER_CLOSE_TO_RESIZABLE)
 		return colliding
 	else:
 		return false
+		
+func is_shape_blocked():
+	if collision_detector:
+		return collision_detector.is_shape_blocked()
+	return false
 
 
 func parametrize_sprite_shader() -> void:
