@@ -3,18 +3,21 @@
 [ext_resource type="Script" uid="uid://jq3107iqy4w" path="res://scenes/landscape/reflector.gd" id="1_isk2u"]
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="2_jhtnj"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_nufl4"]
-a = Vector2(-32, -48)
-b = Vector2(48, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isk2u"]
+size = Vector2(11.358437, 63.533813)
 
 [node name="Reflector" type="AnimatableBody2D" unique_id=153285780]
 script = ExtResource("1_isk2u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1949308443]
-scale = Vector2(8, 8)
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(3.9999998, 3.9999998)
 texture = ExtResource("2_jhtnj")
 region_enabled = true
 region_rect = Rect2(335.67096, 159.62254, 16.43985, 16.79213)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1172294837]
-shape = SubResource("SegmentShape2D_nufl4")
+position = Vector2(-1.9999998, 2.0000005)
+rotation = -0.7853982
+scale = Vector2(1.4940933, 0.89036924)
+shape = SubResource("RectangleShape2D_isk2u")

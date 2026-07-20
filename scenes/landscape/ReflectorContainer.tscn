@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cvvcu68h2xb07"]
+
+[ext_resource type="PackedScene" uid="uid://mfql4d0dmv2m" path="res://scenes/landscape/reflector.tscn" id="1_1aps8"]
+
+[node name="ReflectorContainer" type="AnimatableBody2D" unique_id=755664185]
+
+[node name="Reflector" parent="." unique_id=153285780 instance=ExtResource("1_1aps8")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1147516639]
+polygon = PackedVector2Array(-16, -16, -16, -24, -24, -32, -32, -32, -32, 32, 32, 32, 32, 24, 24, 16, 16, 16, 0, 16, -16, 0)

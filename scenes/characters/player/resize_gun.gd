@@ -1,170 +1,170 @@
-extends RayCast2D
+extends Node2D
 
 class_name ResizeGun
 
-@onready var visible_laser = $Line2D
-@export var laser_min_width: float = 0.0
-@export var laser_max_width: float = 4.0
-@export var laser_ready_speed: float = 0.1
+@onready var state_machine: StateMachine
+
+@onready var resize_ray = $ResizeRay
+@onready var casting_particles: GPUParticles2D = $CastingParticles2D
 
 @onready var sound_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var audio_size_down : AudioStreamPlayer2D = $AudioSizeDown
 @onready var audio_size_up : AudioStreamPlayer2D = $AudioSizeUp
 
-@onready var casting_particles: GPUParticles2D = $CastingParticles2D
-@onready var beam_particles: GPUParticles2D = $BeamParticles2D
+@onready var visible_laser_width = 0.0
+@export var laser_min_width: float = 0.0
+@export var laser_max_width: float = 4.0
+@export var laser_ready_speed: float = 0.1
 
-var audio_size_down_playing = false
-var audio_size_up_playing = false
 
 
-var is_resizing_laser_enabled: bool = false
+class LaserState extends State:
+	
+	var resize_gun: ResizeGun
+	
+	func _init(_resize_gun):
+		resize_gun = _resize_gun
+	
+	
+	func increase_laser_size():
+		if resize_gun.visible_laser_width <= resize_gun.laser_max_width:
+			resize_gun.visible_laser_width += resize_gun.laser_ready_speed
+			if resize_gun.visible_laser_width >= resize_gun.laser_max_width:
+				resize_gun.visible_laser_width = resize_gun.laser_max_width
+
+
+class LaserIdleState extends LaserState:
+	func enter():
+		resize_gun.sound_player.stop()
+		
+		resize_gun.resize_ray.disable_laser()
+		resize_gun.resize_ray.set_visible_laser_properties(resize_gun.laser_min_width, null, false)
+		resize_gun.casting_particles.emitting = false
+		resize_gun.visible_laser_width = resize_gun.laser_min_width
+		super.enter()
+
+	func exit():
+		super.exit()
+
+	func update(delta):
+		super.update(delta)
+	
+	func play_charging_sound():
+		# disable this sound in this state.
+		pass
+
+
+class LaserChargingUpState extends LaserState:
+	func enter():
+		if !resize_gun.sound_player.is_playing():
+			resize_gun.sound_player.play()
+		
+		resize_gun.casting_particles.modulate = Color(0.856, 0.002, 0.001, 1.0)
+		resize_gun.casting_particles.emitting = true
+
+		super.enter()
+
+	func exit():
+		super.exit()
+
+	func update(delta):
+		increase_laser_size()
+		resize_gun.resize_ray.set_visible_laser_properties(
+			resize_gun.visible_laser_width, Enums.RESIZE.UP, false
+		)
+		
+		super.update(delta)
+		
+	
+class LaserChargingDownState extends LaserState:
+	func enter():
+		if !resize_gun.sound_player.is_playing():
+			resize_gun.sound_player.play()
+		
+		resize_gun.casting_particles.modulate = Color(0.108, 0.345, 1.0, 1.0)
+		resize_gun.casting_particles.emitting = true
+		super.enter()
+
+	func exit():
+		super.exit()
+
+	func update(delta):
+		increase_laser_size()
+		resize_gun.resize_ray.set_visible_laser_properties(
+			resize_gun.visible_laser_width, Enums.RESIZE.DOWN, false
+		)
+		super.update(delta)
+		
+
+class LaserFullyChargedUpState extends LaserState:
+	func enter():
+		resize_gun.audio_size_up.play()
+		resize_gun.casting_particles.modulate = Color(0.856, 0.002, 0.001, 1.0)
+		resize_gun.casting_particles.emitting = true
+		super.enter()
+
+	func exit():
+		resize_gun.audio_size_up.stop()
+		super.exit()
+
+	func update(delta):
+
+		resize_gun.resize_ray.enable_laser()
+		resize_gun.resize_ray.set_visible_laser_properties(null, null, true)
+		resize_gun.resize_ray.set_visible_laser_properties(resize_gun.visible_laser_width, Enums.RESIZE.UP, true)
+		super.update(delta)
+		
+
+
+class LaserFullyChargedDownState extends LaserState:
+	func enter():
+		resize_gun.audio_size_down.play()
+		resize_gun.casting_particles.modulate = Color(0.108, 0.345, 1.0, 1.0)
+		resize_gun.casting_particles.emitting = true
+		super.enter()
+
+	func exit():
+		resize_gun.audio_size_down.stop()
+		super.exit()
+
+	func update(delta):
+
+		resize_gun.resize_ray.enable_laser()
+		resize_gun.resize_ray.set_visible_laser_properties(null, null, true)
+		resize_gun.resize_ray.set_visible_laser_properties(resize_gun.visible_laser_width, Enums.RESIZE.DOWN, true)
+		super.update(delta)
+		
 
 func _ready():
-	visible_laser.width = laser_min_width
-	for node in get_tree().get_nodes_in_group(Enums.CLIMBABLE_GROUP):
-		if node is CollisionObject2D:
-			add_exception(node)
-
+	visible_laser_width = laser_min_width
+	
+	state_machine = StateMachine.new({
+		LaserIdleState: LaserIdleState.new(self),
+		LaserChargingUpState: LaserChargingUpState.new(self),
+		LaserChargingDownState: LaserChargingDownState.new(self),
+		LaserFullyChargedUpState: LaserFullyChargedUpState.new(self),
+		LaserFullyChargedDownState: LaserFullyChargedDownState.new(self),
+	})
+	
 
 func _process(delta):
-	manage_sound_and_find_a_better_name()
-	handle_laser_visible_width()
-	select_laser_color()
-	handle_colliding(delta)
-	
+	update_mouse_position()
+	state_machine.set_state(get_next_state())
+	state_machine.update(delta)
+	clean_key_hierarchy()
 	
 func _physics_process(delta):
 	pass
 	
-	
-func manage_sound_and_find_a_better_name():
-	# TODO: scale db gradually.
-	if Input.is_action_just_pressed("size_up") or Input.is_action_just_pressed("size_down"):		
-		sound_player.play()
-	if Input.is_action_just_released("size_up") or Input.is_action_just_released("size_down"):
-		sound_player.stop()
-
-
-func handle_laser_visible_width() -> void:
-	if Input.is_action_pressed("size_up") or Input.is_action_pressed("size_down"):
-		casting_particles.emitting = true
-		if visible_laser.width <= laser_max_width:
-			visible_laser.width += laser_ready_speed
-			if visible_laser.width >= laser_max_width:
-				beam_particles.emitting = true
-				# Avoid going over limit.
-				visible_laser.width = laser_max_width
-				is_resizing_laser_enabled = true
-				if Input.is_action_pressed("size_up"):
-					size_up_beam_particle()
-				if Input.is_action_pressed("size_down"):
-					size_down_beam_particle()
-					
-			else:
-				beam_particles.emitting = false
-	else:
-		# no mouse click --> laser reset.
-		is_resizing_laser_enabled = false
-		casting_particles.emitting = false
-		beam_particles.emitting = false
-		visible_laser.width = laser_min_width
-
-
-func select_laser_color() -> void:
-	if Input.is_action_pressed("size_up"): 
-		visible_laser.default_color = Color(0.856, 0.002, 0.001, 1.0)
-		casting_particles.modulate = Color(0.856, 0.002, 0.001, 1.0)
-		beam_particles.modulate = Color(0.856, 0.002, 0.001, 1.0)
-	elif Input.is_action_pressed("size_down"):
-		visible_laser.default_color = Color(0.108, 0.345, 1.0, 1.0)
-		casting_particles.modulate = Color(0.108, 0.345, 1.0, 1.0)
-		beam_particles.modulate = Color(0.108, 0.345, 1.0, 1.0)
 		
-func handle_colliding(delta):
+func update_mouse_position():
 	var far_away_position = to_local(get_global_mouse_position()).normalized() * 5000
-	target_position = far_away_position
-	force_raycast_update()
-		
-	if is_colliding():
-		var collision_position = to_local(get_collision_point())
-		target_position = collision_position
-		visible_laser.set_point_position(1, target_position)
-		handle_resizing()
-	else:
-		visible_laser.set_point_position(1, far_away_position)
+	resize_ray.set_ray_position(resize_ray.position, far_away_position)
 	
 
-
-func size_up_beam_particle():
 	
-	var center = position.lerp(target_position, 0.5)
-	beam_particles.position = center
-	
-	beam_particles.process_material.emission_box_extents = Vector3(
-		visible_laser.points[0].distance_to(visible_laser.points[1]) / 2,
-		beam_particles.process_material.emission_box_extents.y,
-		beam_particles.process_material.emission_box_extents.z
-		)
-	beam_particles.rotation = Vector2.RIGHT.angle_to(target_position)
-	beam_particles.process_material.initial_velocity_min = 0 + abs(beam_particles.process_material.initial_velocity_min)
-	beam_particles.process_material.initial_velocity_max = 0 + abs(beam_particles.process_material.initial_velocity_max)
-
-func size_down_beam_particle():
-	var center = position.lerp(target_position, 0.5)
-	beam_particles.position = center
-	
-	beam_particles.process_material.emission_box_extents = Vector3(
-		visible_laser.points[0].distance_to(visible_laser.points[1]) / 2,
-		beam_particles.process_material.emission_box_extents.y,
-		beam_particles.process_material.emission_box_extents.z
-		)
-	beam_particles.rotation = Vector2.RIGHT.angle_to(target_position)
-	
-	beam_particles.process_material.initial_velocity_min = 0 - abs(beam_particles.process_material.initial_velocity_min)
-	beam_particles.process_material.initial_velocity_max = 0 - abs(beam_particles.process_material.initial_velocity_max)
-	
-	
-func handle_resizing():
-	if is_resizing_laser_enabled and is_target_resizable():
-		if Input.is_action_pressed("size_up"): 
-			if !audio_size_up_playing:
-				audio_size_up_playing = true
-				audio_size_up.play()
-			SignalBus.resize_ray_resize_up.emit(get_collision_shape(), GameState.current_resize_mode)
-		elif Input.is_action_pressed("size_down"):
-			if !audio_size_down_playing:
-				audio_size_down_playing = true
-				audio_size_down.play()
-			SignalBus.resize_ray_resize_down.emit(get_collision_shape(), GameState.current_resize_mode)
-		else:
-			if audio_size_down_playing:
-				audio_size_down.stop()
-				audio_size_down_playing = false
-			if audio_size_up_playing:
-				audio_size_up.stop()
-				audio_size_up_playing = false
-	else:
-		if audio_size_down_playing:
-			audio_size_down.stop()
-			audio_size_down_playing = false
-		if audio_size_up_playing:
-			audio_size_up.stop()
-			audio_size_up_playing = false
-		
-		
-
-		
-func is_target_resizable() -> bool:
-	var collider = get_collider()
-	return collider is Resizable
-
-		
-func get_collision_shape() -> CollisionShape2D:
-	var collider = get_collider()
-	var shape_index = get_collider_shape()
-	var owner_id = collider.shape_find_owner(shape_index)
-	return collider.shape_owner_get_owner(owner_id)
+func _input(event):
+	select_resize_mode(event)
 
 
 var resize_modes = [
@@ -174,9 +174,91 @@ var resize_modes = [
 ]
 
 
-func _input(event):
-	if event.is_action_pressed("change_resize_mode"):		
+func select_resize_mode(event):
+	# trigger event if resize mode change (horizontal, etc )
+	if event.is_action_pressed("change_resize_mode"):
 		var next_index = resize_modes.find(GameState.current_resize_mode) + 1
 		if next_index == 3:
 			next_index = 0
 		SignalBus.resize_mode_selected.emit(resize_modes[next_index])
+
+
+func get_next_state() -> State:
+	# select a state based on key pressed and laser width.
+	if Input.is_action_pressed("size_up"):
+		if visible_laser_width == laser_max_width:
+			return state_machine.states[LaserFullyChargedUpState]
+		else:
+			return state_machine.states[LaserChargingUpState]
+	elif Input.is_action_pressed("size_down"):
+		if visible_laser_width == laser_max_width:
+			return state_machine.states[LaserFullyChargedDownState]
+		else:
+			return state_machine.states[LaserChargingDownState]
+	else:
+		return state_machine.states[LaserIdleState]
+		
+
+func laser_hit_resizable(collision_shape):
+	if state_machine.current_state is LaserFullyChargedUpState:
+		SignalBus.resize_ray_resize_up.emit(collision_shape, GameState.current_resize_mode)
+	elif state_machine.current_state is LaserFullyChargedDownState:
+		SignalBus.resize_ray_resize_down.emit(collision_shape, GameState.current_resize_mode)
+	
+
+func get_new_laser_direction(laser, collision_shape) -> Array[Vector2]:
+	var direction = laser.target_position.normalized()
+	var normal = laser.get_collision_normal()
+	var reflected = direction.bounce(normal)
+	var unknown = laser.target_position + reflected * 5000
+	
+	# return [laser.target_position, unknown]
+	return [to_local(laser.get_collision_point()), unknown]
+	
+	
+var ray_hierarchy = {
+		
+}
+	
+func laser_hit_reflector(laser: ResizeRay, collision_shape):
+	
+	if not ray_hierarchy.get(laser):
+		if ray_hierarchy.size() > 5:
+			return
+		# limit ray hierarchy
+		const ResizeRayScene = preload("res://scenes/characters/player/resize_ray.tscn")
+		ray_hierarchy[laser] = ResizeRayScene.instantiate()
+		ray_hierarchy[laser].add_exception(collision_shape)
+		add_child(ray_hierarchy[laser])
+		ray_hierarchy[laser].tree_exited.connect(func():
+			ray_hierarchy.erase(laser)
+		)
+	
+	var bounced_ray = ray_hierarchy[laser]
+	bounced_ray.set_visible_laser_properties(laser.laser_width, laser.resize, laser.beam_particles.emitting)
+	bounced_ray.enable_laser()
+	
+	var new_direction = get_new_laser_direction(laser, collision_shape)
+	bounced_ray.set_ray_position(new_direction[0], new_direction[1])
+	# need state machina
+
+
+func laser_leaved_reflector(laser: ResizeRay):
+	if ray_hierarchy.get(laser):
+		ray_hierarchy[laser].queue_free()
+		ray_hierarchy[laser] = null
+	
+
+func clean_key_hierarchy():
+	for key in ray_hierarchy:
+		var sub_laser = ray_hierarchy[key]
+		if !is_instance_valid(sub_laser):
+			if is_instance_valid(key):
+				key.queue_free()
+			ray_hierarchy.erase(key)
+			
+		if !is_instance_valid(key):
+			if is_instance_valid(sub_laser):		
+				sub_laser.queue_free()
+			ray_hierarchy.erase(key)
+		
