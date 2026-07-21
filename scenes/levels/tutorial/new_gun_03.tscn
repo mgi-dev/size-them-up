@@ -154,7 +154,7 @@ scale = Vector2(0.76180995, 0.57744694)
 
 [node name="ResizableV3" parent="." index="9" unique_id=933583762 instance=ExtResource("5_i3621")]
 position = Vector2(864, 467)
-scale = Vector2(0.40594143, 0.45065624)
+scale = Vector2(0.56594145, 0.45065624)
 
 [node name="Door2" parent="." index="10" unique_id=1269967811 instance=ExtResource("2_hjg2i")]
 position = Vector2(976, 426)
@@ -171,11 +171,10 @@ position = Vector2(346.99997, 591)
 rotation = 1.0471976
 scale = Vector2(0.08062653, 0.0911216)
 
-[node name="Label" type="Label" parent="." index="14" unique_id=1567222288]
-offset_left = 357.0
-offset_top = 583.0
-offset_right = 550.0
-offset_bottom = 632.0
-scale = Vector2(0.19708556, 0.21668789)
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="14" unique_id=1736900743]
+offset_left = 258.0
+offset_top = 497.0
+offset_right = 405.0
+offset_bottom = 571.0
 text = "PRESS E HERE
 TODO: BETTER TUTORIAL"
