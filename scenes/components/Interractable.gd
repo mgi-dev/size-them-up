@@ -29,7 +29,7 @@ func set_glowing_area():
 			if already_interacted and !reusable:
 				glowing_area.color = Color("f2e43200")
 			else:
-				glowing_area.color = Color("f2e432")
+				glowing_area.color = Color("f2e432a6")
 		else:
 			glowing_area.color = Color("f2e43200")
 

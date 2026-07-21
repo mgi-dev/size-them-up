@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://b8npx51d1tadm" path="res://scenes/levels/tutorial/raw_plugin_gun.gd" id="5_sd73c"]
 [ext_resource type="PackedScene" uid="uid://cujngdsg4ikqc" path="res://scenes/components/Interactable.tscn" id="6_3alcq"]
 [ext_resource type="PackedScene" uid="uid://c6wfcwexku1m8" path="res://scenes/levels/level_04.tscn" id="8_3alcq"]
-[ext_resource type="PackedScene" uid="uid://cj1w1b0ghswrx" path="res://scenes/embelish/arrow.tscn" id="9_o4hvx"]
 [ext_resource type="Script" uid="uid://cg7fqa4aiq6oy" path="res://scenes/levels/tutorial/node.gd" id="11_2gyme"]
 [ext_resource type="PackedScene" uid="uid://brcppoqy7g8s5" path="res://scenes/landscape/computer/Email.tscn" id="11_nwut6"]
 
@@ -179,15 +178,21 @@ tile_map_data = PackedByteArray("AAAQACYAAAAAAAUAAAARACYAAAAFAAUAAAD5/yYAAAAGAAU
 tile_set = SubResource("TileSet_sd73c")
 
 [node name="RawPluginGun" type="Sprite2D" parent="." index="7" unique_id=27987628]
+z_index = 1
 position = Vector2(368, 618.99994)
 scale = Vector2(0.053921558, 0.053921558)
 texture = ExtResource("4_7oxc0")
 script = ExtResource("5_sd73c")
 
-[node name="Interractable" parent="RawPluginGun" index="0" unique_id=19942530 node_paths=PackedStringArray("player_detector") instance=ExtResource("6_3alcq")]
+[node name="Interractable" parent="RawPluginGun" index="0" unique_id=19942530 node_paths=PackedStringArray("player_detector", "glowing_area") instance=ExtResource("6_3alcq")]
 position = Vector2(0, 74.18294)
 scale = Vector2(-6.736564, 9.436705)
 player_detector = NodePath("CollisionShape2D")
+glowing_area = NodePath("../Polygon2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="RawPluginGun" index="1" unique_id=2056454105]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-148.36377, -18.544922, -111.27295, -55.635742, -18.54541, -55.635742, 37.09082, -55.635742, 74.18164, -92.72656, 111.27295, -92.72656, 166.90918, -55.635742, 166.90918, 0.0009765625, 129.81836, 0.0009765625, 148.36377, 18.545898, 148.36377, 55.63672, 111.27295, 92.72754, 55.63623, 92.72754, 55.63623, 55.63672, 18.54541, 55.63672, 0, 92.72754, -55.63623, 92.72754, -92.72754, 55.63672, -148.36377, 55.63672)
 
 [node name="ResizableV2" parent="." index="8" unique_id=2113696681 instance=ExtResource("5_i3621")]
 position = Vector2(794.99994, 575.99994)
@@ -207,20 +212,7 @@ position = Vector2(476, 616)
 [node name="ResizableV5" parent="." index="12" unique_id=1075608808 instance=ExtResource("5_i3621")]
 position = Vector2(476, 568)
 
-[node name="Arrow" parent="." index="13" unique_id=693014094 instance=ExtResource("9_o4hvx")]
-position = Vector2(346.99997, 591)
-rotation = 1.0471976
-scale = Vector2(0.08062653, 0.0911216)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="14" unique_id=1736900743]
-offset_left = 258.0
-offset_top = 497.0
-offset_right = 405.0
-offset_bottom = 571.0
-text = "PRESS E HERE
-TODO: BETTER TUTORIAL"
-
-[node name="Node" type="Node" parent="." index="15" unique_id=1246925429]
+[node name="Node" type="Node" parent="." index="13" unique_id=1246925429]
 script = ExtResource("11_2gyme")
 
 [node name="Computer" parent="Node" index="0" unique_id=1859006309 instance=ExtResource("4_o3qls")]
