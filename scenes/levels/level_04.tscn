@@ -37,7 +37,7 @@ position = Vector2(-124, 138)
 [node name="ResizableV6" parent="." index="11" unique_id=2113696681 node_paths=PackedStringArray("ignore_collision_for") instance=ExtResource("4_cw75u")]
 position = Vector2(3.0517578e-05, -40.000015)
 scale = Vector2(1.6571598, 1.6042252)
-ignore_collision_for = NodePath("")
+ignore_collision_for = NodePath("../Box2")
 
 [node name="Box2" parent="." index="12" unique_id=1110912954 instance=ExtResource("6_ypi4k")]
 position = Vector2(64, -24)

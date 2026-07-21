@@ -27,10 +27,6 @@ func ignore(to_ignore):
 
 
 func is_shape_blocked() -> bool:
-	print("top : ", is_something_colliding(top_detector))
-	print("bottom : ", is_something_colliding(bottom_detector))
-	print("left : ", is_something_colliding(left_detector))
-	print("right : ", is_something_colliding(right_detector))
 	if is_something_colliding(top_detector) and is_something_colliding(bottom_detector):
 		return true
 	if is_something_colliding(left_detector) and is_something_colliding(right_detector):
