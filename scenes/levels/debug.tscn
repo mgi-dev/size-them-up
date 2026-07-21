@@ -76,10 +76,16 @@ position = Vector2(2209, 589)
 position = Vector2(2454, 598)
 
 [node name="ResizableV9" parent="." index="22" unique_id=2025474938 instance=ExtResource("2_p0r41")]
-position = Vector2(2668, 600)
+position = Vector2(2506, 598)
 
 [node name="Ladder" parent="." index="23" unique_id=1163521122 instance=ExtResource("7_gd5e8")]
 position = Vector2(2088, 539)
 
 [node name="Ladder2" parent="." index="24" unique_id=388181933 instance=ExtResource("7_gd5e8")]
 position = Vector2(2088, 320)
+
+[node name="GreyBloc5" parent="." index="25" unique_id=571486958 instance=ExtResource("4_xs65t")]
+position = Vector2(3064, 418)
+
+[node name="ResizableV10" parent="." index="26" unique_id=319058247 instance=ExtResource("2_p0r41")]
+position = Vector2(2841, 583)

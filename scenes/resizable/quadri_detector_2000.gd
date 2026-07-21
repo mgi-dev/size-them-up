@@ -25,16 +25,17 @@ func ignore(to_ignore):
 	ignore_list.append(to_ignore)
 
 
-
-func is_shape_blocked() -> bool:
-	if is_something_colliding(top_detector) and is_something_colliding(bottom_detector):
-		return true
-	if is_something_colliding(left_detector) and is_something_colliding(right_detector):
-		return true
+func is_shape_blocked(resize_mode: Enums.RESIZE_MODE) -> bool:
+	if resize_mode in [Enums.RESIZE_MODE.VERTICAL, Enums.RESIZE_MODE.ALL]:
+		if is_something_colliding(top_detector) and is_something_colliding(bottom_detector):
+			return true
+	if resize_mode in [Enums.RESIZE_MODE.HORIZONTAL, Enums.RESIZE_MODE.ALL]:
+		if is_something_colliding(left_detector) and is_something_colliding(right_detector):
+			return true
 	return false
 
 
-func is_something_colliding(detector: ShapeCast2D):
+func is_something_colliding(detector: ShapeCast2D) -> bool:
 	for i in range(detector.get_collision_count()):
 		var collider = detector.get_collider(i)
 		if collider not in ignore_list:
@@ -42,9 +43,9 @@ func is_something_colliding(detector: ShapeCast2D):
 			
 			return true
 	return false
-	
-	
-func is_player_colliding():
+
+		
+func is_player_colliding()-> bool:
 	for detector in all_detector:
 		for i in range(detector.get_collision_count()):
 			var collider = detector.get_collider(i)

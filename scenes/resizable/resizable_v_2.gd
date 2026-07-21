@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 
 func resize_up(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> void:
 	if target == hitbox:
-		if can_size_up():
+		if can_size_up(resize_mode):
 			size_up(resize_mode)
 
 
@@ -78,8 +78,8 @@ func resize_down(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> vo
 			size_down(resize_mode)
 
 
-func can_size_up() -> bool:
-	return GameState.can_size_up() and !is_player_colliding() and !is_shape_blocked()
+func can_size_up(resize_mode: Enums.RESIZE_MODE) -> bool:
+	return GameState.can_size_up() and !is_player_colliding(resize_mode) and !is_shape_blocked(resize_mode)
 	
 	
 func can_size_down(resize_mode: Enums.RESIZE_MODE) -> bool:
@@ -94,8 +94,9 @@ func can_size_down(resize_mode: Enums.RESIZE_MODE) -> bool:
 		obj_min_size_reached = y_min_reached
 	else:
 		obj_min_size_reached = x_min_reached or y_min_reached
-	
-	return GameState.can_size_down() and !is_player_colliding() and !obj_min_size_reached
+	# why check player whn sizing down ?
+	#return GameState.can_size_down() and !is_player_colliding(resize_mode) and !obj_min_size_reached
+	return GameState.can_size_down() and !obj_min_size_reached
 
 
 func size_up(resize_mode: Enums.RESIZE_MODE) -> void:
@@ -152,18 +153,17 @@ func process_sprite_resize() -> void:
 		current_sprite_scale_multiplier_vector = new_scale_muliplier_vector
 
 
-func is_player_colliding():
+func is_player_colliding(resize_mode: Enums.RESIZE_MODE):
 	if collision_detector:
-		var colliding = collision_detector.is_player_colliding()
-		if colliding:
+		if collision_detector.is_player_colliding() and collision_detector.is_shape_blocked(resize_mode):
 			SignalBus.game_event_happened.emit(Enums.GAME_EVENT.PLAYER_CLOSE_TO_RESIZABLE)
-		return colliding
-	else:
+			return true
 		return false
+
 		
-func is_shape_blocked():
+func is_shape_blocked(resize_mode: Enums.RESIZE_MODE):
 	if collision_detector:
-		return collision_detector.is_shape_blocked()
+		return collision_detector.is_shape_blocked(resize_mode)
 	return false
 
 func get_size() -> Vector2:
