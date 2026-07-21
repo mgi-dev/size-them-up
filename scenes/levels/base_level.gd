@@ -34,7 +34,7 @@ func display_transition_out_from_level(next_level):
 		
 		var tween = create_tween()
 		var texture_size = transition_sprite.texture.get_size()
-		var screen_diagonal = get_viewport().get_visible_rect().size.length()
+		var screen_diagonal = get_viewport().get_visible_rect().size.length() * 2
 		
 		tween.tween_property(transition_sprite, "scale" , Vector2.ONE * (screen_diagonal / texture_size.x), 0.3)
 
@@ -48,7 +48,7 @@ func display_transition_into_level():
 		entrance_door.reset_open()
 	transition_sprite.position = $Player.position - Vector2(0.5, 0.5)
 	var texture_size = transition_sprite.texture.get_size()
-	var screen_diagonal = get_viewport().get_visible_rect().size.length()
+	var screen_diagonal = get_viewport().get_visible_rect().size.length() * 2
 	transition_sprite.scale = Vector2.ONE * (screen_diagonal / texture_size.x)
 	await get_tree().create_timer(0.5).timeout
 	var tween = create_tween()
