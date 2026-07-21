@@ -8,6 +8,7 @@ class_name Player
 
 
 const SPEED = 300.0
+const ACCELERATION = 2000.0
 const JUMP_VELOCITY = -350.0
 const CLIMB_SPEED = 200.0
 
