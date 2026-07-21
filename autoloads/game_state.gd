@@ -22,7 +22,8 @@ func _physics_process(delta):
 		multi_resize_mode_enabled = god_mode
 		
 		print("god mode is ", "on" if god_mode else "off")
-
+	if Input.is_action_just_pressed("reset_scene"):
+		get_tree().reload_current_scene()
 
 func on_gauge_changed(percentage: float) -> void:
 	if percentage >= 100:

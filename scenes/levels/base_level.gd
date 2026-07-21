@@ -13,7 +13,6 @@ func _ready():
 	display_transition_into_level()
 	SignalBus.next_level.connect(display_transition_out_from_level)
 	
-	
 
 func _process(delta):
 	pass

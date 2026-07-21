@@ -70,14 +70,12 @@ func resize_up(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> void
 	if target == hitbox:
 		if can_size_up():
 			size_up(resize_mode)
-			#process_hitbox_resize()
 
 
 func resize_down(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> void:		
 	if target == hitbox:
 		if can_size_down(resize_mode):
 			size_down(resize_mode)
-			#process_hitbox_resize()
 
 
 func can_size_up() -> bool:
@@ -101,7 +99,6 @@ func can_size_down(resize_mode: Enums.RESIZE_MODE) -> bool:
 
 
 func size_up(resize_mode: Enums.RESIZE_MODE) -> void:
-	
 	new_scale_muliplier_vector = current_scale_muliplier_vector + get_transformation_vector(resize_mode)
 	emit_resized_event(resize_mode, PERCENT_PER_STEP)	
 	
