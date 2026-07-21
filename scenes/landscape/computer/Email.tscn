@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://brcppoqy7g8s5"]
+
+[ext_resource type="Script" uid="uid://8hca5lp402kt" path="res://scenes/landscape/computer/email.gd" id="1_iurf4"]
+[ext_resource type="Texture2D" uid="uid://ditenpbgmm0e4" path="res://assets/images/raw_mail_template.png" id="2_vp3jb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hpoyw"]
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp3jb"]
+size = Vector2(120, 39.999992)
+
+[node name="Email" type="Area2D" unique_id=1835343870]
+script = ExtResource("1_iurf4")
+display = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=7091530]
+texture_filter = 1
+position = Vector2(1.5258789e-05, 1.5258789e-05)
+scale = Vector2(6.24, 6.24)
+texture = ExtResource("2_vp3jb")
+
+[node name="recipient_label" type="Label" parent="." unique_id=36920906]
+offset_left = -536.0
+offset_top = -292.0
+offset_right = -507.0
+offset_bottom = -270.0
+text = "TO :"
+label_settings = SubResource("LabelSettings_hpoyw")
+
+[node name="cc_label" type="Label" parent="." unique_id=1581928254]
+offset_left = -536.0
+offset_top = -236.0
+offset_right = -509.0
+offset_bottom = -214.0
+text = "CC :"
+label_settings = SubResource("LabelSettings_hpoyw")
+
+[node name="sender_label" type="Label" parent="." unique_id=275719936]
+offset_left = -536.0
+offset_top = -180.0
+offset_right = -490.0
+offset_bottom = -158.0
+text = "From :"
+label_settings = SubResource("LabelSettings_hpoyw")
+
+[node name="subject_label" type="Label" parent="." unique_id=466732303]
+z_index = 500
+offset_left = -536.0
+offset_top = -124.0
+offset_right = -474.0
+offset_bottom = -102.0
+text = "Subject :"
+label_settings = SubResource("LabelSettings_hpoyw")
+
+[node name="CloseButtonCollisionShape2D" type="CollisionShape2D" parent="." unique_id=790761399]
+position = Vector2(487.24487, 261.0323)
+shape = SubResource("RectangleShape2D_vp3jb")
+
+[node name="Label" type="Label" parent="." unique_id=196590726]
+offset_left = 446.0
+offset_top = 239.0
+offset_right = 534.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Close"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

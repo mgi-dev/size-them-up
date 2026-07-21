@@ -203,7 +203,6 @@ func get_next_state() -> State:
 		else:
 			return state_machine.states[LaserChargingUpState]
 	elif Input.is_action_pressed("size_down"):
-		print(ray_hierarchy)
 		if visible_laser_width == laser_max_width and is_laser_hitting_resizable():
 			return state_machine.states[LaserFullyChargedDownState]
 		else:

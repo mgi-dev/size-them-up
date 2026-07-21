@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cx21ak7djiktk"]
+
+[ext_resource type="Script" uid="uid://f60nmfdj4cme" path="res://scenes/landscape/computer/computer.gd" id="1_sgthl"]
+[ext_resource type="Texture2D" uid="uid://c7xbd18gdf6nf" path="res://assets/tileset/lab_tileset_base.png" id="2_3xxca"]
+[ext_resource type="PackedScene" uid="uid://bxtamm24vx1ps" path="res://scenes/components/Flashing.tscn" id="2_sgthl"]
+[ext_resource type="PackedScene" uid="uid://cujngdsg4ikqc" path="res://scenes/components/Interactable.tscn" id="4_8lid0"]
+
+[node name="Computer" type="Node2D" unique_id=1859006309]
+script = ExtResource("1_sgthl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=28815778]
+texture = ExtResource("2_3xxca")
+region_enabled = true
+region_rect = Rect2(64.49861, 4.7674255, 31.230011, 27.305828)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1960686110]
+position = Vector2(-8, -9)
+texture = ExtResource("2_3xxca")
+region_enabled = true
+region_rect = Rect2(0.24306488, 80.44472, 15.369743, 16.67781)
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=245406488]
+position = Vector2(7, -6)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_3xxca")
+region_enabled = true
+region_rect = Rect2(15.829437, 101.56467, 15.411583, 10.386063)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=424430071]
+color = Color(0, 0.77602226, 0.77602214, 1)
+polygon = PackedVector2Array(-13, -14, -3, -14, -3, -8, -13, -8)
+
+[node name="Flashing" parent="." unique_id=1865316616 node_paths=PackedStringArray("flashing_polygon") instance=ExtResource("2_sgthl")]
+flashing_polygon = NodePath("../Polygon2D")
+
+[node name="Interractable" parent="." unique_id=19942530 node_paths=PackedStringArray("glowing_area") instance=ExtResource("4_8lid0")]
+glowing_area = NodePath("../Polygon2D2")
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1949503269]
+z_index = -1
+color = Color(0.9490196, 0.89411765, 0.19607843, 0)
+polygon = PackedVector2Array(-18, -19, 2, -19, 2, -16, 5.9047394, -16, 17, -16, 17, 16, 10, 16, 10, 12, -10, 12, -10, 17, -17, 17, -18, 17)

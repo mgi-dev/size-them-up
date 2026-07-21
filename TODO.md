@@ -1,7 +1,6 @@
 - smooth camera scroll
 - detector for round shape (gl)
 - avoid soft lock
- --> reset button
  - cinefeedback
 --> empty gauge
 - flying_rect bug

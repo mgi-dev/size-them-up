@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bxtamm24vx1ps"]
+
+[ext_resource type="Script" uid="uid://bapig8t006i5b" path="res://scenes/components/flashing.gd" id="1_t4t0m"]
+
+[node name="Flashing" type="Node2D" unique_id=1865316616]
+script = ExtResource("1_t4t0m")
