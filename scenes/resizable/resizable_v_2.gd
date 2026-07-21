@@ -7,9 +7,10 @@ class_name Resizable
 @export var collision_detector: QuadriDetector
 @export var ignore_collision_for: Node2D
 
+var PIXEL_PER_STEP: float = 0.5
+var PERCENT_PER_STEP: float = 0.01
 
-var RESIZE_SPEED: float = 0.01
-
+var initial_size: Vector2
 var initial_scale_transform: Vector2 # (2, 2) 
 
 var current_scale_muliplier_vector = Vector2(1.0, 1.0)
@@ -34,9 +35,11 @@ func _ready() -> void:
 	# this keep the transformation linear. If we apply the transformation on scale at each frame the transformation is logarithmic. And that's bad.
 	# setting size for hitbox based on parent transfom scale (1.5, 1.5)
 	initial_scale_transform = scale
-	
 	sprite.scale = initial_scale_transform
 	hitbox.scale = initial_scale_transform
+	initial_size = sprite.texture.get_size() * sprite.scale
+	
+
 	if collision_detector:
 		collision_detector.ignore(self)
 		if ignore_collision_for:
@@ -72,7 +75,7 @@ func resize_up(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> void
 
 func resize_down(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> void:		
 	if target == hitbox:
-		if can_size_down():
+		if can_size_down(resize_mode):
 			size_down(resize_mode)
 			#process_hitbox_resize()
 
@@ -81,38 +84,54 @@ func can_size_up() -> bool:
 	return GameState.can_size_up() and !is_player_colliding() and !is_shape_blocked()
 	
 	
-func can_size_down() -> bool:
-	var obj_min_size_reached = current_scale_muliplier_vector.x <= 0.02 or current_scale_muliplier_vector.y <= 0.02
+func can_size_down(resize_mode: Enums.RESIZE_MODE) -> bool:
+	var actual_size = get_size()
+	var x_min_reached = actual_size.x <= 8
+	var y_min_reached = actual_size.y <= 8
+	var obj_min_size_reached
+	
+	if resize_mode == Enums.RESIZE_MODE.HORIZONTAL:
+		obj_min_size_reached = x_min_reached
+	elif resize_mode == Enums.RESIZE_MODE.VERTICAL:
+		obj_min_size_reached = y_min_reached
+	else:
+		obj_min_size_reached = x_min_reached or y_min_reached
+	
 	return GameState.can_size_down() and !is_player_colliding() and !obj_min_size_reached
 
 
 func size_up(resize_mode: Enums.RESIZE_MODE) -> void:
-	var _transform = get_transformation_vector(RESIZE_SPEED, resize_mode)
-	new_scale_muliplier_vector = current_scale_muliplier_vector + _transform
-	emit_resized_event(current_scale_muliplier_vector, new_scale_muliplier_vector)
-
 	
+	new_scale_muliplier_vector = current_scale_muliplier_vector + get_transformation_vector(resize_mode)
+	emit_resized_event(resize_mode, PERCENT_PER_STEP)	
+	
+
+
 func size_down(resize_mode: Enums.RESIZE_MODE) -> void:
-	var _transform = get_transformation_vector(RESIZE_SPEED, resize_mode)
-	new_scale_muliplier_vector = current_scale_muliplier_vector - _transform
-	emit_resized_event(current_scale_muliplier_vector, new_scale_muliplier_vector)
-
-
-func emit_resized_event(current_scale_muliplier_vector: Vector2, new_scale_muliplier_vector: Vector2):
-	var diff_vector = new_scale_muliplier_vector - current_scale_muliplier_vector
-	SignalBus.resized.emit(diff_vector.x + diff_vector.y)
-
-
-func get_transformation_vector(transform: float, resize_mode: Enums.RESIZE_MODE) -> Vector2:
-	# Get the vector to apply to the chape depending on resize mode.
+	new_scale_muliplier_vector = current_scale_muliplier_vector - get_transformation_vector(resize_mode)
+	emit_resized_event(resize_mode, -PERCENT_PER_STEP)	
+		
+		
+func emit_resized_event(resize_mode: Enums.RESIZE_MODE, chunk_resized: float):
 	if resize_mode == Enums.RESIZE_MODE.ALL:
-		return  Vector2(transform, transform)
+		SignalBus.resized.emit(chunk_resized * 2)
+	else:
+		SignalBus.resized.emit(chunk_resized)
+
+
+func get_transformation_vector(resize_mode: Enums.RESIZE_MODE) -> Vector2:
+	# Get the vector to apply to the chape depending on resize mode.
+	var scale_x = PIXEL_PER_STEP / initial_size[0]
+	var scale_y = PIXEL_PER_STEP / initial_size[1]
+	
+	if resize_mode == Enums.RESIZE_MODE.ALL:
+		return Vector2(scale_x, scale_y)
 	elif resize_mode == Enums.RESIZE_MODE.HORIZONTAL:
-		return  Vector2(transform, 0.0)
+		return  Vector2(scale_x, 0.0)
 	elif resize_mode == Enums.RESIZE_MODE.VERTICAL:
-		return Vector2(0.0, transform)
+		return Vector2(0.0, scale_y)
 	else: 
-		return Vector2(transform, transform)
+		return Vector2(scale_x, scale_y)
 	
 	
 func process_hitbox_resize() -> void:
@@ -131,7 +150,7 @@ func process_hitbox_resize() -> void:
 	
 func process_sprite_resize() -> void:
 	var vector_diff = current_sprite_scale_multiplier_vector - new_scale_muliplier_vector
-	if abs(vector_diff.x) >= RESIZE_SPEED or abs(vector_diff.y) >= RESIZE_SPEED:
+	if abs(vector_diff.x) > 0 or abs(vector_diff.y) > 0:
 		sprite.scale = initial_scale_transform * new_scale_muliplier_vector
 		current_sprite_scale_multiplier_vector = new_scale_muliplier_vector
 
@@ -150,6 +169,8 @@ func is_shape_blocked():
 		return collision_detector.is_shape_blocked()
 	return false
 
+func get_size() -> Vector2:
+	return sprite.texture.get_size() * sprite.scale
 
 func parametrize_sprite_shader() -> void:
 	var gradiant_config = {

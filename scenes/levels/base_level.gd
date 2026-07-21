@@ -61,7 +61,3 @@ func display_transition_into_level():
 	if entrance_door:
 		entrance_door.close_door()
 	
-	
-		
-
-	
