@@ -16,6 +16,7 @@ class_name ResizeGun
 @export var laser_max_width: float = 4.0
 @export var laser_ready_speed: float = 0.1
 
+var resize_mode = Enums.RESIZE_MODE.ALL
 
 
 class LaserState extends State:
@@ -27,20 +28,31 @@ class LaserState extends State:
 	
 	
 	func increase_laser_size():
-		if resize_gun.visible_laser_width <= resize_gun.laser_max_width:
-			resize_gun.visible_laser_width += resize_gun.laser_ready_speed
-			if resize_gun.visible_laser_width >= resize_gun.laser_max_width:
-				resize_gun.visible_laser_width = resize_gun.laser_max_width
-
+		resize_gun.visible_laser_width = move_toward(
+			resize_gun.visible_laser_width,
+			resize_gun.laser_max_width,
+			resize_gun.laser_ready_speed
+		)
+	
+	func get_all_lasers() -> Array[ResizeRay]:
+		var lasers: Array[ResizeRay] = [resize_gun.resize_ray]
+		for key in resize_gun.ray_hierarchy:
+			if is_instance_valid(key):
+				var sub_laser = resize_gun.ray_hierarchy[key]
+				if is_instance_valid(sub_laser):
+					lasers.append(sub_laser)
+		return lasers
+	
 
 class LaserIdleState extends LaserState:
 	func enter():
 		resize_gun.sound_player.stop()
-		
-		resize_gun.resize_ray.disable_laser()
-		resize_gun.resize_ray.set_visible_laser_properties(resize_gun.laser_min_width, null, false)
 		resize_gun.casting_particles.emitting = false
 		resize_gun.visible_laser_width = resize_gun.laser_min_width
+		for laser in get_all_lasers():
+			laser.disable_laser()
+			laser.set_visible_laser_properties(resize_gun.laser_min_width, null, false)
+		
 		super.enter()
 
 	func exit():
@@ -69,9 +81,7 @@ class LaserChargingUpState extends LaserState:
 
 	func update(delta):
 		increase_laser_size()
-		resize_gun.resize_ray.set_visible_laser_properties(
-			resize_gun.visible_laser_width, Enums.RESIZE.UP, false
-		)
+		resize_gun.resize_ray.set_visible_laser_properties(resize_gun.visible_laser_width, Enums.RESIZE.UP, false)
 		
 		super.update(delta)
 		
@@ -90,9 +100,7 @@ class LaserChargingDownState extends LaserState:
 
 	func update(delta):
 		increase_laser_size()
-		resize_gun.resize_ray.set_visible_laser_properties(
-			resize_gun.visible_laser_width, Enums.RESIZE.DOWN, false
-		)
+		resize_gun.resize_ray.set_visible_laser_properties(resize_gun.visible_laser_width, Enums.RESIZE.DOWN, false)
 		super.update(delta)
 		
 
@@ -108,13 +116,13 @@ class LaserFullyChargedUpState extends LaserState:
 		super.exit()
 
 	func update(delta):
-
-		resize_gun.resize_ray.enable_laser()
-		resize_gun.resize_ray.set_visible_laser_properties(null, null, true)
-		resize_gun.resize_ray.set_visible_laser_properties(resize_gun.visible_laser_width, Enums.RESIZE.UP, true)
+		for _laser in get_all_lasers():
+			update_laser(_laser)
 		super.update(delta)
 		
-
+	func update_laser(laser: ResizeRay):
+		laser.enable_laser()
+		laser.set_visible_laser_properties(resize_gun.visible_laser_width, Enums.RESIZE.UP, true)
 
 class LaserFullyChargedDownState extends LaserState:
 	func enter():
@@ -128,11 +136,14 @@ class LaserFullyChargedDownState extends LaserState:
 		super.exit()
 
 	func update(delta):
-
-		resize_gun.resize_ray.enable_laser()
-		resize_gun.resize_ray.set_visible_laser_properties(null, null, true)
-		resize_gun.resize_ray.set_visible_laser_properties(resize_gun.visible_laser_width, Enums.RESIZE.DOWN, true)
+		for _laser in get_all_lasers():
+			update_laser(_laser)
 		super.update(delta)
+		
+	func update_laser(laser: ResizeRay):
+		laser.enable_laser()
+		laser.set_visible_laser_properties(resize_gun.visible_laser_width, Enums.RESIZE.DOWN, true)
+
 		
 
 func _ready():
@@ -180,30 +191,44 @@ func select_resize_mode(event):
 		var next_index = resize_modes.find(GameState.current_resize_mode) + 1
 		if next_index == 3:
 			next_index = 0
+		resize_mode = resize_modes[next_index]
 		SignalBus.resize_mode_selected.emit(resize_modes[next_index])
 
 
 func get_next_state() -> State:
 	# select a state based on key pressed and laser width.
 	if Input.is_action_pressed("size_up"):
-		if visible_laser_width == laser_max_width:
+		if visible_laser_width == laser_max_width and is_laser_hitting_resizable():
 			return state_machine.states[LaserFullyChargedUpState]
 		else:
 			return state_machine.states[LaserChargingUpState]
 	elif Input.is_action_pressed("size_down"):
-		if visible_laser_width == laser_max_width:
+		print(ray_hierarchy)
+		if visible_laser_width == laser_max_width and is_laser_hitting_resizable():
 			return state_machine.states[LaserFullyChargedDownState]
 		else:
 			return state_machine.states[LaserChargingDownState]
 	else:
 		return state_machine.states[LaserIdleState]
-		
+	
+	
+func is_laser_hitting_resizable() -> bool:
+	if resize_ray.is_target_resizable():
+		return true
+	for key in ray_hierarchy:
+		if is_instance_valid(key):
+			var sub_laser = ray_hierarchy[key]
+			if is_instance_valid(sub_laser):
+				if sub_laser.is_target_resizable():
+					return true
+	return false
 
+	
 func laser_hit_resizable(collision_shape):
 	if state_machine.current_state is LaserFullyChargedUpState:
-		SignalBus.resize_ray_resize_up.emit(collision_shape, GameState.current_resize_mode)
+		SignalBus.resize_ray_resize_up.emit(collision_shape, resize_mode)
 	elif state_machine.current_state is LaserFullyChargedDownState:
-		SignalBus.resize_ray_resize_down.emit(collision_shape, GameState.current_resize_mode)
+		SignalBus.resize_ray_resize_down.emit(collision_shape, resize_mode)
 	
 
 func get_new_laser_direction(laser, collision_shape) -> Array[Vector2]:
@@ -212,13 +237,13 @@ func get_new_laser_direction(laser, collision_shape) -> Array[Vector2]:
 	var reflected = direction.bounce(normal)
 	var unknown = laser.target_position + reflected * 5000
 	
-	# return [laser.target_position, unknown]
 	return [to_local(laser.get_collision_point()), unknown]
 	
 	
-var ray_hierarchy = {
+var ray_hierarchy:  = {
 		
 }
+	
 	
 func laser_hit_reflector(laser: ResizeRay, collision_shape):
 	
@@ -231,13 +256,14 @@ func laser_hit_reflector(laser: ResizeRay, collision_shape):
 		ray_hierarchy[laser].add_exception(collision_shape)
 		add_child(ray_hierarchy[laser])
 		ray_hierarchy[laser].tree_exited.connect(func():
+			
 			ray_hierarchy.erase(laser)
 		)
 	
 	var bounced_ray = ray_hierarchy[laser]
 	bounced_ray.set_visible_laser_properties(laser.laser_width, laser.resize, laser.beam_particles.emitting)
 	bounced_ray.enable_laser()
-	
+	bounced_ray.sub_ray = true
 	var new_direction = get_new_laser_direction(laser, collision_shape)
 	bounced_ray.set_ray_position(new_direction[0], new_direction[1])
 	# need state machina
@@ -245,20 +271,29 @@ func laser_hit_reflector(laser: ResizeRay, collision_shape):
 
 func laser_leaved_reflector(laser: ResizeRay):
 	if ray_hierarchy.get(laser):
-		ray_hierarchy[laser].queue_free()
-		ray_hierarchy[laser] = null
+		recursive_clean(laser)
 	
-
+	
+func recursive_clean(laser: ResizeRay):
+	if ray_hierarchy.get(laser):
+		return recursive_clean(ray_hierarchy.get(laser))
+	else:
+		laser.queue_free()
+		ray_hierarchy.erase(laser)
+		return null
+	
 func clean_key_hierarchy():
 	for key in ray_hierarchy:
-		var sub_laser = ray_hierarchy[key]
-		if !is_instance_valid(sub_laser):
-			if is_instance_valid(key):
-				key.queue_free()
-			ray_hierarchy.erase(key)
-			
+		if is_instance_valid(key):
+			var sub_laser = ray_hierarchy[key]
+			if !is_instance_valid(sub_laser):
+				if is_instance_valid(key):
+					key.queue_free()
+				ray_hierarchy.erase(key)
+				
 		if !is_instance_valid(key):
+			# BIG memory leak, must keep game short i guess.
+			var sub_laser = ray_hierarchy[key]
 			if is_instance_valid(sub_laser):		
 				sub_laser.queue_free()
 			ray_hierarchy.erase(key)
-		

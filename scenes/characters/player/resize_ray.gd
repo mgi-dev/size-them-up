@@ -14,6 +14,7 @@ class_name ResizeRay
 
 @onready var beam_particles: GPUParticles2D = $BeamParticles2D
 
+var sub_ray = false
 
 var is_resizing_laser_enabled: bool = false
 
@@ -73,7 +74,10 @@ func disable_laser():
 func handle_colliding(delta):
 	visible_laser.set_point_position(1, target_position)
 	if is_colliding():
-		target_position = to_local(get_collision_point())
+		# repositionning after colliding miss the collision in some weird angles.
+		# manually ajusting of one pixel...
+		var bloup = (to_local(get_collision_point()) - position).normalized()
+		target_position = to_local(get_collision_point()) + bloup
 		
 		if is_resizing_laser_enabled and is_target_resizable():
 			get_parent().laser_hit_resizable(get_collision_shape())
@@ -112,8 +116,10 @@ func size_up_beam_particle():
 
 	
 func is_target_resizable() -> bool:
-	var collider = get_collider()
-	return collider is Resizable
+	if is_colliding():
+		var collider = get_collider()
+		return collider is Resizable
+	return false
 
 
 func is_target_reflector()-> bool:
