@@ -30,7 +30,8 @@ func _process(delta):
 
 
 func _input(event):
-	if event.is_action_released("click_on_button") and mouse_over:
+	if event.is_action_released("click_on_button") and mouse_over or event.is_action_released("game_pad_click_on_button"):
+		SignalBus.mouse_click.emit()
 		display = false
 	
 

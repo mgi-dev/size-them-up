@@ -17,6 +17,7 @@ func _process(delta):
 
 func on_interact():
 	if enable:
+		SignalBus.mouse_click.emit()
 		$Flashing.is_flashing = false
 		var parent = get_parent()
 		if parent:
