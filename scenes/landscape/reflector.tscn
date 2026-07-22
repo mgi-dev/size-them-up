@@ -4,20 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="2_jhtnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isk2u"]
-size = Vector2(11.358437, 63.533813)
+size = Vector2(7.572291, 38.120285)
 
 [node name="Reflector" type="AnimatableBody2D" unique_id=153285780]
 script = ExtResource("1_isk2u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1949308443]
-position = Vector2(-1.9073486e-06, -1.9073486e-06)
-scale = Vector2(3.9999998, 3.9999998)
+texture_filter = 1
+scale = Vector2(1.9999999, 1.9999999)
 texture = ExtResource("2_jhtnj")
 region_enabled = true
 region_rect = Rect2(335.67096, 159.62254, 16.43985, 16.79213)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1172294837]
-position = Vector2(-1.9999998, 2.0000005)
+position = Vector2(0, -2.3841858e-07)
 rotation = -0.7853982
 scale = Vector2(1.4940933, 0.89036924)
 shape = SubResource("RectangleShape2D_isk2u")
