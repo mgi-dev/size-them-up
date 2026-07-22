@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="4_cw75u"]
 [ext_resource type="Script" uid="uid://60gha41340c5" path="res://scenes/levels/level_04.gd" id="4_nanf4"]
 [ext_resource type="PackedScene" uid="uid://nyjv81jh5kks" path="res://scenes/landscape/Ladder.tscn" id="5_j6e47"]
+[ext_resource type="PackedScene" uid="uid://mgc4glbao1q2" path="res://scenes/levels/miror_miror_05.tscn" id="6_cw75u"]
 [ext_resource type="PackedScene" uid="uid://dmo3siywfanyf" path="res://scenes/landscape/Box.tscn" id="6_ypi4k"]
 
 [node name="Level_04" unique_id=1818539085 instance=ExtResource("1_nanf4")]
@@ -33,6 +34,7 @@ position = Vector2(360, 440)
 
 [node name="Door2" parent="." index="10" unique_id=1381411994 instance=ExtResource("3_ypi4k")]
 position = Vector2(-124, 138)
+next_scene = ExtResource("6_cw75u")
 
 [node name="ResizableV6" parent="." index="11" unique_id=2113696681 node_paths=PackedStringArray("ignore_collision_for") instance=ExtResource("4_cw75u")]
 position = Vector2(3.0517578e-05, -40.000015)

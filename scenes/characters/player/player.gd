@@ -44,7 +44,7 @@ func get_next_state()-> PlayerState:
 		if Input.is_action_pressed("player_climb") or Input.is_action_pressed("player_down"):
 			return player_state_machine.climb_state
 	
-	if Input.get_axis("player_move_right", "player_move_left"):
+	if Input.get_axis("player_move_left", "player_move_right"):
 		return player_state_machine.walk_state
 	
 	return player_state_machine.idle_state

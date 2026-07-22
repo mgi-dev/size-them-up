@@ -169,7 +169,25 @@ func _physics_process(delta):
 	
 		
 func update_mouse_position():
-	var far_away_position = to_local(get_global_mouse_position()).normalized() * 5000
+	
+	var aim = Input.get_vector(
+		"player_aim_left",
+		"player_aim_right",
+		"player_aim_up",
+	    "player_aim_down"
+	)
+	if not aim:
+		aim = Vector2.ZERO
+	
+	var aim_direction: Vector2 = Vector2.ZERO
+	
+	var far_away_position
+	if aim.length() > 0.2:
+		aim_direction = aim.normalized()
+		far_away_position = aim_direction * 5000
+	else:
+		far_away_position = to_local(get_global_mouse_position()).normalized() * 5000
+	
 	resize_ray.set_ray_position(resize_ray.position, far_away_position)
 	
 

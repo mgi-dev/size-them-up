@@ -14,7 +14,7 @@ func exit():
 func update(delta):
 	# This is coupled, could use a variant to get value from parent.
 	# But seems convoluted for small gain, I accept this for now.
-	var direction = Input.get_axis("player_move_right", "player_move_left")
+	var direction = Input.get_axis("player_move_left", "player_move_right")
 	if direction != 0:
 		player.velocity.x = move_toward(
 			player.velocity.x, 

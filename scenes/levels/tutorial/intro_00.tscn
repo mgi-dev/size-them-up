@@ -1501,8 +1501,9 @@ position = Vector2(424, 384)
 texture = ExtResource("4_3tc6t")
 
 [node name="Pnj01" type="Sprite2D" parent="." unique_id=1634230121]
-position = Vector2(488, 385)
+position = Vector2(640, 385)
 texture = ExtResource("5_f2fd5")
+flip_h = true
 
 [node name="BackgroundRectColor" type="ColorRect" parent="." unique_id=1264141188]
 z_index = -999

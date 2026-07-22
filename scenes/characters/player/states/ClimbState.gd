@@ -21,7 +21,7 @@ func update(delta):
 	else:
 		player.velocity.y = 0
 	
-	var direction_x = Input.get_axis("player_move_right", "player_move_left")
+	var direction_x = Input.get_axis("player_move_left", "player_move_right")
 	if direction_x:
 		player.velocity.x = move_toward(
 			player.velocity.x, 
