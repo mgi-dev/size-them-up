@@ -174,7 +174,7 @@ tile_set = SubResource("TileSet_h7bgg")
 
 [node name="SubLabTileMapLayer" type="TileMapLayer" parent="LabTileMapLayer" index="0" unique_id=186748925]
 z_index = 1
-tile_map_data = PackedByteArray("AAAQACYAAAAAAAUAAAARACYAAAAFAAUAAAD5/yYAAAAGAAUAAAA=")
+tile_map_data = PackedByteArray("AAAQACYAAAAAAAUAAAARACYAAAAFAAUAAAD5/yYAAAAEAAYAAAD6/yYAAAAFAAYAAAA=")
 tile_set = SubResource("TileSet_sd73c")
 
 [node name="RawPluginGun" type="Sprite2D" parent="." index="7" unique_id=27987628]
