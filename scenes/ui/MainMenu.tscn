@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cbajj6bsygts7"]
+
+[ext_resource type="Script" uid="uid://bvqn78v1escgo" path="res://scenes/ui/main_menu.gd" id="1_vjtqc"]
+[ext_resource type="Texture2D" uid="uid://w7mryirm4ofe" path="res://assets/images/grey_button_1.png" id="2_6jbdy"]
+
+[sub_resource type="SystemFont" id="SystemFont_6jbdy"]
+font_names = PackedStringArray("Impact")
+
+[node name="MainMenu" type="Control" unique_id=1353326911]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -176.0
+offset_right = -856.0
+offset_bottom = -456.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjtqc")
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=1103628629]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.00003
+offset_top = 56.99994
+offset_right = 150.13895
+offset_bottom = 71.99994
+scale = Vector2(3.5639396, 3.5639396)
+texture_normal = ExtResource("2_6jbdy")
+
+[node name="OptionsButton" type="TextureButton" parent="." unique_id=1136590770]
+texture_filter = 1
+layout_mode = 0
+offset_left = 39.99997
+offset_top = 143.99994
+offset_right = 150.13892
+offset_bottom = 158.99994
+scale = Vector2(3.5639396, 3.5639396)
+texture_normal = ExtResource("2_6jbdy")
+
+[node name="ExitButton" type="TextureButton" parent="." unique_id=787401223]
+texture_filter = 1
+layout_mode = 0
+offset_left = 39.99997
+offset_top = 226.99994
+offset_right = 150.13889
+offset_bottom = 241.99994
+scale = Vector2(3.5639396, 3.5639396)
+texture_normal = ExtResource("2_6jbdy")
+
+[node name="StartLabel" type="Label" parent="." unique_id=1583072964]
+layout_mode = 0
+offset_left = 174.00006
+offset_top = 56.0
+offset_right = 296.00006
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.7921569, 0.7764706, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_6jbdy")
+theme_override_font_sizes/font_size = 36
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsLabel" type="Label" parent="." unique_id=539148197]
+layout_mode = 0
+offset_left = 149.00006
+offset_top = 143.0
+offset_right = 322.00006
+offset_bottom = 195.0
+theme_override_colors/font_color = Color(0.7921569, 0.7764706, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_6jbdy")
+theme_override_font_sizes/font_size = 36
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitLabel" type="Label" parent="." unique_id=389818087]
+layout_mode = 0
+offset_left = 186.00006
+offset_top = 226.0
+offset_right = 284.00006
+offset_bottom = 278.0
+theme_override_colors/font_color = Color(0.7921569, 0.7764706, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_6jbdy")
+theme_override_font_sizes/font_size = 36
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="ExitButton" to="." method="_on_exit_button_button_up"]

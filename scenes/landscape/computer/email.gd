@@ -35,10 +35,8 @@ func _input(event):
 		display = false
 	
 
-
 func _on_mouse_entered():
 	mouse_over = true
-
 
 
 func _on_mouse_exited():

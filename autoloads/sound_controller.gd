@@ -6,7 +6,8 @@ var audio_players = [
 ]
 
 var music_player: AudioStreamPlayer
-const JUMP_SOUND = preload("res://assets/sound/jump.mp3")
+#const JUMP_SOUND = preload("res://assets/sound/jump.mp3")
+const JUMP_SOUND = preload("res://assets/sound/Retro Jump 4.mp3")
 const MOUSE_CLICK = preload("res://assets/sound/matthewvakaliuk73627-mouse-click-290204.mp3")
 const IMPORTANT_ITEM_COLLECTED = preload("res://assets/sound/level_up.mp3")
 const MUSIC_ONE = preload("res://assets/musics/D_D-Music-Industrial-Factory-Ambience.ogg")
@@ -44,8 +45,11 @@ func play_sound_effect(sound):
 	audio_player.stream = sound
 	audio_player.play()
 
+
 func player_jump_sound():
 	var audio_player = get_available_audio_player()
 	audio_player.stream = JUMP_SOUND
-	audio_player.pitch_scale = 0.4
+	audio_player.volume_db += 8.0
 	audio_player.play()
+	await audio_player.finished
+	audio_player.volume_db -= 8.0

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ktpbtwx7ptby"]
+
+[ext_resource type="Texture2D" uid="uid://bndlnovad4mgp" path="res://assets/images/grey_button.png" id="1_v4a0d"]
+[ext_resource type="Script" uid="uid://ccohgdfnul0d5" path="res://scenes/ui/grey_button.gd" id="2_xb1lv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4a0d"]
+atlas = ExtResource("1_v4a0d")
+region = Rect2(0, 0, 38, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb1lv"]
+atlas = ExtResource("1_v4a0d")
+region = Rect2(0, 16, 38, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f31o"]
+atlas = ExtResource("1_v4a0d")
+region = Rect2(0, 0, 110, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0f31o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4a0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb1lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb1lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4a0d")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f31o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GreyButton" type="AnimatedSprite2D" unique_id=1819381486]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0f31o")
+script = ExtResource("2_xb1lv")
+
+[node name="Label" type="Label" parent="." unique_id=338189842]
+offset_left = -51.0
+offset_top = -9.0
+offset_right = 51.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.79242975, 0.7762009, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 10
+text = "Lorem Ipsum"
+horizontal_alignment = 1
+vertical_alignment = 1

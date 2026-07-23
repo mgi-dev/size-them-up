@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ds8hwtkaat7bd"]
+
+[ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_l3gd3"]
+[ext_resource type="Texture2D" uid="uid://bvfmis6q65f1i" path="res://assets/images/the_cake.png" id="2_ofit4"]
+[ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="3_o4ehl"]
+
+[node name="TheEnd" unique_id=1818539085 instance=ExtResource("1_l3gd3")]
+
+[node name="Label" type="Label" parent="." index="5" unique_id=2084937675]
+offset_left = 120.0
+offset_top = 512.0
+offset_right = 376.0
+offset_bottom = 568.0
+text = "Thank you for playing !"
+
+[node name="TheCake" type="Sprite2D" parent="." index="6" unique_id=1671720530]
+texture_filter = 1
+position = Vector2(208, 630)
+texture = ExtResource("2_ofit4")
+
+[node name="Door" parent="." index="7" unique_id=8401334 instance=ExtResource("3_o4ehl")]
+position = Vector2(32, 586)
