@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bhob24jboj3e1" path="res://scenes/levels/base_level.gd" id="1_ukglk"]
 [ext_resource type="PackedScene" uid="uid://cjenegqkyul3s" path="res://scenes/ui/camera/camera.tscn" id="2_uk53i"]
 [ext_resource type="PackedScene" uid="uid://dgxponf4wnc2v" path="res://scenes/ui/hud.tscn" id="6_3rriw"]
+[ext_resource type="TileSet" uid="uid://cp71je57pqt6w" path="res://assets/tileset/the_one_tileset.tres" id="7_h4ce7"]
 [ext_resource type="Texture2D" uid="uid://rauu87h82ibh" path="res://assets/images/white_round.png" id="8_43bxi"]
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="8_53c65"]
 
@@ -527,3 +528,14 @@ z_index = 5
 position = Vector2(-5948.6157, -2332.3223)
 scale = Vector2(0.19232178, 0.18008931)
 texture = ExtResource("8_43bxi")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1558113409]
+tile_set = ExtResource("7_h4ce7")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer" unique_id=1725003024]
+z_index = 1
+tile_set = ExtResource("7_h4ce7")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer/TileMapLayer" unique_id=1930610447]
+z_index = 2
+tile_set = ExtResource("7_h4ce7")
