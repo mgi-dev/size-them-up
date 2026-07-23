@@ -1898,10 +1898,12 @@ position = Vector2(576, 324)
 zoom = Vector2(2, 2)
 
 [node name="CoffeeMachine" type="Sprite2D" parent="." unique_id=1627984275]
+texture_filter = 1
 position = Vector2(424, 384)
 texture = ExtResource("4_3tc6t")
 
 [node name="Pnj01" type="Sprite2D" parent="." unique_id=1634230121]
+texture_filter = 1
 position = Vector2(640, 385)
 texture = ExtResource("5_f2fd5")
 flip_h = true
@@ -1943,10 +1945,12 @@ scale = Vector2(0.9574468, 1.0909091)
 texture = ExtResource("3_mrdf5")
 
 [node name="Pnj01Coffe" type="Sprite2D" parent="." unique_id=80761166]
+texture_filter = 1
 position = Vector2(513, 384)
 texture = ExtResource("11_uuye6")
 
 [node name="Png02Coffee" type="Sprite2D" parent="." unique_id=292477616]
+texture_filter = 1
 position = Vector2(464, 384)
 texture = ExtResource("12_5ybey")
 flip_h = true

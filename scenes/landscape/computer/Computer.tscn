@@ -9,17 +9,20 @@
 script = ExtResource("1_sgthl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=28815778]
+texture_filter = 1
 texture = ExtResource("2_3xxca")
 region_enabled = true
 region_rect = Rect2(64.49861, 4.7674255, 31.230011, 27.305828)
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1960686110]
+texture_filter = 1
 position = Vector2(-8, -9)
 texture = ExtResource("2_3xxca")
 region_enabled = true
 region_rect = Rect2(0.24306488, 80.44472, 15.369743, 16.67781)
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=245406488]
+texture_filter = 1
 position = Vector2(7, -6)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_3xxca")
