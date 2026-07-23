@@ -148,6 +148,8 @@ class LaserFullyChargedDownState extends LaserState:
 
 func _ready():
 	visible_laser_width = laser_min_width
+	resize_mode = Enums.RESIZE_MODE.ALL
+	SignalBus.resize_mode_selected.emit(resize_mode)
 	
 	state_machine = StateMachine.new({
 		LaserIdleState: LaserIdleState.new(self),
