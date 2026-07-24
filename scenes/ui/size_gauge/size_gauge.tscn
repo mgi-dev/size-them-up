@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://cdtat8xupelfn"]
 
 [ext_resource type="Script" uid="uid://cxuso3i0eha0p" path="res://scenes/ui/size_gauge/size_gauge.gd" id="1_mujeh"]
+[ext_resource type="Texture2D" uid="uid://fjjnlavafjin" path="res://assets/images/glowing_circle.png" id="2_abk2y"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_17dc0"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(36, 165, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
 
 [node name="SizeGauge" type="Node2D" unique_id=1367314203]
 z_index = 10
@@ -8,11 +16,20 @@ scale = Vector2(0.67999953, 0.67999953)
 script = ExtResource("1_mujeh")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=250899039]
-offset_left = -27.941196
-offset_top = -166.17659
-offset_right = 33.08389
-offset_bottom = 156.3239
-rotation = 0.00446105
+z_index = 1
+offset_left = -30.882374
+offset_top = -166.17657
+offset_right = 30.142712
+offset_bottom = 156.32391
+rotation = 0.0007131244
 scale = Vector2(1.0359246, 1)
 max_value = 5.0
 fill_mode = 3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=292648708]
+position = Vector2(0, -5.882357)
+emitting = false
+amount = 100
+texture = ExtResource("2_abk2y")
+lifetime = 0.18000000000000002
+process_material = SubResource("ParticleProcessMaterial_17dc0")

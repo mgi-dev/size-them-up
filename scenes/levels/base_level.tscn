@@ -523,7 +523,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="TransitionSprite2D" type="Sprite2D" parent="." unique_id=1077565752]
-z_index = 5
+z_index = 100
 position = Vector2(-5948.6157, -2332.3223)
 scale = Vector2(0.19232178, 0.18008931)
 texture = ExtResource("8_43bxi")
