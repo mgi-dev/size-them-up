@@ -8,6 +8,7 @@ parent must implement on_interact
 
 @export var player_detector = CollisionShape2D
 @export var glowing_area: Polygon2D
+@export var help_sprite: AnimatedSprite2D
 
 @export var reusable: bool = false
 var already_interacted: bool = false
@@ -16,22 +17,37 @@ var glowing = false
 
 func _ready():
 	SignalBus.player_interact.connect(on_player_interact)
-
+	help_sprite.scale = Vector2(1, 1) / global_scale
 
 
 func _process(delta):
 	set_glowing_area()
+	set_help_sprite()
 	
 
 func set_glowing_area():
+	
 	if glowing_area:
 		if is_player_colliding():
 			if already_interacted and !reusable:
 				glowing_area.color = Color("f2e43200")
+				help_sprite.visible = false
 			else:
 				glowing_area.color = Color("f2e432a6")
+				help_sprite.visible = true
 		else:
+			help_sprite.visible = false
 			glowing_area.color = Color("f2e43200")
+
+func set_help_sprite():
+	if is_player_colliding():
+		if already_interacted and !reusable:		
+			help_sprite.visible = false
+		else:
+			help_sprite.visible = true
+	else:
+		help_sprite.visible = false
+
 
 func on_player_interact():
 	if is_player_colliding():

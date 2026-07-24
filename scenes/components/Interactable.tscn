@@ -1,12 +1,50 @@
 [gd_scene format=3 uid="uid://cujngdsg4ikqc"]
 
 [ext_resource type="Script" uid="uid://b0fbvpsq5fnk0" path="res://scenes/components/Interractable.gd" id="1_ihtmk"]
+[ext_resource type="Texture2D" uid="uid://b7he88adkx704" path="res://assets/images/E_key.png" id="2_sa6r8"]
+[ext_resource type="Texture2D" uid="uid://htl256rxduur" path="res://assets/images/E_key_0002.png" id="3_plnne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihtmk"]
 size = Vector2(64, 64)
 
-[node name="Interractable" type="Area2D" unique_id=19942530]
+[sub_resource type="AtlasTexture" id="AtlasTexture_plnne"]
+atlas = ExtResource("2_sa6r8")
+region = Rect2(0, 0, 28, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhixs"]
+atlas = ExtResource("3_plnne")
+region = Rect2(0, 0, 28, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhixs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plnne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhixs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Interractable" type="Area2D" unique_id=19942530 node_paths=PackedStringArray("help_sprite")]
 script = ExtResource("1_ihtmk")
+help_sprite = NodePath("Control/AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794658870]
 shape = SubResource("RectangleShape2D_ihtmk")
+
+[node name="Control" type="Control" parent="." unique_id=1938817535]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=1009190406]
+texture_filter = 1
+position = Vector2(40, -56)
+sprite_frames = SubResource("SpriteFrames_vhixs")
+autoplay = "default"
+frame_progress = 0.48653644

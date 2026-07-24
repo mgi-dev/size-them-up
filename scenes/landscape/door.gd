@@ -19,6 +19,7 @@ func _ready():
 		door_status.modulate = Color("a6cfcf")
 	else:
 		door_status.modulate = Color("a01b02ff")
+		$Interractable.already_interacted = true
 
 
 func _process(delta):
