@@ -11,6 +11,7 @@ font_color = Color(0, 0, 0, 1)
 size = Vector2(120, 39.999992)
 
 [node name="Email" type="Area2D" unique_id=1835343870]
+z_index = 1000
 script = ExtResource("1_iurf4")
 display = true
 

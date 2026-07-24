@@ -12,8 +12,6 @@ func _process(delta):
 
 
 func on_interact(caller):
-	print("allo ?")
 	if caller == $Computer:
-		print("c'est chicko")
 		var email = $"../Camera/Email"
 		email.display = true

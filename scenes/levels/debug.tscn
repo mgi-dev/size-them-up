@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cvvcu68h2xb07" path="res://scenes/landscape/ReflectorContainer.tscn" id="6_h7x1a"]
 [ext_resource type="PackedScene" uid="uid://nyjv81jh5kks" path="res://scenes/landscape/Ladder.tscn" id="7_gd5e8"]
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="8_oachk"]
+[ext_resource type="PackedScene" uid="uid://jxhpisqacena" path="res://scenes/landscape/fenetrein/Fenetrein.tscn" id="9_8dtf1"]
 
 [node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
 
@@ -89,7 +90,27 @@ position = Vector2(2088, 320)
 position = Vector2(3064, 418)
 
 [node name="ResizableV10" parent="." index="26" unique_id=319058247 instance=ExtResource("2_p0r41")]
-position = Vector2(2841, 583)
+position = Vector2(2773, 622)
 
 [node name="Door" parent="." index="28" unique_id=8401334 instance=ExtResource("8_oachk")]
 position = Vector2(2584, 586)
+
+[node name="Fenetrein" parent="." index="29" unique_id=886049238 instance=ExtResource("9_8dtf1")]
+position = Vector2(2745, 590)
+rotation = 1.5707964
+
+[node name="Fenetrein2" parent="." index="30" unique_id=1944671441 instance=ExtResource("9_8dtf1")]
+position = Vector2(2745, 636)
+rotation = 1.5707964
+
+[node name="Fenetrein3" parent="." index="31" unique_id=1468105364 instance=ExtResource("9_8dtf1")]
+position = Vector2(2745, 621)
+rotation = 1.5707964
+
+[node name="Fenetrein4" parent="." index="32" unique_id=1464868278 instance=ExtResource("9_8dtf1")]
+position = Vector2(2745, 574)
+rotation = 1.5707964
+
+[node name="Fenetrein5" parent="." index="33" unique_id=2120619671 instance=ExtResource("9_8dtf1")]
+position = Vector2(2745, 605)
+rotation = 1.5707964

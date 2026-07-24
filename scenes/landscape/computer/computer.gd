@@ -23,3 +23,4 @@ func on_interact():
 		if parent:
 			if parent.has_method("on_interact"):
 				parent.on_interact(self)
+		SignalBus.player_computer_interact.emit()

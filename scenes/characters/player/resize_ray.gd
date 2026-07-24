@@ -23,13 +23,21 @@ var is_resizing_laser_enabled: bool = false
 func _ready():
 	visible_laser.width = 0.0
 	
-	for node in get_tree().get_nodes_in_group(Enums.CLIMBABLE_GROUP):
-		if node is CollisionObject2D:
-			add_exception(node)
+	set_resize_ray_exceptions()
+	
 	# avoid sharing ressource.
 	beam_particles.process_material = beam_particles.process_material.duplicate()
 	
+func set_resize_ray_exceptions():
+	for node in get_tree().get_nodes_in_group(Enums.CLIMBABLE_GROUP):
+		if node is CollisionObject2D:
+			add_exception(node)
 	
+	for node in get_tree().get_nodes_in_group(Enums.TRANSPARENT_GROUP):
+		if node is CollisionObject2D:
+			add_exception(node)
+
+
 func _process(delta):		
 	handle_colliding(delta)
 	size_up_beam_particle()

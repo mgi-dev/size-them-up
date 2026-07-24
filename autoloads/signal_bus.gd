@@ -19,5 +19,6 @@ signal game_event_happened(game_event: Enums.GAME_EVENT)
 
 signal player_jump()
 signal player_interact()
+signal player_computer_interact()
 signal important_item_collected()
 signal mouse_click()

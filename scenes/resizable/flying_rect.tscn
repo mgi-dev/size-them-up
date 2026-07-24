@@ -69,6 +69,7 @@ shape = SubResource("RectangleShape2D_gkoek")
 target_position = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535026065]
+z_index = 1
 material = SubResource("ShaderMaterial_gdllp")
 texture = ExtResource("2_nrm5n")
 

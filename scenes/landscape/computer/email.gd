@@ -19,8 +19,9 @@ func _ready():
 	$subject_label.text += " " + subject
 	if message:
 		$message_label.text += message.text
-	
-	
+	SignalBus.player_computer_interact.connect(func(): display=true)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if display:

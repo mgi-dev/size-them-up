@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dfaarpkbkoa45"]
+
+[ext_resource type="Texture2D" uid="uid://exrsk5q1pp4m" path="res://assets/images/fenetrein.png" id="1_usnll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t64qe"]
+size = Vector2(64, 5)
+
+[node name="BigFenetrein" type="AnimatableBody2D" unique_id=1718770781 groups=["transparent"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=921840235]
+texture_filter = 1
+texture = ExtResource("1_usnll")
+region_enabled = true
+region_rect = Rect2(-0.02291441, 20.985714, 64.030495, 4.0231915)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569299464]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t64qe")

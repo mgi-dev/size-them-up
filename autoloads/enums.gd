@@ -14,6 +14,7 @@ enum RESIZE {UP, DOWN}
 enum RESIZE_MODE {ALL, VERTICAL, HORIZONTAL}
 
 const CLIMBABLE_GROUP = "climbable"
+const TRANSPARENT_GROUP = "transparent"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
