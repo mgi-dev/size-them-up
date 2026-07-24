@@ -19,6 +19,7 @@ var new_scale_muliplier_vector = Vector2(1.0, 1.0)
 # UI is seperated from physics, need it's own var for now.
 var current_sprite_scale_multiplier_vector : Vector2 = Vector2(1.0, 1.0)
 
+@onready var particles = $GPUParticles2D
 
 """
 ADR
@@ -39,7 +40,8 @@ func _ready() -> void:
 	hitbox.scale = initial_scale_transform
 	initial_size = sprite.texture.get_size() * sprite.scale
 	
-
+	particles.process_material = particles.process_material.duplicate()
+	particles.scale = scale
 	if collision_detector:
 		collision_detector.ignore(self)
 		if ignore_collision_for:
@@ -151,7 +153,18 @@ func process_sprite_resize() -> void:
 	if abs(vector_diff.x) > 0 or abs(vector_diff.y) > 0:
 		sprite.scale = initial_scale_transform * new_scale_muliplier_vector
 		current_sprite_scale_multiplier_vector = new_scale_muliplier_vector
+		particles.scale = initial_scale_transform * new_scale_muliplier_vector
+		trigger_particles(Enums.RESIZE.UP if vector_diff.x + vector_diff.y  < 0 else Enums.RESIZE.DOWN)
+	else:
+		particles.emitting = false
 
+func trigger_particles(resize: Enums.RESIZE):
+	if resize == Enums.RESIZE.UP:
+		particles.process_material.color = Color(0.829, 0.0, 0.0, 1.0)
+	else:			
+		particles.process_material.color = Color(0.0, 0.0, 0.867, 1.0)
+	particles.emitting = true
+		
 
 func is_player_colliding(resize_mode: Enums.RESIZE_MODE):
 	if collision_detector:

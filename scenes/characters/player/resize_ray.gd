@@ -99,7 +99,6 @@ func size_up_beam_particle():
 		beam_particles.position = center
 		
 		beam_particles.process_material.emission_box_extents = Vector3(
-			# le bout de ca quand je divise pas par deux, intesrect le second particle beam.
 			visible_laser.points[0].distance_to(visible_laser.points[1]) / 2,
 			beam_particles.process_material.emission_box_extents.y,
 			beam_particles.process_material.emission_box_extents.z
