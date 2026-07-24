@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="5_7nbbt"]
 [ext_resource type="Script" uid="uid://1uyhfmvdf148" path="res://scenes/levels/tutorial/mouse_left_light.gd" id="6_mnhpp"]
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="7_53ba7"]
-[ext_resource type="PackedScene" uid="uid://du477n2oi1ai1" path="res://scenes/levels/stairs_02.tscn" id="8_2ryl4"]
+[ext_resource type="PackedScene" uid="uid://y2msguum3ox0" path="res://scenes/levels/tutorial/tuto_stair_02.tscn" id="8_bolu4"]
 [ext_resource type="PackedScene" uid="uid://b0sv7aiuhimj3" path="res://scenes/landscape/HalfLadder.tscn" id="9_bolu4"]
 
 [node name="tutorial_move_01" unique_id=1818539085 instance=ExtResource("1_dt453")]
@@ -95,7 +95,7 @@ polygon = PackedVector2Array(-26.933105, -7.4262695, -0.075927734, -7.4262695, -
 
 [node name="Door2" parent="." index="11" unique_id=8401334 instance=ExtResource("7_53ba7")]
 position = Vector2(1520.2, 441.83905)
-next_scene = ExtResource("8_2ryl4")
+next_scene = ExtResource("8_bolu4")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="." index="12" unique_id=1555215118]
 offset_left = 1393.9001
