@@ -3,7 +3,9 @@ extends Node
 signal resize_mode_selected(resize_mode: Enums.RESIZE_MODE)
 signal multi_resize_mode_changed(enabled: bool)
 
-
+signal reset_scene_start()
+signal reset_scene_cancel()
+signal reset_scene_animation_completed()
 
 signal resized(size: float)
 signal gauge_changed(percentage: float)

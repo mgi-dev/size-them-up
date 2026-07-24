@@ -13,7 +13,7 @@ func _ready():
 	SignalBus.gauge_changed.connect(on_gauge_changed)
 	SignalBus.resize_mode_selected.connect(on_resize_mode_changed)
 	SignalBus.multi_resize_mode_changed.connect(func(enabled): multi_resize_mode_enabled=enabled)
-	
+	SignalBus.reset_scene_animation_completed.connect(func(): print(get_tree().reload_current_scene()))
 	
 
 func _physics_process(delta):
@@ -23,8 +23,12 @@ func _physics_process(delta):
 		
 		print("god mode is ", "on" if god_mode else "off")
 	if Input.is_action_just_pressed("reset_scene"):
-		get_tree().reload_current_scene()
-
+		SignalBus.reset_scene_start.emit()
+		
+	if Input.is_action_just_released("reset_scene"):
+		SignalBus.reset_scene_cancel.emit()
+		
+		
 func on_gauge_changed(percentage: float) -> void:
 	if percentage >= 100:
 		_can_size_up = true

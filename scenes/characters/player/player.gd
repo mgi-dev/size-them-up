@@ -23,7 +23,7 @@ var player_state_machine: PlayerStateMachine
 func _ready() -> void:
 	player_state_machine =  preload("res://scenes/characters/player/states/PlayerStateMachine.gd").new(self)
 
-
+	
 func _physics_process(delta):
 	player_state_machine.set_state(get_next_state())
 	player_state_machine.update(delta)
