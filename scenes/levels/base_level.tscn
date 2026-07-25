@@ -530,6 +530,7 @@ scale = Vector2(0.19232178, 0.18008931)
 texture = ExtResource("8_43bxi")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1558113409]
+z_index = -1
 tile_set = ExtResource("7_h4ce7")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer" unique_id=1725003024]

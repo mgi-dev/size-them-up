@@ -120,3 +120,10 @@ tile_map_data = PackedByteArray("AAAMACcAAAAMAAAAAAANACcAAAANAAAAAAAOACcAAAAOAAA
 
 [node name="HalfLadder" parent="." index="15" unique_id=1100483805 instance=ExtResource("9_bolu4")]
 position = Vector2(1130, 585)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." index="16" unique_id=222611908]
+offset_left = 583.0
+offset_top = 387.0
+offset_right = 822.0
+offset_bottom = 458.91656
+text = "Aim the laser with the mouse"
