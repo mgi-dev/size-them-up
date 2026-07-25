@@ -2,6 +2,8 @@ extends Node
 
 signal resize_mode_selected(resize_mode: Enums.RESIZE_MODE)
 signal multi_resize_mode_changed(enabled: bool)
+signal multi_resize_mode_first_enabled()
+
 
 signal reset_scene_start()
 signal reset_scene_cancel()

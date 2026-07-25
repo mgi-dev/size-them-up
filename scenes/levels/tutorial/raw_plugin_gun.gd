@@ -12,5 +12,6 @@ func _process(delta):
 
 func on_interact():
 	SignalBus.multi_resize_mode_changed.emit(true)
+	SignalBus.multi_resize_mode_first_enabled.emit()
 	SignalBus.important_item_collected.emit()
 	queue_free()

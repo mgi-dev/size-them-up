@@ -127,11 +127,49 @@ entrance_door = NodePath("Door")
 [node name="Email" parent="Camera" parent_id_path=PackedInt32Array(1438112420) index="1" unique_id=1835343870 instance=ExtResource("11_nwut6")]
 visible = false
 display = false
-recipient = "Dave Kirmich"
+recipient = "@PluginTeam"
 sender = "Eric Eccert"
-subject = "Important Reminder"
+subject = "Following Thuesday incident"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Camera/Email" index="7" unique_id=167986497]
+offset_left = -530.0
+offset_top = -62.0
+offset_right = 534.0
+offset_bottom = 204.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Hello everyone, 
+
+Following Thuesday incident and retex, here's a quick reminder on how the [i]prototype[/i] plugin is working.
+
+There is currently three mods:
+
+[img width=64 height=64]res://assets/images/gun_selector/horizontal_selector_partial.png[/img] --> Resize only horizontally.
+
+[img width=64 height=64]res://assets/images/gun_selector/vertical_selector_partial.png[/img] --> Resize only vertically.
+
+ [img width=64 height=64]res://assets/images/gun_selector/full_selector_partial.png[/img] --> Resize [b]BOTH[/b] vertically and horizontally.
+
+
+You have to press the tab key to go from one mod to another.
+
+Now we all have the same level of information so I expect you to act with precautions from now on.
+
+Thank you for your time.
+
+Eric Eccert
+Executive Operational Team Manager
+
+Ps: Any new incident will result in a two days course about rules and safety.
+Ps2: This formation will be on site only.
+Ps3: Amy should return from the hospital on Monday. Maybe we could her a cake or something ?
+
+"
+
+[node name="RichTextLabelbak" type="RichTextLabel" parent="Camera/Email" index="8" unique_id=10449299]
+visible = false
 offset_left = -530.0
 offset_top = -62.0
 offset_right = 425.0
@@ -152,7 +190,8 @@ Thank you for your attention to this matter.
 Have a good week end.
 
 Eric Eccert
-Executive Operational Manager"
+Executive Operational Manager
+to another."
 scroll_active = false
 
 [node name="Player" parent="." index="1" unique_id=217472232]
