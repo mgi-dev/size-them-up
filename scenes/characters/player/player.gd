@@ -22,13 +22,20 @@ var player_state_machine: PlayerStateMachine
 
 func _ready() -> void:
 	player_state_machine =  preload("res://scenes/characters/player/states/PlayerStateMachine.gd").new(self)
-
+	SignalBus.freeze_player.connect(on_player_freeze)
+	
 	
 func _physics_process(delta):
 	player_state_machine.set_state(get_next_state())
 	player_state_machine.update(delta)
 	move_and_slide()
 
+
+func on_player_freeze(_freeze: bool):
+	if _freeze:
+		process_mode  = Node.PROCESS_MODE_DISABLED
+	else:
+		process_mode  = Node.PROCESS_MODE_INHERIT
 
 func get_next_state()-> PlayerState:
 	if Input.is_action_just_pressed("player_jump"):

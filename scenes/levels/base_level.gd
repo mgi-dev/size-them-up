@@ -12,7 +12,7 @@ func _ready():
 	transition_sprite.modulate = Color(0.0, 0.0, 0.0, 1.0)
 	display_transition_into_level()
 	SignalBus.next_level.connect(display_transition_out_from_level)
-	
+
 
 func _process(delta):
 	pass

@@ -8,6 +8,7 @@ signal multi_resize_mode_first_enabled()
 signal reset_scene_start()
 signal reset_scene_cancel()
 signal reset_scene_animation_completed()
+signal freeze_player(freeze: bool)
 
 signal resized(size: float)
 signal gauge_changed(percentage: float)

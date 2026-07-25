@@ -19,7 +19,7 @@ func _ready():
 	$subject_label.text += " " + subject
 	if message:
 		$message_label.text += message.text
-	SignalBus.player_computer_interact.connect(func(): display=true)
+	SignalBus.player_computer_interact.connect(on_interact)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,14 +28,21 @@ func _process(delta):
 		show()
 	else:
 		hide()
+		SignalBus.freeze_player.emit(false)
 
 
 func _input(event):
 	if event.is_action_released("click_on_button") and mouse_over or event.is_action_released("game_pad_click_on_button"):
 		SignalBus.mouse_click.emit()
 		display = false
-	
+		SignalBus.freeze_player.emit(false)
 
+
+func on_interact():
+	display=true
+	SignalBus.freeze_player.emit(true)
+	
+	
 func _on_mouse_entered():
 	mouse_over = true
 
