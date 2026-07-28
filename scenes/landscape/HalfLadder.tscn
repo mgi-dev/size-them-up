@@ -12,7 +12,7 @@ size = Vector2(19, 5)
 [node name="HalfLadder" type="Area2D" unique_id=1100483805 groups=["climbable"]]
 script = ExtResource("1_6bu1x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761657665]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761657665 groups=["climbable"]]
 position = Vector2(0.5, 4.5)
 shape = SubResource("RectangleShape2D_tubtd")
 
@@ -22,9 +22,9 @@ position = Vector2(0.48423648, 4.2068143)
 scale = Vector2(0.6206306, 0.6206307)
 texture = ExtResource("2_6bu1x")
 
-[node name="TopLadderZone" type="StaticBody2D" parent="." unique_id=1994006554]
+[node name="TopLadderZone" type="StaticBody2D" parent="." unique_id=1994006554 groups=["climbable"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLadderZone" unique_id=1570484400]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLadderZone" unique_id=1570484400 groups=["climbable"]]
 position = Vector2(0.5, -35.5)
 shape = SubResource("RectangleShape2D_qvhpg")
 one_way_collision = true
