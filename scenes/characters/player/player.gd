@@ -40,6 +40,7 @@ func on_player_freeze(_freeze: bool):
 func get_next_state()-> PlayerState:
 	if Input.is_action_just_pressed("player_jump"):
 		if is_on_floor() or is_climbing:
+			print(position)
 			# Allow jump from ladder.
 			return player_state_machine.jump_state
 	

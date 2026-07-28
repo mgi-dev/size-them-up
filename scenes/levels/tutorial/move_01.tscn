@@ -31,6 +31,7 @@ position = Vector2(232.00002, 554.00006)
 scale = Vector2(0.18445478, 0.2009346)
 
 [node name="ClkerFreeVectorImagesMouse24187" type="Sprite2D" parent="." index="7" unique_id=1877441745]
+texture_filter = 1
 position = Vector2(507, 472)
 scale = Vector2(0.33510622, 0.33510622)
 texture = ExtResource("3_r31qt")
@@ -66,6 +67,7 @@ position = Vector2(906.00006, 607)
 scale = Vector2(1.3199999, 1.3199999)
 
 [node name="ClkerFreeVectorImagesMouse24188" type="Sprite2D" parent="." index="10" unique_id=1504553526]
+texture_filter = 1
 position = Vector2(821.02545, 486.48862)
 scale = Vector2(0.33510622, 0.33510622)
 texture = ExtResource("3_r31qt")

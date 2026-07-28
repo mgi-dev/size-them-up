@@ -4,5 +4,6 @@
 
 [node name="Arrow" type="Sprite2D" unique_id=693014094]
 z_index = 4
+texture_filter = 1
 texture = ExtResource("1_y6e1e")
 region_rect = Rect2(50, 100, 500, 200)

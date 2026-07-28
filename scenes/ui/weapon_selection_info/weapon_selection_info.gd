@@ -19,7 +19,7 @@ func _ready():
 	set_weapon_selector_texture(GameState.current_resize_mode)
 	SignalBus.resize_mode_selected.connect(set_weapon_selector_texture)
 	SignalBus.multi_resize_mode_changed.connect(func(_enabled): set_weapon_selector_texture(GameState.current_resize_mode))
-	SignalBus.multi_resize_mode_first_enabled.connect(func(): weapon_selector_first_enable())
+	SignalBus.multi_resize_mode_first_enabled.connect(weapon_selector_first_enable)
 	
 func set_weapon_selector_texture(resize_mode: Enums.RESIZE_MODE):
 	if GameState.multi_resize_mode_enabled:
@@ -34,7 +34,7 @@ func weapon_selector_first_enable():
 	var animation_duration = 1.5
 
 	scale = Vector2(1.1, 1.1)
-	position = to_local(Vector2(get_viewport().size.x / 1.5 - texture.get_size().x / 2 , get_viewport().size.y / 2 + texture.get_size().y / 2))
+	position = to_local(Vector2(get_viewport().get_visible_rect().size.x / 1.5 - texture.get_size().x / 2 , get_viewport().get_visible_rect().size.y / 2 + texture.get_size().y / 2))
 	
 	await get_tree().create_timer(0.5).timeout
 	
