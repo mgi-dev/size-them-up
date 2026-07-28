@@ -1,30 +1,30 @@
 [gd_scene format=3 uid="uid://b0sv7aiuhimj3"]
 
 [ext_resource type="Script" uid="uid://kemdo336odi2" path="res://scenes/landscape/ladder.gd" id="1_6bu1x"]
-[ext_resource type="Texture2D" uid="uid://bp0ev6ikoyu2d" path="res://assets/images/half_ladder.png" id="2_d87rt"]
+[ext_resource type="Texture2D" uid="uid://baporg6nkn458" path="res://assets/images/half_ladder_2.png" id="2_6bu1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tubtd"]
-size = Vector2(30, 84)
+size = Vector2(19, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvhpg"]
-size = Vector2(30, 8)
+size = Vector2(19, 5)
 
 [node name="HalfLadder" type="Area2D" unique_id=1100483805 groups=["climbable"]]
 script = ExtResource("1_6bu1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761657665]
-position = Vector2(0, 4)
+position = Vector2(0.5, 4.5)
 shape = SubResource("RectangleShape2D_tubtd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=743995248]
 texture_filter = 1
-position = Vector2(0, -22)
-scale = Vector2(0.1212611, 0.1212611)
-texture = ExtResource("2_d87rt")
+position = Vector2(0.48423648, 4.2068143)
+scale = Vector2(0.6206306, 0.6206307)
+texture = ExtResource("2_6bu1x")
 
 [node name="TopLadderZone" type="StaticBody2D" parent="." unique_id=1994006554]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopLadderZone" unique_id=1570484400]
-position = Vector2(0, -36)
+position = Vector2(0.5, -35.5)
 shape = SubResource("RectangleShape2D_qvhpg")
 one_way_collision = true

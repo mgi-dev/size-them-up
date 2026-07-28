@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://nyjv81jh5kks" path="res://scenes/landscape/Ladder.tscn" id="7_gd5e8"]
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="8_oachk"]
 [ext_resource type="PackedScene" uid="uid://jxhpisqacena" path="res://scenes/landscape/fenetrein/Fenetrein.tscn" id="9_8dtf1"]
+[ext_resource type="PackedScene" uid="uid://spxxfdamu8ks" path="res://scenes/landscape/ConveyorBelt.tscn" id="10_m3dw6"]
 
 [node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
 
@@ -72,7 +73,8 @@ position = Vector2(1605, -165)
 scale = Vector2(8.301366, 33.69438)
 
 [node name="ResizableV7" parent="." index="20" unique_id=1156906580 instance=ExtResource("2_p0r41")]
-position = Vector2(2209, 589)
+position = Vector2(2284.9998, 487)
+scale = Vector2(0.21573542, 0.25560883)
 
 [node name="ResizableV8" parent="." index="21" unique_id=2031042338 instance=ExtResource("2_p0r41")]
 position = Vector2(2454, 598)
@@ -114,3 +116,6 @@ rotation = 1.5707964
 [node name="Fenetrein5" parent="." index="33" unique_id=2120619671 instance=ExtResource("9_8dtf1")]
 position = Vector2(2745, 605)
 rotation = 1.5707964
+
+[node name="ConveyorBelt" parent="." index="34" unique_id=848348934 instance=ExtResource("10_m3dw6")]
+position = Vector2(2303, 616)
