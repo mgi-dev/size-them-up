@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://cp71je57pqt6w" path="res://assets/tileset/the_one_tileset.tres" id="7_h4ce7"]
 [ext_resource type="Texture2D" uid="uid://rauu87h82ibh" path="res://assets/images/white_round.png" id="8_43bxi"]
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="8_53c65"]
+[ext_resource type="PackedScene" uid="uid://dj0tkaacrg8av" path="res://scenes/levels/PauseMenu.tscn" id="8_j7gcg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43bxi"]
 texture = ExtResource("8_53c65")
@@ -503,6 +504,11 @@ position = Vector2(80, 472)
 
 [node name="Hud" parent="Camera" unique_id=1601095639 instance=ExtResource("6_3rriw")]
 position = Vector2(-443, -98)
+
+[node name="PauseMenu" parent="Camera" unique_id=1230129419 instance=ExtResource("8_j7gcg")]
+visible = false
+position = Vector2(-1320, -700)
+scale = Vector2(2.3, 2.3)
 
 [node name="Player" parent="." unique_id=217472232 instance=ExtResource("1_md458")]
 position = Vector2(32, 624)

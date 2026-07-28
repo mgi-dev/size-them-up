@@ -9,11 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://c7xbd18gdf6nf" path="res://assets/tileset/lab_tileset_base.png" id="8_3tc6t"]
 [ext_resource type="Texture2D" uid="uid://batv8bihw6xkq" path="res://assets/tileset/darker_industrial.v2.png" id="8_uejyc"]
 [ext_resource type="Texture2D" uid="uid://ufjwd60440e3" path="res://assets/chicken_right.png" id="9_uejyc"]
+[ext_resource type="Texture2D" uid="uid://bcmw00tth54yh" path="res://assets/images/characters/coffee/coffee_vapor_0001.png" id="11_5e4g1"]
 [ext_resource type="Texture2D" uid="uid://cuo510xrsmtwj" path="res://assets/images/characters/pnj_01_coffe.png" id="11_uuye6"]
 [ext_resource type="Texture2D" uid="uid://55hsa8bcjye8" path="res://assets/images/characters/png_02_coffee.png" id="12_5ybey"]
 [ext_resource type="PackedScene" uid="uid://cbajj6bsygts7" path="res://scenes/ui/MainMenu.tscn" id="12_hskp0"]
+[ext_resource type="Texture2D" uid="uid://js6xl8nkv4nf" path="res://assets/images/characters/coffee/coffee_vapor_0002.png" id="12_qje5o"]
+[ext_resource type="Texture2D" uid="uid://ckbhqma5d7t7i" path="res://assets/images/characters/coffee/coffee_vapor_0003.png" id="13_anjua"]
+[ext_resource type="Texture2D" uid="uid://cn1r2gwknbx1q" path="res://assets/images/lamp.png" id="13_hskp0"]
+[ext_resource type="Texture2D" uid="uid://wl0q3m1ra8oq" path="res://assets/images/characters/coffee/coffee_vapor_0004.png" id="14_jsabd"]
+[ext_resource type="Texture2D" uid="uid://cspxivivmgwpx" path="res://assets/images/characters/coffee/coffee_vapor_0005.png" id="15_morwd"]
+[ext_resource type="Texture2D" uid="uid://c8mcue7lwtdka" path="res://assets/images/characters/coffee/coffee_vapor_0006.png" id="16_khubw"]
+[ext_resource type="Texture2D" uid="uid://cuper3if1g8lt" path="res://assets/images/characters/coffee/coffee_vapor_0007.png" id="17_8828b"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrdf5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hskp0"]
 texture = ExtResource("6_nyng8")
 0:0/0 = 0
 0:0/0/z_index = -2
@@ -314,7 +322,7 @@ texture = ExtResource("6_nyng8")
 16:17/0 = 0
 17:17/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tc6t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iuwvj"]
 texture = ExtResource("7_mrdf5")
 0:0/0 = 0
 1:0/0 = 0
@@ -726,10 +734,10 @@ texture = ExtResource("7_mrdf5")
 3:27/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3tc6t"]
-sources/0 = SubResource("TileSetAtlasSource_mrdf5")
-sources/1 = SubResource("TileSetAtlasSource_3tc6t")
+sources/0 = SubResource("TileSetAtlasSource_hskp0")
+sources/1 = SubResource("TileSetAtlasSource_iuwvj")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2fd5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuc6u"]
 texture = ExtResource("7_mrdf5")
 0:0/0 = 0
 1:0/0 = 0
@@ -1139,7 +1147,7 @@ texture = ExtResource("7_mrdf5")
 2:27/0 = 0
 3:27/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uejyc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rv2pm"]
 texture = ExtResource("8_3tc6t")
 0:0/0 = 0
 1:0/0 = 0
@@ -1184,7 +1192,7 @@ texture = ExtResource("8_3tc6t")
 5:6/0 = 0
 6:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uuye6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dsq72"]
 texture = ExtResource("6_nyng8")
 0:0/0 = 0
 1:0/0 = 0
@@ -1475,7 +1483,7 @@ texture = ExtResource("6_nyng8")
 16:17/0 = 0
 17:17/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ybey"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7hvi"]
 texture = ExtResource("8_uejyc")
 0:0/0 = 0
 1:0/0 = 0
@@ -1886,10 +1894,39 @@ texture = ExtResource("8_uejyc")
 3:27/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5ybey"]
-sources/0 = SubResource("TileSetAtlasSource_f2fd5")
-sources/1 = SubResource("TileSetAtlasSource_uejyc")
-sources/2 = SubResource("TileSetAtlasSource_uuye6")
-sources/3 = SubResource("TileSetAtlasSource_5ybey")
+sources/0 = SubResource("TileSetAtlasSource_fuc6u")
+sources/1 = SubResource("TileSetAtlasSource_rv2pm")
+sources/2 = SubResource("TileSetAtlasSource_dsq72")
+sources/3 = SubResource("TileSetAtlasSource_v7hvi")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agp52"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_5e4g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qje5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_anjua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jsabd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_morwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_khubw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8828b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Intro00" type="Node2D" unique_id=840304083]
 
@@ -1949,11 +1986,23 @@ texture_filter = 1
 position = Vector2(513, 384)
 texture = ExtResource("11_uuye6")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pnj01Coffe" unique_id=799412461]
+position = Vector2(-15, -8)
+sprite_frames = SubResource("SpriteFrames_agp52")
+autoplay = "default"
+frame_progress = 0.21618478
+
 [node name="Png02Coffee" type="Sprite2D" parent="." unique_id=292477616]
 texture_filter = 1
 position = Vector2(464, 384)
 texture = ExtResource("12_5ybey")
 flip_h = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Png02Coffee" unique_id=2074097722]
+position = Vector2(14, -7)
+sprite_frames = SubResource("SpriteFrames_agp52")
+autoplay = "default"
+frame_progress = 0.5121506
 
 [node name="MainMenu" parent="." unique_id=1353326911 instance=ExtResource("12_hskp0")]
 offset_left = 370.00003
@@ -1961,3 +2010,19 @@ offset_top = 176.0
 offset_right = 370.00003
 offset_bottom = 176.0
 scale = Vector2(0.41367492, 0.41367492)
+
+[node name="Lamp" type="Sprite2D" parent="." unique_id=976411555]
+texture_filter = 1
+position = Vector2(565.5, 294.2)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("13_hskp0")
+region_enabled = true
+region_rect = Rect2(0.009918213, -4.874402, 17.60031, 57.741673)
+
+[node name="Lamp2" type="Sprite2D" parent="." unique_id=1907173571]
+texture_filter = 1
+position = Vector2(828.1552, 294.8258)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("13_hskp0")
+region_enabled = true
+region_rect = Rect2(0.009918213, -4.874402, 17.60031, 57.741673)

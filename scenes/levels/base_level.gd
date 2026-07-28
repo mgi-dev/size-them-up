@@ -60,3 +60,13 @@ func display_transition_into_level():
 	if entrance_door:
 		entrance_door.close_door()
 	
+	
+
+func _input(event):
+	if event.is_action_pressed("toggle_menu"):
+		toggle_menu()
+
+
+func toggle_menu():
+	$Camera/PauseMenu.visible = !$Camera/PauseMenu.visible
+	SignalBus.freeze_player.emit($Camera/PauseMenu.visible)
