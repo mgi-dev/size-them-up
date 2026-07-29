@@ -67,3 +67,5 @@ echo "Upload complete!"
 
 $BUTLER_PATH status $ITCH_USER/$ITCH_GAME:$CHANNEL
 
+git tag build-$version
+git push origin build-$version

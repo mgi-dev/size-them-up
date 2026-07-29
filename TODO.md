@@ -6,3 +6,6 @@
 - comprendre le systeme de coordonnées.
 - clean resize gun
 - delete grey button (probably)
+- sound param
+- screen resize
+- a name
