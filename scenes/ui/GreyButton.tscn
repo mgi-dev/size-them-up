@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ktpbtwx7ptby"]
 
 [ext_resource type="Texture2D" uid="uid://bndlnovad4mgp" path="res://assets/images/grey_button.png" id="1_v4a0d"]
+[ext_resource type="Texture2D" uid="uid://8b0y75j4im3d" path="res://assets/images/grey_button_over.png" id="2_0f31o"]
 [ext_resource type="Script" uid="uid://ccohgdfnul0d5" path="res://scenes/ui/grey_button.gd" id="2_xb1lv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4a0d"]
@@ -41,7 +42,18 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0f31o")
+}],
+"loop": true,
+"name": &"over",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u37bh"]
+size = Vector2(107, 14)
 
 [node name="GreyButton" type="AnimatedSprite2D" unique_id=1819381486]
 texture_filter = 1
@@ -60,3 +72,12 @@ theme_override_font_sizes/font_size = 10
 text = "Lorem Ipsum"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=442745665]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2051631073]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_u37bh")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

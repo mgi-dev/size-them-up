@@ -14,14 +14,19 @@
 [node name="BaseLevel" unique_id=1818539085 instance=ExtResource("1_egkju")]
 
 [node name="Email" parent="Camera" parent_id_path=PackedInt32Array(1438112420) index="2" unique_id=1835343870 instance=ExtResource("2_145vr")]
+visible = false
 display = false
+recipient = "Jeremy Beremy"
+cc = "Eric Eccert"
+sender = "Julia Lion"
+subject = "About ressources allocation"
 
 [node name="RichTextLabel2" parent="Camera/Email" index="7" unique_id=24024372 instance=ExtResource("3_afait")]
 text = "Hello Jeremy,
 
 I just heard you've spent a lot of time on something called the \"Enhanced Prototype Window.\"    [img  width=64 height=16]res://assets//images/small_fenetrein.png[/img]
 
-If I understand correctly, this \\\"window\\\" is made of a special kind of glass that lets light pass through it, so lasers from the [i]prototype[/i] can pass through this glass. 
+If I understand correctly, this \"window\" is made of a special kind of glass that lets light pass through it, so lasers from the [i]prototype[/i] can pass through this glass. 
 
 Like... any other kind of glass, actually.
 

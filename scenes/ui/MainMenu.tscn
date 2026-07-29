@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bvqn78v1escgo" path="res://scenes/ui/main_menu.gd" id="1_vjtqc"]
 [ext_resource type="Texture2D" uid="uid://w7mryirm4ofe" path="res://assets/images/grey_button_1.png" id="2_6jbdy"]
+[ext_resource type="Texture2D" uid="uid://8b0y75j4im3d" path="res://assets/images/grey_button_over.png" id="3_iwbf0"]
 
 [sub_resource type="SystemFont" id="SystemFont_6jbdy"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="MainMenu" type="Control" unique_id=1353326911]
 layout_mode = 3
@@ -28,6 +30,7 @@ offset_right = 150.13895
 offset_bottom = 71.99994
 scale = Vector2(3.5639396, 3.5639396)
 texture_normal = ExtResource("2_6jbdy")
+texture_hover = ExtResource("3_iwbf0")
 
 [node name="OptionsButton" type="TextureButton" parent="." unique_id=1136590770]
 texture_filter = 1
@@ -38,6 +41,7 @@ offset_right = 150.13892
 offset_bottom = 158.99994
 scale = Vector2(3.5639396, 3.5639396)
 texture_normal = ExtResource("2_6jbdy")
+texture_hover = ExtResource("3_iwbf0")
 
 [node name="ExitButton" type="TextureButton" parent="." unique_id=787401223]
 texture_filter = 1
@@ -48,6 +52,7 @@ offset_right = 150.13889
 offset_bottom = 241.99994
 scale = Vector2(3.5639396, 3.5639396)
 texture_normal = ExtResource("2_6jbdy")
+texture_hover = ExtResource("3_iwbf0")
 
 [node name="StartLabel" type="Label" parent="." unique_id=1583072964]
 layout_mode = 0

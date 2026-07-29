@@ -13,3 +13,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_area_2d_mouse_entered():
+	print("coucocu !")
+	play("over")
+
+
+func _on_area_2d_mouse_exited():
+	print("exit")
+	play("default")

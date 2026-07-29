@@ -81,7 +81,12 @@ func resize_down(target: CollisionShape2D, resize_mode: Enums.RESIZE_MODE) -> vo
 
 
 func can_size_up(resize_mode: Enums.RESIZE_MODE) -> bool:
-	return GameState.can_size_up() and !is_player_colliding(resize_mode) and !is_shape_blocked(resize_mode)
+	var is_shape_blocked = is_shape_blocked(resize_mode)
+	var is_player_colliding = is_player_colliding(resize_mode)
+	if is_shape_blocked and !is_player_colliding:
+		# player coliding is "normal" behaviour, and the sound is penible.
+		SignalBus.game_event_happened.emit(Enums.GAME_EVENT.RESIZABLE_BLOCKED)
+	return GameState.can_size_up() and !is_player_colliding and !is_shape_blocked
 	
 	
 func can_size_down(resize_mode: Enums.RESIZE_MODE) -> bool:

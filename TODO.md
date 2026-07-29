@@ -10,3 +10,4 @@
 - sound for picking up objects
 - comprendre le systeme de coordonnées.
 - clean resize gun
+- delete grey button (probably)

@@ -15,7 +15,9 @@ const MUSIC_ONE = preload("res://assets/musics/D_D-Music-Industrial-Factory-Ambi
 
 
 const game_event_to_sound = {
-	Enums.GAME_EVENT.RESIZABLE_TOO_SMALL: BUZZER_INCORRECT
+	Enums.GAME_EVENT.RESIZABLE_TOO_SMALL: BUZZER_INCORRECT,
+	Enums.GAME_EVENT.RESIZABLE_BLOCKED: BUZZER_INCORRECT,
+	
 }
 
 func _ready():

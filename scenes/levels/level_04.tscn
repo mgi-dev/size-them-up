@@ -12,7 +12,7 @@
 [node name="Level_04" unique_id=1818539085 instance=ExtResource("1_nanf4")]
 
 [node name="Player" parent="." index="1" unique_id=217472232]
-position = Vector2(31.994812, 626.0894)
+position = Vector2(32.2294, 625.81805)
 
 [node name="TileMap" parent="." index="2" unique_id=1431608523]
 layer_0/tile_data = PackedInt32Array(-1441807, 262144, 3, -1376271, 262144, 3, -1310735, 262144, 3, -1245199, 262144, 3)
