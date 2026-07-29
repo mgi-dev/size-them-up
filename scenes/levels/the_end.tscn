@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_l3gd3"]
 [ext_resource type="Texture2D" uid="uid://bvfmis6q65f1i" path="res://assets/images/the_cake.png" id="2_ofit4"]
-[ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="3_o4ehl"]
 
 [node name="TheEnd" unique_id=1818539085 instance=ExtResource("1_l3gd3")]
 
@@ -17,6 +16,3 @@ text = "Thank you for playing !"
 texture_filter = 1
 position = Vector2(152, 632)
 texture = ExtResource("2_ofit4")
-
-[node name="Door" parent="." index="7" unique_id=8401334 instance=ExtResource("3_o4ehl")]
-position = Vector2(32, 586)

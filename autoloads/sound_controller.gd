@@ -11,7 +11,7 @@ const JUMP_SOUND = preload("res://assets/sound/Retro Jump 4.mp3")
 const MOUSE_CLICK = preload("res://assets/sound/matthewvakaliuk73627-mouse-click-290204.mp3")
 const IMPORTANT_ITEM_COLLECTED = preload("res://assets/sound/level_up.mp3")
 const BUZZER_INCORRECT = preload("res://assets/sound/freesound_community-wrong-47985.mp3")
-const MUSIC_ONE = preload("res://assets/musics/D_D-Music-Industrial-Factory-Ambience.ogg")
+const MUSIC_ONE = preload("res://assets/musics/burtysounds-synthwave-566759.mp3")
 
 
 const game_event_to_sound = {
@@ -23,6 +23,7 @@ const game_event_to_sound = {
 func _ready():
 	for _index in range(10):
 		var audio_player = AudioStreamPlayer.new()
+		audio_player.bus = "HighSoundEffect"
 		audio_players.append(audio_player)
 		add_child(audio_player)
 	
@@ -33,6 +34,7 @@ func _ready():
 	
 	
 	music_player = AudioStreamPlayer.new()
+	music_player.bus = "Music"
 	add_child(music_player)  
 	music_player.pitch_scale = 0.8
 	music_player.stream = MUSIC_ONE
