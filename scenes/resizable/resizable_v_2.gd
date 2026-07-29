@@ -98,6 +98,8 @@ func can_size_down(resize_mode: Enums.RESIZE_MODE) -> bool:
 		obj_min_size_reached = x_min_reached or y_min_reached
 	# why check player whn sizing down ?
 	#return GameState.can_size_down() and !is_player_colliding(resize_mode) and !obj_min_size_reached
+	if obj_min_size_reached:
+		SignalBus.game_event_happened.emit(Enums.GAME_EVENT.RESIZABLE_TOO_SMALL)
 	return GameState.can_size_down() and !obj_min_size_reached
 
 

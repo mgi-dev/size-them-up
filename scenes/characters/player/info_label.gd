@@ -7,6 +7,7 @@ var messages_text = {
 	Enums.GAME_EVENT.EMPTY_GAUGE: "Gauge Vide",
 	Enums.GAME_EVENT.FULL_GAUGE: "Gauge Pleine",
 	Enums.GAME_EVENT.PLAYER_CLOSE_TO_RESIZABLE: "Too close !",
+	Enums.GAME_EVENT.RESIZABLE_TOO_SMALL: "Too small",
 }
 var messages_queue = []
 

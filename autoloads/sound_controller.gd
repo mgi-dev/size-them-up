@@ -10,7 +10,13 @@ var music_player: AudioStreamPlayer
 const JUMP_SOUND = preload("res://assets/sound/Retro Jump 4.mp3")
 const MOUSE_CLICK = preload("res://assets/sound/matthewvakaliuk73627-mouse-click-290204.mp3")
 const IMPORTANT_ITEM_COLLECTED = preload("res://assets/sound/level_up.mp3")
+const BUZZER_INCORRECT = preload("res://assets/sound/freesound_community-wrong-47985.mp3")
 const MUSIC_ONE = preload("res://assets/musics/D_D-Music-Industrial-Factory-Ambience.ogg")
+
+
+const game_event_to_sound = {
+	Enums.GAME_EVENT.RESIZABLE_TOO_SMALL: BUZZER_INCORRECT
+}
 
 func _ready():
 	for _index in range(10):
@@ -21,6 +27,7 @@ func _ready():
 	SignalBus.player_jump.connect(player_jump_sound)
 	SignalBus.important_item_collected.connect(func(): play_sound_effect(IMPORTANT_ITEM_COLLECTED))
 	SignalBus.mouse_click.connect(func(): play_sound_effect(MOUSE_CLICK))
+	SignalBus.game_event_happened.connect(func(event: Enums.GAME_EVENT): play_sound_effect(game_event_to_sound.get(event)))
 	
 	
 	music_player = AudioStreamPlayer.new()
@@ -41,9 +48,10 @@ func get_available_audio_player() -> AudioStreamPlayer:
 
 	
 func play_sound_effect(sound):
-	var audio_player = get_available_audio_player()
-	audio_player.stream = sound
-	audio_player.play()
+	if sound:
+		var audio_player = get_available_audio_player()
+		audio_player.stream = sound
+		audio_player.play()
 
 
 func player_jump_sound():
