@@ -129,3 +129,6 @@ offset_top = 387.0
 offset_right = 822.0
 offset_bottom = 458.91656
 text = "Aim the laser with the mouse"
+
+[node name="Door" parent="." index="17" unique_id=8401334]
+visible = false

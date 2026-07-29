@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rauu87h82ibh" path="res://assets/images/white_round.png" id="8_43bxi"]
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="8_53c65"]
 [ext_resource type="PackedScene" uid="uid://dj0tkaacrg8av" path="res://scenes/levels/PauseMenu.tscn" id="8_j7gcg"]
+[ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="9_43bxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43bxi"]
 texture = ExtResource("8_53c65")
@@ -547,3 +548,6 @@ tile_set = ExtResource("7_h4ce7")
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer/TileMapLayer" unique_id=1930610447]
 z_index = 2
 tile_set = ExtResource("7_h4ce7")
+
+[node name="Door" parent="." unique_id=8401334 instance=ExtResource("9_43bxi")]
+position = Vector2(32, 585)

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cjsq31sficx8s"]
+
+[node name="RichTextLabel2" type="RichTextLabel" unique_id=24024372]
+offset_left = -536.0
+offset_top = -62.0
+offset_right = 534.0
+offset_bottom = 192.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[img  width=64 height=16]res://assets//images/small_fenetrein.png[/img]
+[i]prototype[/i]
+"
