@@ -20,6 +20,7 @@ var new_scale_muliplier_vector = Vector2(1.0, 1.0)
 var current_sprite_scale_multiplier_vector : Vector2 = Vector2(1.0, 1.0)
 
 @onready var particles = $GPUParticles2D
+@onready var info_label = $InfoLabel
 
 """
 ADR
@@ -86,6 +87,7 @@ func can_size_up(resize_mode: Enums.RESIZE_MODE) -> bool:
 	if is_shape_blocked and !is_player_colliding:
 		# player coliding is "normal" behaviour, and the sound is penible.
 		SignalBus.game_event_happened.emit(Enums.GAME_EVENT.RESIZABLE_BLOCKED)
+		info_label.on_game_event_received(Enums.GAME_EVENT.RESIZABLE_BLOCKED)
 	return GameState.can_size_up() and !is_player_colliding and !is_shape_blocked
 	
 	
@@ -105,6 +107,7 @@ func can_size_down(resize_mode: Enums.RESIZE_MODE) -> bool:
 	#return GameState.can_size_down() and !is_player_colliding(resize_mode) and !obj_min_size_reached
 	if obj_min_size_reached:
 		SignalBus.game_event_happened.emit(Enums.GAME_EVENT.RESIZABLE_TOO_SMALL)
+		info_label.on_game_event_received(Enums.GAME_EVENT.RESIZABLE_TOO_SMALL)
 	return GameState.can_size_down() and !obj_min_size_reached
 
 

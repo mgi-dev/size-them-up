@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b3wpdew1o2r4p" path="res://scenes/resizable/quadri_detector_2000.gd" id="2_n17qm"]
 [ext_resource type="Shader" uid="uid://bbvqq5xavboub" path="res://scenes/resizable/rect_resizable.gdshader" id="2_qowmo"]
 [ext_resource type="Texture2D" uid="uid://fjjnlavafjin" path="res://assets/images/glowing_circle.png" id="5_ova4c"]
+[ext_resource type="Script" uid="uid://cf2m3cbgm1y61" path="res://scenes/resizable/resizable_info_label.gd" id="6_kaa7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27yq0"]
 size = Vector2(48, 48)
@@ -31,6 +32,10 @@ emission_box_extents = Vector3(2, 2, 1)
 gravity = Vector3(0, 0, 0)
 scale_min = 0.19999999
 scale_max = 0.19999999
+
+[sub_resource type="LabelSettings" id="LabelSettings_w2r6q"]
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="ResizableV2" type="RigidBody2D" unique_id=2113696681 node_paths=PackedStringArray("sprite", "hitbox", "collision_detector")]
 z_index = 2
@@ -78,5 +83,16 @@ texture = ExtResource("2_1sivu")
 emitting = false
 amount = 800
 texture = ExtResource("5_ova4c")
-lifetime = 0.09999999999999999
+lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_kaa7u")
+
+[node name="InfoLabel" type="Label" parent="." unique_id=964591197]
+z_index = 9
+offset_left = -94.0
+offset_top = -48.0
+offset_right = 95.0
+offset_bottom = -25.0
+label_settings = SubResource("LabelSettings_w2r6q")
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("6_kaa7u")

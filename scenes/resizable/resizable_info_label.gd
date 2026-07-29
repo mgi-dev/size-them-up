@@ -1,19 +1,20 @@
 extends Label
 
 
-const MESSAGE_DISPLAY_DURATION = 0.5
+const MESSAGE_DISPLAY_DURATION = 0.9
+
 
 var messages_text = {
-	Enums.GAME_EVENT.EMPTY_GAUGE: "Gauge Vide",
-	Enums.GAME_EVENT.FULL_GAUGE: "Gauge Pleine",
-	Enums.GAME_EVENT.PLAYER_CLOSE_TO_RESIZABLE: "Too close !",
+	Enums.GAME_EVENT.RESIZABLE_TOO_SMALL: "Too small",
+	Enums.GAME_EVENT.RESIZABLE_BLOCKED: "Blocked",
 	
 }
 var messages_queue = []
 
 
 func _ready():
-	SignalBus.game_event_happened.connect(on_player_info_emitted)
+	pass
+	# SignalBus.game_event_happened.connect(on_game_event_received)
 
 
 
@@ -37,10 +38,12 @@ func display_messages() -> void:
 		position.y += 20
 		text = ""
 		messages_queue.pop_back()
-
-func on_player_info_emitted(game_event: Enums.GAME_EVENT) -> void:
+		await get_tree().create_timer(1.2).timeout
+		
+		
+func on_game_event_received(game_event: Enums.GAME_EVENT) -> void:
 	var message = messages_text.get(game_event)
 	if message:
 		if messages_text[game_event] not in messages_queue:
 			messages_queue.append(messages_text[game_event])
-		
+	
