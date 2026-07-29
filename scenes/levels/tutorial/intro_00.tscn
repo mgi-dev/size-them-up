@@ -1,11 +1,15 @@
 [gd_scene format=4 uid="uid://djxr7mvevjyl6"]
 
 [ext_resource type="PackedScene" uid="uid://cjenegqkyul3s" path="res://scenes/ui/camera/camera.tscn" id="1_2b4fe"]
+[ext_resource type="Texture2D" uid="uid://b615o44i1nqu3" path="res://assets/images/characters/pngj_1_animated/pnj_01_0001.png" id="3_morwd"]
 [ext_resource type="Texture2D" uid="uid://dmcypnho645rs" path="res://assets/images/cage.png" id="3_mrdf5"]
 [ext_resource type="Texture2D" uid="uid://knojklqnep4d" path="res://assets/images/coffee_machine.png" id="4_3tc6t"]
-[ext_resource type="Texture2D" uid="uid://bh2ahy2k7k4oo" path="res://assets/images/characters/pnj_01.png" id="5_f2fd5"]
+[ext_resource type="Texture2D" uid="uid://bi6ux37i004hg" path="res://assets/images/characters/pngj_1_animated/pnj_01_0002.png" id="4_khubw"]
+[ext_resource type="Texture2D" uid="uid://op8g77yi0r8w" path="res://assets/images/characters/pngj_1_animated/pnj_01_0003.png" id="5_8828b"]
+[ext_resource type="Texture2D" uid="uid://ciog2veexg2ks" path="res://assets/images/characters/pngj_1_animated/pnj_01_0005.png" id="6_agp52"]
 [ext_resource type="Texture2D" uid="uid://c1b7d6xwtwhkg" path="res://assets/tileset/level_tileset.png" id="6_nyng8"]
 [ext_resource type="Texture2D" uid="uid://cfwixkj0s33r5" path="res://assets/tileset/industrial.v2.png" id="7_mrdf5"]
+[ext_resource type="Texture2D" uid="uid://coexw1hhac88u" path="res://assets/images/characters/pngj_1_animated/pnj_01_0004.png" id="7_q5juv"]
 [ext_resource type="Texture2D" uid="uid://c7xbd18gdf6nf" path="res://assets/tileset/lab_tileset_base.png" id="8_3tc6t"]
 [ext_resource type="Texture2D" uid="uid://batv8bihw6xkq" path="res://assets/tileset/darker_industrial.v2.png" id="8_uejyc"]
 [ext_resource type="Texture2D" uid="uid://ufjwd60440e3" path="res://assets/chicken_right.png" id="9_uejyc"]
@@ -20,6 +24,68 @@
 [ext_resource type="Texture2D" uid="uid://cspxivivmgwpx" path="res://assets/images/characters/coffee/coffee_vapor_0005.png" id="15_morwd"]
 [ext_resource type="Texture2D" uid="uid://c8mcue7lwtdka" path="res://assets/images/characters/coffee/coffee_vapor_0006.png" id="16_khubw"]
 [ext_resource type="Texture2D" uid="uid://cuper3if1g8lt" path="res://assets/images/characters/coffee/coffee_vapor_0007.png" id="17_8828b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1logr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_morwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_morwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_morwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_morwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_khubw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8828b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_morwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_khubw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8828b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_agp52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q5juv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_agp52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_agp52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_agp52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q5juv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_morwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_morwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_morwd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hskp0"]
 texture = ExtResource("6_nyng8")
@@ -1939,11 +2005,12 @@ texture_filter = 1
 position = Vector2(424, 384)
 texture = ExtResource("4_3tc6t")
 
-[node name="Pnj01" type="Sprite2D" parent="." unique_id=1634230121]
+[node name="Pnj01" type="AnimatedSprite2D" parent="." unique_id=73585032]
 texture_filter = 1
 position = Vector2(640, 385)
-texture = ExtResource("5_f2fd5")
-flip_h = true
+sprite_frames = SubResource("SpriteFrames_1logr")
+autoplay = "default"
+frame_progress = 0.95139736
 
 [node name="BackgroundRectColor" type="ColorRect" parent="." unique_id=1264141188]
 z_index = -999
