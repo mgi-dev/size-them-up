@@ -7,6 +7,7 @@ version=$(grep -o '"build":[[:space:]]*[0-9]*' settings.json | grep -o '[0-9]*')
 version=$((version + 1))
 sed -i "s/\"build\":[[:space:]]*[0-9]*/\"build\": $version/" settings.json
 
+git add settings.json && git commit -m "change version to $version"
 
 
 PROJECT_DIR="$(pwd)"
