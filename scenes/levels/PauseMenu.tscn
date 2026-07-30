@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dv456bmlacbkv" path="res://scenes/levels/pause_menu.gd" id="9_lxphx"]
 [ext_resource type="Texture2D" uid="uid://8b0y75j4im3d" path="res://assets/images/grey_button_over.png" id="10_lxphx"]
 [ext_resource type="Texture2D" uid="uid://w7mryirm4ofe" path="res://assets/images/grey_button_1.png" id="10_u33iy"]
+[ext_resource type="PackedScene" uid="uid://ccf0x0g768ak1" path="res://scenes/ui/OptionsMenu.tscn" id="11_u33iy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yx5p6"]
 texture = ExtResource("2_lxphx")
@@ -1917,6 +1918,7 @@ subpixel_positioning = 0
 
 [node name="PauseMenu" type="Node2D" unique_id=1230129419]
 z_index = 999
+script = ExtResource("9_lxphx")
 
 [node name="BackgroundRectColor" type="ColorRect" parent="." unique_id=1649228225]
 z_index = -999
@@ -1958,7 +1960,7 @@ region_enabled = true
 region_rect = Rect2(0, 18.303175, 31.478554, 28.74595)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=15292543]
-z_index = 200
+z_index = 130
 position = Vector2(619.87646, 282.08044)
 sprite_frames = SubResource("SpriteFrames_rhbjk")
 autoplay = "default"
@@ -1972,7 +1974,6 @@ offset_top = 173.33728
 offset_right = 373.1163
 offset_bottom = 173.33728
 scale = Vector2(0.39770913, 0.39770913)
-script = ExtResource("9_lxphx")
 
 [node name="PlayButton" type="TextureButton" parent="Node2D" unique_id=2123962709]
 texture_filter = 1
@@ -2049,5 +2050,14 @@ text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_up" from="Node2D/PlayButton" to="Node2D" method="_on_play_button_button_up"]
-[connection signal="button_up" from="Node2D/ExitButton" to="Node2D" method="_on_exit_button_button_up"]
+[node name="OptionsMenu" parent="." unique_id=124309110 instance=ExtResource("11_u33iy")]
+visible = false
+z_index = 201
+offset_left = 337.41345
+offset_top = 209.01984
+offset_right = 337.41345
+offset_bottom = 209.01984
+
+[connection signal="button_up" from="Node2D/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="Node2D/OptionsButton" to="." method="_on_options_button_button_up"]
+[connection signal="button_up" from="Node2D/ExitButton" to="." method="_on_exit_button_button_up"]

@@ -1,6 +1,5 @@
-extends Control
+extends Node2D
 
-class_name PauseManu
 
 
 @onready var play_button = $PlayButton
@@ -17,10 +16,16 @@ func _process(delta):
 
 func _on_play_button_button_up():
 	SignalBus.mouse_click.emit()
-	get_parent().get_parent().get_parent().toggle_menu()
+	get_parent().get_parent().toggle_menu()
 	# change_scene_to_node vs change_scene_to_packed
 	
 
 
 func _on_exit_button_button_up():
+	SignalBus.mouse_click.emit()
 	get_tree().quit()
+
+
+func _on_options_button_button_up():
+	SignalBus.mouse_click.emit()
+	$OptionsMenu.visible = true

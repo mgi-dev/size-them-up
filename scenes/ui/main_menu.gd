@@ -23,4 +23,11 @@ func _on_play_button_button_up():
 
 
 func _on_exit_button_button_up():
+	SignalBus.mouse_click.emit()
 	get_tree().quit()
+
+
+
+func _on_options_button_button_up():
+	SignalBus.mouse_click.emit()
+	$OptionsMenu.visible = true

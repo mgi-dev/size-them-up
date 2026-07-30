@@ -65,3 +65,19 @@ func player_jump_sound():
 	audio_player.play()
 	await audio_player.finished
 	audio_player.volume_db -= 8.0
+	
+	
+func get_volume_db(bus_name: String) -> float:
+	return AudioServer.get_bus_volume_db(AudioServer.get_bus_index(bus_name))
+	
+	
+func get_volume_linear(bus_name: String) -> float:
+	return db_to_linear(get_volume_db(bus_name))
+	
+	
+func set_volume(bus_name, volume: float):
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index(bus_name),
+		linear_to_db(volume)
+)
+	

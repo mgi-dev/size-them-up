@@ -15,6 +15,11 @@ enum RESIZE {UP, DOWN}
 
 enum RESIZE_MODE {ALL, VERTICAL, HORIZONTAL}
 
+const SOUND_MASTER_BUS = "Master"
+const SOUND_MUSIC_BUS = "Music"
+const SOUND_SFX_BUS = "HighSoundEffect"
+
+
 const CLIMBABLE_GROUP = "climbable"
 const TRANSPARENT_GROUP = "transparent"
 

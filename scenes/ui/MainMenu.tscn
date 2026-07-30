@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bvqn78v1escgo" path="res://scenes/ui/main_menu.gd" id="1_vjtqc"]
 [ext_resource type="Texture2D" uid="uid://w7mryirm4ofe" path="res://assets/images/grey_button_1.png" id="2_6jbdy"]
 [ext_resource type="Texture2D" uid="uid://8b0y75j4im3d" path="res://assets/images/grey_button_over.png" id="3_iwbf0"]
+[ext_resource type="PackedScene" uid="uid://ccf0x0g768ak1" path="res://scenes/ui/OptionsMenu.tscn" id="4_2ysvc"]
 
 [sub_resource type="SystemFont" id="SystemFont_6jbdy"]
 font_names = PackedStringArray("Impact")
@@ -96,5 +97,10 @@ text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="OptionsMenu" parent="." unique_id=124309110 instance=ExtResource("4_2ysvc")]
+z_index = 201
+layout_mode = 0
+
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="OptionsButton" to="." method="_on_options_button_button_up"]
 [connection signal="button_up" from="ExitButton" to="." method="_on_exit_button_button_up"]
