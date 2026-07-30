@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="4_kj54b"]
 
 [node name="BaseLevel" unique_id=1818539085 instance=ExtResource("1_eisj5")]
+enable_plugin_1 = false
 
 [node name="Player" parent="." index="1" unique_id=217472232]
 position = Vector2(31.605652, 625.8965)

@@ -7,11 +7,14 @@ extends Node2D
 @export var entrance_door: Door
 @export var exit_door: Door
 @export var scroll_speed: float = 5000.0
+@export var enable_plugin_1 = true
 
 func _ready():
 	transition_sprite.modulate = Color(0.0, 0.0, 0.0, 1.0)
 	display_transition_into_level()
 	SignalBus.next_level.connect(display_transition_out_from_level)
+	if enable_plugin_1:
+		SignalBus.multi_resize_mode_changed.emit(true)
 
 
 func _process(delta):

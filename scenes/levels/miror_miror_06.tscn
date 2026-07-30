@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="6_w6cyd"]
 [ext_resource type="PackedScene" uid="uid://cvvcu68h2xb07" path="res://scenes/landscape/ReflectorContainer.tscn" id="7_csvp3"]
 [ext_resource type="Script" uid="uid://b7c7aejxpkdyf" path="res://scenes/levels/miror_miror_06.gd" id="8_tsgnl"]
-[ext_resource type="PackedScene" uid="uid://ds8hwtkaat7bd" path="res://scenes/levels/the_end.tscn" id="9_ua1pr"]
 [ext_resource type="PackedScene" uid="uid://dfaarpkbkoa45" path="res://scenes/landscape/fenetrein/BigFenetrein.tscn" id="10_8vicg"]
+[ext_resource type="PackedScene" uid="uid://d0h6eyuusu61t" path="res://scenes/levels/crate_mess_07.tscn" id="10_yioet"]
 [ext_resource type="PackedScene" uid="uid://jxhpisqacena" path="res://scenes/landscape/fenetrein/Fenetrein.tscn" id="11_yioet"]
 
 [node name="MirorMiror_06" unique_id=1818539085 instance=ExtResource("1_c1cte")]
@@ -68,7 +68,7 @@ ignore_collision_for = NodePath("../Box2")
 
 [node name="Door3" parent="." index="15" unique_id=43927717 instance=ExtResource("3_yioet")]
 position = Vector2(1480, 586)
-next_scene = ExtResource("9_ua1pr")
+next_scene = ExtResource("10_yioet")
 
 [node name="ResizableV7" parent="." index="16" unique_id=422542201 instance=ExtResource("6_w6cyd")]
 position = Vector2(872.00006, 712.00006)

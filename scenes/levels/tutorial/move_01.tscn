@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b0sv7aiuhimj3" path="res://scenes/landscape/HalfLadder.tscn" id="9_bolu4"]
 
 [node name="tutorial_move_01" unique_id=1818539085 instance=ExtResource("1_dt453")]
+enable_plugin_1 = false
 
 [node name="Player" parent="." index="1" unique_id=217472232]
 position = Vector2(64.266235, 615.55396)

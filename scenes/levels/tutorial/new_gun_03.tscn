@@ -123,6 +123,7 @@ sources/0 = SubResource("TileSetAtlasSource_h7bgg")
 
 [node name="new_gun_03" unique_id=1818539085 node_paths=PackedStringArray("entrance_door") instance=ExtResource("1_f758t")]
 entrance_door = NodePath("Door")
+enable_plugin_1 = false
 
 [node name="Email" parent="Camera" parent_id_path=PackedInt32Array(1438112420) index="1" unique_id=1835343870 instance=ExtResource("11_nwut6")]
 visible = false

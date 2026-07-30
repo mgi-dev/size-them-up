@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cujngdsg4ikqc" path="res://scenes/components/Interactable.tscn" id="4_8lid0"]
 
 [node name="Computer" type="Node2D" unique_id=1859006309]
+z_index = 2
 script = ExtResource("1_sgthl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=28815778]
