@@ -9,3 +9,9 @@
 - sound param
 - screen resize
 - a name
+- door + button
+- moving / gravity plateforme
+- ball
+- laser divider
+- color filter
+- bumper scaling with size

@@ -166,7 +166,16 @@ func _ready():
 		LaserFullyChargedUpState: LaserFullyChargedUpState.new(self),
 		LaserFullyChargedDownState: LaserFullyChargedDownState.new(self),
 	})
-	
+	preload_particles()
+
+
+func preload_particles():
+	casting_particles.emitting = true
+	resize_ray.beam_particles.emitting
+	await get_tree().process_frame
+	casting_particles.emitting = false
+	resize_ray.beam_particles.emitting = false
+
 
 func _process(delta):
 	update_mouse_position()

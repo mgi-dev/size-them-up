@@ -1,21 +1,21 @@
 [gd_scene format=4 uid="uid://d0h6eyuusu61t"]
 
-[ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_kwequ"]
-[ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_iemrb"]
-[ext_resource type="PackedScene" uid="uid://nyjv81jh5kks" path="res://scenes/landscape/Ladder.tscn" id="2_knxqw"]
-[ext_resource type="PackedScene" uid="uid://brcppoqy7g8s5" path="res://scenes/landscape/computer/Email.tscn" id="2_ubdts"]
-[ext_resource type="PackedScene" uid="uid://cjsq31sficx8s" path="res://scenes/landscape/computer/EmailBody.tscn" id="3_0p0qm"]
-[ext_resource type="PackedScene" uid="uid://dmo3siywfanyf" path="res://scenes/landscape/Box.tscn" id="3_knxqw"]
-[ext_resource type="PackedScene" uid="uid://dfaarpkbkoa45" path="res://scenes/landscape/fenetrein/BigFenetrein.tscn" id="4_6u67p"]
-[ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="5_0p0qm"]
-[ext_resource type="PackedScene" uid="uid://cvvcu68h2xb07" path="res://scenes/landscape/ReflectorContainer.tscn" id="5_4h4ws"]
-[ext_resource type="PackedScene" uid="uid://ds8hwtkaat7bd" path="res://scenes/levels/the_end.tscn" id="6_ke6ln"]
-[ext_resource type="PackedScene" uid="uid://cx21ak7djiktk" path="res://scenes/landscape/computer/Computer.tscn" id="9_ke6ln"]
-[ext_resource type="PackedScene" uid="uid://jxhpisqacena" path="res://scenes/landscape/fenetrein/Fenetrein.tscn" id="10_30ggj"]
+[ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_pwymo"]
+[ext_resource type="PackedScene" uid="uid://brcppoqy7g8s5" path="res://scenes/landscape/computer/Email.tscn" id="2_swanw"]
+[ext_resource type="PackedScene" uid="uid://cjsq31sficx8s" path="res://scenes/landscape/computer/EmailBody.tscn" id="3_2rjx8"]
+[ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="4_v78mw"]
+[ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="5_r6xrs"]
+[ext_resource type="PackedScene" uid="uid://ds8hwtkaat7bd" path="res://scenes/levels/the_end.tscn" id="6_wdnad"]
+[ext_resource type="PackedScene" uid="uid://dmo3siywfanyf" path="res://scenes/landscape/Box.tscn" id="7_xmtvs"]
+[ext_resource type="PackedScene" uid="uid://dfaarpkbkoa45" path="res://scenes/landscape/fenetrein/BigFenetrein.tscn" id="8_2ainf"]
+[ext_resource type="PackedScene" uid="uid://cvvcu68h2xb07" path="res://scenes/landscape/ReflectorContainer.tscn" id="9_vhsrm"]
+[ext_resource type="PackedScene" uid="uid://nyjv81jh5kks" path="res://scenes/landscape/Ladder.tscn" id="10_1brf1"]
+[ext_resource type="PackedScene" uid="uid://cx21ak7djiktk" path="res://scenes/landscape/computer/Computer.tscn" id="11_efolm"]
+[ext_resource type="PackedScene" uid="uid://jxhpisqacena" path="res://scenes/landscape/fenetrein/Fenetrein.tscn" id="12_cr4ko"]
 
-[node name="Level07" unique_id=1818539085 instance=ExtResource("1_kwequ")]
+[node name="Crate_mess_07" unique_id=1818539085 instance=ExtResource("1_pwymo")]
 
-[node name="Email" parent="Camera" parent_id_path=PackedInt32Array(1438112420) index="2" unique_id=1835343870 instance=ExtResource("2_ubdts")]
+[node name="Email" parent="Camera" parent_id_path=PackedInt32Array(1438112420) index="2" unique_id=1835343870 instance=ExtResource("2_swanw")]
 visible = false
 display = false
 recipient = "@Faciliteam"
@@ -23,7 +23,7 @@ cc = "Julia Lion"
 sender = "Eric Eccert"
 subject = "About the mess on level 07"
 
-[node name="RichTextLabel2" parent="Camera/Email" index="7" unique_id=24024372 instance=ExtResource("3_0p0qm")]
+[node name="RichTextLabel2" parent="Camera/Email" index="7" unique_id=24024372 instance=ExtResource("3_2rjx8")]
 text = "GUYS !
 
 What the hell happened on Level 07 ? It's like a storm unleashed here !
@@ -49,75 +49,75 @@ tile_map_data = PackedByteArray("AAD9/ygAAwAKAAAAAAD9/ykAAwAKAAEAAAD+/ygAAwANAAA
 [node name="TileMapLayer" parent="TileMapLayer/TileMapLayer" index="0" unique_id=1930610447]
 tile_map_data = PackedByteArray("AAAtABIAAQAIAAAAAAAtABEAAQAIAAAAAAAtABAAAQAIAAAAAAAtAA8AAQAIAAAAAAAtAA4AAQAIAAAAAAAtAA0AAQAIAAAAAAAtAAwAAQAIAAAAAAAtAAsAAQAIAAAAAAAtAAoAAQAIAAAAAAAtAAkAAQAIAAAAAAAtAAgAAQAIAAAAAAAtAAcAAQAIAAAAAAAtAAYAAQAIAAAAAAAtAAUAAQAIAAAAAAAtAAQAAQAIAAAAAAAtAAMAAQAIAAAAAAAtAAIAAQAIAAAAAAAtAAEAAQAIAAAAAAAtAAAAAQAWAAAAAAAtAP3/AQAIAAAAAAAtAPz/AQAIAAAAAAAtAPv/AQAIAAAAAAAtAPr/AQAIAAAAAAA0APr/AQAWAAAAAAA0APv/AQAIAAAAAAA0APz/AQAIAAAAAAA0AP3/AQAIAAAAAAA0AP7/AQAIAAAAAAA0AP//AQAIAAAAAAA0AAAAAQAIAAAAAAA0AAEAAQAIAAAAAAA0AAIAAQAIAAAAAAA0AAMAAQAIAAAAAAA0AAQAAQAIAAAAAAA0AAUAAQAIAAAAAAA0AAYAAQAIAAAAAAA0AAcAAQAIAAAAAAA0AAgAAQAIAAAAAAA0AAkAAQAIAAAAAAA0AAoAAQAIAAAAAAA0AAsAAQAIAAAAAAA0AAwAAQAIAAAAAAA0AA0AAQAIAAAAAAA0AA4AAQAIAAAAAAA0AA8AAQAIAAAAAAA0ABAAAQAIAAAAAAA0ABEAAQAIAAAAAAA0ABIAAQAIAAAAAAABAA8AAwAUAAYAAAABABAAAwAUAAcAAAACAA8AAwAVAAYAAAACABAAAwAVAAcAAAABABEAAwAUAAYAAAABABIAAwAUAAcAAAACABEAAwAVAAYAAAACABIAAwAVAAcAAAABABMAAwAUAAYAAAABABQAAwAUAAcAAAACABMAAwAVAAYAAAACABQAAwAVAAcAAAABABUAAwAUAAYAAAABABYAAwAUAAcAAAACABUAAwAVAAYAAAACABYAAwAVAAcAAAABABcAAwAUAAYAAAABABgAAwAUAAcAAAACABcAAwAVAAYAAAACABgAAwAVAAcAAAABABkAAwAUAAgAAAABABoAAwAUAAkAAAACABkAAwAVAAgAAAACABoAAwAVAAkAAAASABEAAwASAAgAAAASABIAAwASAAkAAAATABEAAwATAAgAAAATABIAAwATAAkAAAAmABEAAwASAAgAAAAmABIAAwASAAkAAAAnABEAAwATAAgAAAAnABIAAwATAAkAAAA6ABEAAwASAAgAAAA6ABIAAwASAAkAAAA7ABEAAwATAAgAAAA7ABIAAwATAAkAAABJABEAAwASAAgAAABJABIAAwASAAkAAABKABEAAwATAAgAAABKABIAAwATAAkAAAD9//n/AwAUAAoAAAD9//r/AwAUAAsAAAD+//n/AwAVAAoAAAD+//r/AwAVAAsAAAD///n/AwAUAAoAAAD///r/AwAUAAsAAAAAAPn/AwAVAAoAAAAAAPr/AwAVAAsAAAABAPn/AwAUAAoAAAABAPr/AwAUAAsAAAACAPn/AwAVAAoAAAACAPr/AwAVAAsAAAADAPn/AwAUAAoAAAADAPr/AwAUAAsAAAAEAPn/AwAVAAoAAAAEAPr/AwAVAAsAAAAFAPn/AwAUAAoAAAAFAPr/AwAUAAsAAAAGAPn/AwAVAAoAAAAGAPr/AwAVAAsAAAAHAPn/AwAUAAoAAAAHAPr/AwAUAAsAAAAIAPn/AwAVAAoAAAAIAPr/AwAVAAsAAAAJAPn/AwAUAAoAAAAJAPr/AwAUAAsAAAAKAPn/AwAVAAoAAAAKAPr/AwAVAAsAAAALAPn/AwAUAAoAAAALAPr/AwAUAAsAAAAMAPn/AwAVAAoAAAAMAPr/AwAVAAsAAAANAPn/AwAUAAoAAAANAPr/AwAUAAsAAAAOAPn/AwAVAAoAAAAOAPr/AwAVAAsAAAAPAPn/AwAUAAoAAAAPAPr/AwAUAAsAAAAQAPn/AwAVAAoAAAAQAPr/AwAVAAsAAAARAPn/AwAUAAoAAAARAPr/AwAUAAsAAAASAPn/AwAVAAoAAAASAPr/AwAVAAsAAAATAPn/AwAUAAoAAAATAPr/AwAUAAsAAAAUAPn/AwAVAAoAAAAUAPr/AwAVAAsAAAAVAPn/AwAUAAoAAAAVAPr/AwAUAAsAAAAWAPn/AwAVAAoAAAAWAPr/AwAVAAsAAAAXAPn/AwAUAAoAAAAXAPr/AwAUAAsAAAAYAPn/AwAVAAoAAAAYAPr/AwAVAAsAAAAZAPn/AwAUAAoAAAAZAPr/AwAUAAsAAAAaAPn/AwAVAAoAAAAaAPr/AwAVAAsAAAAbAPn/AwAVAAoAAAAbAPr/AwAVAAsAAAAbAPv/AwAVAAwAAAAbAPz/AwAVAA0AAAAcAPn/AwAWAAoAAAAcAPr/AwAWAAsAAAAcAPv/AwAWAAwAAAAcAPz/AwAWAA0AAAAdAPn/AwAXAAoAAAAdAPr/AwAXAAsAAAAdAPv/AwAXAAwAAAAdAPz/AwAXAA0AAAAcAP3/AwASAA0AAAAcAP7/AwASAA4AAAAcAP//AwASAA8AAAAdAP3/AwATAA0AAAAdAP7/AwATAA4AAAAdAP//AwATAA8AAAAeAP3/AwAUAA0AAAAeAP7/AwAUAA4AAAAeAP//AwAUAA8AAAAfAP3/AwAVAA0AAAAfAP7/AwAVAA4AAAAfAP//AwAVAA8AAAAgAP7/AwAUAAoAAAAgAP//AwAUAAsAAAAhAP7/AwAVAAoAAAAhAP//AwAVAAsAAAAiAP7/AwAUAAoAAAAiAP//AwAUAAsAAAAjAP7/AwAVAAoAAAAjAP//AwAVAAsAAAAkAP7/AwAUAAoAAAAkAP//AwAUAAsAAAAlAP7/AwAVAAoAAAAlAP//AwAVAAsAAAAmAP7/AwAUAAoAAAAmAP//AwAUAAsAAAAnAP7/AwAVAAoAAAAnAP//AwAVAAsAAAAoAP7/AwAUAAoAAAAoAP//AwAUAAsAAAApAP7/AwAVAAoAAAApAP//AwAVAAsAAAAqAP3/AwAWAA0AAAAqAP7/AwAWAA4AAAAqAP//AwAWAA8AAAArAP3/AwAXAA0AAAArAP7/AwAXAA4AAAArAP//AwAXAA8AAAApAPv/AwAVAAwAAAApAPz/AwAVAA0AAAAqAPv/AwAWAAwAAAAqAPz/AwAWAA0AAAArAPv/AwAXAAwAAAArAPz/AwAXAA0AAAApAPn/AwAVAAwAAAApAPr/AwAVAA0AAAAqAPn/AwAWAAwAAAAqAPr/AwAWAA0AAAArAPn/AwAXAAwAAAArAPr/AwAXAA0AAAApAPf/AwAVAA0AAAApAPj/AwAVAA0AAAAqAPf/AwAWAA0AAAAqAPj/AwAWAA0AAAArAPf/AwAXAA0AAAArAPj/AwAXAA0AAAApAPb/AwAVAAwAAAAqAPb/AwAWAAwAAAArAPb/AwAXAAwAAAAtAPn/AQAWAAAAAAAtAPj/AQAWAAAAAAAtAPf/AQAWAAAAAAAtAPb/AQAWAAAAAAA0APb/AQAWAAAAAAA0APf/AQAWAAAAAAA0APj/AQAWAAAAAAA0APn/AQAWAAAAAAAtAP7/AQAWAAAAAAAtAP//AQAWAAAAAADl/y0AAQABAAIAAADl/y4AAQABAAMAAADm/y0AAQACAAIAAADm/y4AAQACAAMAAADx/y0AAQABAAIAAADx/y4AAQABAAMAAADy/y0AAQACAAIAAADy/y4AAQACAAMAAAD9/y0AAQABAAIAAAD9/y4AAQABAAMAAAD+/y0AAQACAAIAAAD+/y4AAQACAAMAAAAJAC0AAQABAAIAAAAJAC4AAQABAAMAAAAKAC0AAQACAAIAAAAKAC4AAQACAAMAAAAVAC0AAQABAAIAAAAVAC4AAQABAAMAAAAWAC0AAQACAAIAAAAWAC4AAQACAAMAAAAhAC0AAQABAAIAAAAhAC4AAQABAAMAAAAiAC0AAQACAAIAAAAiAC4AAQACAAMAAAAtAC0AAQABAAIAAAAtAC4AAQABAAMAAAAuAC0AAQACAAIAAAAuAC4AAQACAAMAAAA5AC0AAQABAAIAAAA5AC4AAQABAAMAAAA6AC0AAQACAAIAAAA6AC4AAQACAAMAAABFAC0AAQABAAIAAABFAC4AAQABAAMAAABGAC0AAQACAAIAAABGAC4AAQACAAMAAABRAC0AAQABAAIAAABRAC4AAQABAAMAAABSAC0AAQACAAIAAABSAC4AAQACAAMAAABdAC0AAQABAAIAAABdAC4AAQABAAMAAABeAC0AAQACAAIAAABeAC4AAQACAAMAAABpAC0AAQABAAIAAABpAC4AAQABAAMAAABqAC0AAQACAAIAAABqAC4AAQACAAMAAAB1AC0AAQABAAIAAAB1AC4AAQABAAMAAAB2AC0AAQACAAIAAAB2AC4AAQACAAMAAADN/y0AAQABAAIAAADN/y4AAQABAAMAAADO/y0AAQACAAIAAADO/y4AAQACAAMAAADZ/y0AAQABAAIAAADZ/y4AAQABAAMAAADa/y0AAQACAAIAAADa/y4AAQACAAMAAAC5/+3/AQABAAIAAAC5/+7/AQABAAMAAAC6/+3/AQACAAIAAAC6/+7/AQACAAMAAADF/+3/AQABAAIAAADF/+7/AQABAAMAAADG/+3/AQACAAIAAADG/+7/AQACAAMAAADR/+3/AQABAAIAAADR/+7/AQABAAMAAADS/+3/AQACAAIAAADS/+7/AQACAAMAAADd/+3/AQABAAIAAADd/+7/AQABAAMAAADe/+3/AQACAAIAAADe/+7/AQACAAMAAADp/+3/AQABAAIAAADp/+7/AQABAAMAAADq/+3/AQACAAIAAADq/+7/AQACAAMAAAD1/+3/AQABAAIAAAD1/+7/AQABAAMAAAD2/+3/AQACAAIAAAD2/+7/AQACAAMAAAABAO3/AQABAAIAAAABAO7/AQABAAMAAAACAO3/AQACAAIAAAACAO7/AQACAAMAAAANAO3/AQABAAIAAAANAO7/AQABAAMAAAAOAO3/AQACAAIAAAAOAO7/AQACAAMAAAAZAO3/AQABAAIAAAAZAO7/AQABAAMAAAAaAO3/AQACAAIAAAAaAO7/AQACAAMAAAAlAO3/AQABAAIAAAAlAO7/AQABAAMAAAAmAO3/AQACAAIAAAAmAO7/AQACAAMAAAAxAO3/AQABAAIAAAAxAO7/AQABAAMAAAAyAO3/AQACAAIAAAAyAO7/AQACAAMAAAA9AO3/AQABAAIAAAA9AO7/AQABAAMAAAA+AO3/AQACAAIAAAA+AO7/AQACAAMAAABJAO3/AQABAAIAAABJAO7/AQABAAMAAABKAO3/AQACAAIAAABKAO7/AQACAAMAAABVAO3/AQABAAIAAABVAO7/AQABAAMAAABWAO3/AQACAAIAAABWAO7/AQACAAMAAABhAO3/AQABAAIAAABhAO7/AQABAAMAAABiAO3/AQACAAIAAABiAO7/AQACAAMAAABtAO3/AQABAAIAAABtAO7/AQABAAMAAABuAO3/AQACAAIAAABuAO7/AQACAAMAAAB5AO3/AQABAAIAAAB5AO7/AQABAAMAAAB6AO3/AQACAAIAAAB6AO7/AQACAAMAAACFAO3/AQABAAIAAACFAO7/AQABAAMAAACGAO3/AQACAAIAAACGAO7/AQACAAMAAACRAO3/AQABAAIAAACRAO7/AQABAAMAAACSAO3/AQACAAIAAACSAO7/AQACAAMAAACdAO3/AQABAAIAAACdAO7/AQABAAMAAACeAO3/AQACAAIAAACeAO7/AQACAAMAAACpAO3/AQABAAIAAACpAO7/AQABAAMAAACqAO3/AQACAAIAAACqAO7/AQACAAMAAAA=")
 
-[node name="ResizableV2" parent="TileMapLayer" index="1" unique_id=2113696681 instance=ExtResource("2_iemrb")]
+[node name="ResizableV2" parent="TileMapLayer" index="1" unique_id=2113696681 instance=ExtResource("4_v78mw")]
 position = Vector2(-6, 183.99998)
 scale = Vector2(1.7141612, 0.9269825)
 
-[node name="Door" parent="TileMapLayer" index="2" unique_id=8401334 instance=ExtResource("5_0p0qm")]
+[node name="Door" parent="TileMapLayer" index="2" unique_id=8401334 instance=ExtResource("5_r6xrs")]
 position = Vector2(-2, 74)
-next_scene = ExtResource("6_ke6ln")
+next_scene = ExtResource("6_wdnad")
 
-[node name="ResizableV2" parent="." index="7" unique_id=1834752804 node_paths=PackedStringArray("ignore_collision_for") instance=ExtResource("2_iemrb")]
+[node name="ResizableV2" parent="." index="7" unique_id=1834752804 node_paths=PackedStringArray("ignore_collision_for") instance=ExtResource("4_v78mw")]
 position = Vector2(539, 405)
 ignore_collision_for = NodePath("../Box")
 
-[node name="Box" parent="." index="8" unique_id=1110912954 instance=ExtResource("3_knxqw")]
+[node name="Box" parent="." index="8" unique_id=1110912954 instance=ExtResource("7_xmtvs")]
 position = Vector2(489, 404)
 
-[node name="Box2" parent="." index="9" unique_id=1861417091 instance=ExtResource("3_knxqw")]
+[node name="Box2" parent="." index="9" unique_id=1861417091 instance=ExtResource("7_xmtvs")]
 position = Vector2(602, 405)
 
-[node name="Box3" parent="." index="10" unique_id=642185250 instance=ExtResource("3_knxqw")]
+[node name="Box3" parent="." index="10" unique_id=642185250 instance=ExtResource("7_xmtvs")]
 position = Vector2(418, 566)
 
-[node name="Box4" parent="." index="11" unique_id=1534691362 instance=ExtResource("3_knxqw")]
+[node name="Box4" parent="." index="11" unique_id=1534691362 instance=ExtResource("7_xmtvs")]
 position = Vector2(424, 614)
 
-[node name="Box5" parent="." index="12" unique_id=526793760 instance=ExtResource("3_knxqw")]
+[node name="Box5" parent="." index="12" unique_id=526793760 instance=ExtResource("7_xmtvs")]
 position = Vector2(360, 614)
 
-[node name="Box6" parent="." index="13" unique_id=423713744 instance=ExtResource("3_knxqw")]
+[node name="Box6" parent="." index="13" unique_id=423713744 instance=ExtResource("7_xmtvs")]
 position = Vector2(367, 566)
 
-[node name="Box7" parent="." index="14" unique_id=491679018 instance=ExtResource("3_knxqw")]
+[node name="Box7" parent="." index="14" unique_id=491679018 instance=ExtResource("7_xmtvs")]
 position = Vector2(472, 560)
 rotation = 1.5707964
 
-[node name="Box8" parent="." index="15" unique_id=954009114 instance=ExtResource("3_knxqw")]
+[node name="Box8" parent="." index="15" unique_id=954009114 instance=ExtResource("7_xmtvs")]
 position = Vector2(482, 611)
 
-[node name="BigFenetrein" parent="." index="16" unique_id=1718770781 instance=ExtResource("4_6u67p")]
+[node name="BigFenetrein" parent="." index="16" unique_id=1718770781 instance=ExtResource("8_2ainf")]
 position = Vector2(568, 397)
 rotation = 1.5707964
 
-[node name="ReflectorContainer" parent="." index="17" unique_id=755664185 instance=ExtResource("5_4h4ws")]
+[node name="ReflectorContainer" parent="." index="17" unique_id=755664185 instance=ExtResource("9_vhsrm")]
 position = Vector2(896, 411.00006)
 rotation = -2.6179938
 
-[node name="Ladder" parent="." index="18" unique_id=1163521122 instance=ExtResource("2_knxqw")]
+[node name="Ladder" parent="." index="18" unique_id=1163521122 instance=ExtResource("10_1brf1")]
 position = Vector2(785, 199)
 
-[node name="Computer" parent="." index="19" unique_id=1859006309 instance=ExtResource("9_ke6ln")]
+[node name="Computer" parent="." index="19" unique_id=1859006309 instance=ExtResource("11_efolm")]
 position = Vector2(160, 626)
 
-[node name="ResizableV3" parent="." index="20" unique_id=386317613 node_paths=PackedStringArray("ignore_collision_for") instance=ExtResource("2_iemrb")]
+[node name="ResizableV3" parent="." index="20" unique_id=386317613 node_paths=PackedStringArray("ignore_collision_for") instance=ExtResource("4_v78mw")]
 position = Vector2(602, 454)
 ignore_collision_for = NodePath("../Box2")
 
-[node name="Fenetrein" parent="." index="21" unique_id=505034994 instance=ExtResource("10_30ggj")]
+[node name="Fenetrein" parent="." index="21" unique_id=505034994 instance=ExtResource("12_cr4ko")]
 position = Vector2(504, 151)
 rotation = -3.1415925
 
-[node name="Box9" parent="." index="22" unique_id=1355383154 instance=ExtResource("3_knxqw")]
+[node name="Box9" parent="." index="22" unique_id=1355383154 instance=ExtResource("7_xmtvs")]
 position = Vector2(524, 77)
 
-[node name="Box10" parent="." index="23" unique_id=1079761865 instance=ExtResource("3_knxqw")]
+[node name="Box10" parent="." index="23" unique_id=1079761865 instance=ExtResource("7_xmtvs")]
 position = Vector2(573, 119)
 
-[node name="Box11" parent="." index="24" unique_id=205037894 instance=ExtResource("3_knxqw")]
+[node name="Box11" parent="." index="24" unique_id=205037894 instance=ExtResource("7_xmtvs")]
 position = Vector2(526.37946, 27.49289)
 
-[node name="ResizableV4" parent="." index="25" unique_id=1909054422 node_paths=PackedStringArray("ignore_collision_for") instance=ExtResource("2_iemrb")]
+[node name="ResizableV4" parent="." index="25" unique_id=1909054422 node_paths=PackedStringArray("ignore_collision_for") instance=ExtResource("4_v78mw")]
 position = Vector2(491, 123)
 scale = Vector2(2.3599954, 0.79999936)
 ignore_collision_for = NodePath("../Box9")
