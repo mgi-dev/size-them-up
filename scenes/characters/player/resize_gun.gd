@@ -18,6 +18,11 @@ class_name ResizeGun
 
 var resize_mode = Enums.RESIZE_MODE.ALL
 
+@onready var gun_sprite = $SpriteGun
+var neutral_texture = preload("res://assets/images/resize_gun/neutral_gun.png")
+var size_up_texture = preload("res://assets/images/resize_gun/size_up_gun.png")
+var size_down_texture = preload("res://assets/images/resize_gun/size_down_gun.png")
+
 
 class LaserState extends State:
 	
@@ -52,7 +57,7 @@ class LaserIdleState extends LaserState:
 		for laser in get_all_lasers():
 			laser.disable_laser()
 			laser.set_visible_laser_properties(resize_gun.laser_min_width, null, false)
-		
+		resize_gun.gun_sprite.texture = resize_gun.neutral_texture
 		super.enter()
 
 	func exit():
@@ -73,7 +78,7 @@ class LaserChargingUpState extends LaserState:
 		
 		resize_gun.casting_particles.modulate = Color(0.856, 0.002, 0.001, 1.0)
 		resize_gun.casting_particles.emitting = true
-
+		resize_gun.gun_sprite.texture = resize_gun.size_up_texture
 		super.enter()
 
 	func exit():
@@ -93,6 +98,7 @@ class LaserChargingDownState extends LaserState:
 		
 		resize_gun.casting_particles.modulate = Color(0.108, 0.345, 1.0, 1.0)
 		resize_gun.casting_particles.emitting = true
+		resize_gun.gun_sprite.texture = resize_gun.size_down_texture
 		super.enter()
 
 	func exit():
@@ -109,6 +115,7 @@ class LaserFullyChargedUpState extends LaserState:
 		resize_gun.audio_size_up.play()
 		resize_gun.casting_particles.modulate = Color(0.856, 0.002, 0.001, 1.0)
 		resize_gun.casting_particles.emitting = true
+		resize_gun.gun_sprite.texture = resize_gun.size_up_texture
 		super.enter()
 
 	func exit():
@@ -129,6 +136,7 @@ class LaserFullyChargedDownState extends LaserState:
 		resize_gun.audio_size_down.play()
 		resize_gun.casting_particles.modulate = Color(0.108, 0.345, 1.0, 1.0)
 		resize_gun.casting_particles.emitting = true
+		resize_gun.gun_sprite.texture = resize_gun.size_down_texture
 		super.enter()
 
 	func exit():
@@ -190,8 +198,13 @@ func update_mouse_position():
 	else:
 		far_away_position = to_local(get_global_mouse_position()).normalized() * 5000
 	
-	resize_ray.set_ray_position(resize_ray.position, far_away_position)
-	$SpriteGun.rotation = Vector2.RIGHT.angle_to(far_away_position)
+	gun_sprite.rotation = Vector2.RIGHT.angle_to(far_away_position)
+	casting_particles.rotation = Vector2.RIGHT.angle_to(far_away_position)
+	
+	var bloup = (far_away_position - gun_sprite.position).normalized()
+	resize_ray.set_ray_position(gun_sprite.position + bloup * 10 , far_away_position)
+	casting_particles.position = gun_sprite.position + bloup * 10
+	
 
 	
 func _input(event):
