@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bhcxwjxq6h7ai" path="res://scenes/characters/player/resize_ray.tscn" id="1_56cs2"]
 [ext_resource type="Script" uid="uid://dc6ft4trpdppu" path="res://scenes/characters/player/resize_gun.gd" id="1_ekrq1"]
+[ext_resource type="AudioStream" uid="uid://b2uhyavdeb0eb" path="res://assets/sound/laser_charging.ogg" id="3_b3t4b"]
 [ext_resource type="Texture2D" uid="uid://fjjnlavafjin" path="res://assets/images/glowing_circle.png" id="3_sdg0e"]
-[ext_resource type="AudioStream" uid="uid://ccbjqkhq5fs65" path="res://assets/sound/laser_charging.mp3" id="4_yhvcd"]
-[ext_resource type="AudioStream" uid="uid://d0np4ieiuat7u" path="res://assets/sound/size_down_laser_sound.mp3" id="5_q1q1o"]
-[ext_resource type="AudioStream" uid="uid://du4yq8j0017am" path="res://assets/sound/size_up_laser_sound.mp3" id="6_b3t4b"]
+[ext_resource type="AudioStream" uid="uid://dp7xsuyd2sr7b" path="res://assets/sound/size_down_laser_sound.ogg" id="4_lpl0y"]
+[ext_resource type="AudioStream" uid="uid://odwpdmmay6cl" path="res://assets/sound/size_up_laser_sound.ogg" id="5_dbw3v"]
 [ext_resource type="Texture2D" uid="uid://8odkblido2hh" path="res://assets/images/resize_gun/neutral_gun.png" id="7_b3t4b"]
 
 [sub_resource type="Curve" id="Curve_yhvcd"]
@@ -41,16 +41,19 @@ script = ExtResource("1_ekrq1")
 position = Vector2(6, -3)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1923830902]
-stream = ExtResource("4_yhvcd")
+stream = ExtResource("3_b3t4b")
 volume_db = 12.17
+bus = &"HighSoundEffect"
 parameters/looping = false
 
 [node name="AudioSizeDown" type="AudioStreamPlayer2D" parent="." unique_id=275507858]
-stream = ExtResource("5_q1q1o")
+stream = ExtResource("4_lpl0y")
+bus = &"HighSoundEffect"
 parameters/looping = true
 
 [node name="AudioSizeUp" type="AudioStreamPlayer2D" parent="." unique_id=309648553]
-stream = ExtResource("6_b3t4b")
+stream = ExtResource("5_dbw3v")
+bus = &"HighSoundEffect"
 
 [node name="SpriteGun" type="Sprite2D" parent="." unique_id=1737831392]
 texture_filter = 1

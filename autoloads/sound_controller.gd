@@ -7,10 +7,12 @@ var audio_players = [
 
 var music_player: AudioStreamPlayer
 #const JUMP_SOUND = preload("res://assets/sound/jump.mp3")
-const JUMP_SOUND = preload("res://assets/sound/Retro Jump 4.mp3")
+#const JUMP_SOUND = preload("res://assets/sound/jump.ogg")
+const JUMP_SOUND = preload("res://assets/sound/Jump_2.ogg")
+
 const MOUSE_CLICK = preload("res://assets/sound/matthewvakaliuk73627-mouse-click-290204.mp3")
 const IMPORTANT_ITEM_COLLECTED = preload("res://assets/sound/level_up.mp3")
-const BUZZER_INCORRECT = preload("res://assets/sound/freesound_community-wrong-47985.mp3")
+const BUZZER_INCORRECT = preload("res://assets/sound/freesound_community-wrong-47985-short.ogg")
 const MUSIC_ONE = preload("res://assets/musics/burtysounds-synthwave-566759.mp3")
 
 
@@ -61,10 +63,10 @@ func play_sound_effect(sound):
 func player_jump_sound():
 	var audio_player = get_available_audio_player()
 	audio_player.stream = JUMP_SOUND
-	audio_player.volume_db += 8.0
+	#audio_player.volume_db += 8.0
 	audio_player.play()
 	await audio_player.finished
-	audio_player.volume_db -= 8.0
+	#audio_player.volume_db -= 8.0
 	
 	
 func get_volume_db(bus_name: String) -> float:
