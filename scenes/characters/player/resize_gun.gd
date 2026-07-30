@@ -171,7 +171,7 @@ func _ready():
 
 func preload_particles():
 	casting_particles.emitting = true
-	resize_ray.beam_particles.emitting
+	resize_ray.beam_particles.emitting = true
 	await get_tree().process_frame
 	casting_particles.emitting = false
 	resize_ray.beam_particles.emitting = false
