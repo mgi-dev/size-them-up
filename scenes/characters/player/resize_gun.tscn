@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ccbjqkhq5fs65" path="res://assets/sound/laser_charging.mp3" id="4_yhvcd"]
 [ext_resource type="AudioStream" uid="uid://d0np4ieiuat7u" path="res://assets/sound/size_down_laser_sound.mp3" id="5_q1q1o"]
 [ext_resource type="AudioStream" uid="uid://du4yq8j0017am" path="res://assets/sound/size_up_laser_sound.mp3" id="6_b3t4b"]
+[ext_resource type="Texture2D" uid="uid://8odkblido2hh" path="res://assets/images/resize_gun/neutral_gun.png" id="7_b3t4b"]
 
 [sub_resource type="Curve" id="Curve_yhvcd"]
 _data = [Vector2(0.005347591, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -55,3 +56,9 @@ parameters/looping = true
 
 [node name="AudioSizeUp" type="AudioStreamPlayer2D" parent="." unique_id=309648553]
 stream = ExtResource("6_b3t4b")
+
+[node name="SpriteGun" type="Sprite2D" parent="." unique_id=1737831392]
+texture_filter = 1
+position = Vector2(9.536743e-07, 0)
+rotation = -0.5235988
+texture = ExtResource("7_b3t4b")

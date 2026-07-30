@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_f758t"]
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="2_hjg2i"]
 [ext_resource type="Texture2D" uid="uid://c7xbd18gdf6nf" path="res://assets/tileset/lab_tileset_base.png" id="3_7oxc0"]
-[ext_resource type="Texture2D" uid="uid://drqlf5taipa48" path="res://assets/images/raw_plugin_gun.png" id="4_7oxc0"]
 [ext_resource type="PackedScene" uid="uid://cx21ak7djiktk" path="res://scenes/landscape/computer/Computer.tscn" id="4_o3qls"]
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="5_i3621"]
 [ext_resource type="Script" uid="uid://b8npx51d1tadm" path="res://scenes/levels/tutorial/raw_plugin_gun.gd" id="5_sd73c"]
 [ext_resource type="PackedScene" uid="uid://cujngdsg4ikqc" path="res://scenes/components/Interactable.tscn" id="6_3alcq"]
+[ext_resource type="Texture2D" uid="uid://bksslc01k1oaj" path="res://assets/images/resize_gun/plugin_2.png" id="6_m6n2m"]
 [ext_resource type="PackedScene" uid="uid://c6wfcwexku1m8" path="res://scenes/levels/level_04.tscn" id="8_3alcq"]
 [ext_resource type="Script" uid="uid://cg7fqa4aiq6oy" path="res://scenes/levels/tutorial/node.gd" id="11_2gyme"]
 [ext_resource type="PackedScene" uid="uid://brcppoqy7g8s5" path="res://scenes/landscape/computer/Email.tscn" id="11_nwut6"]
@@ -209,11 +209,10 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAQACYAAAAAAAUAAAARACYAAAAFAAUAAAD5/yYAAAAEAAYAAAD6/yYAAAAFAAYAAAA=")
 tile_set = SubResource("TileSet_sd73c")
 
-[node name="RawPluginGun" type="Sprite2D" parent="." index="6" unique_id=27987628]
+[node name="RawPluginGun" type="Node2D" parent="." index="6" unique_id=1472630874]
 z_index = 1
 position = Vector2(368.30637, 618.93744)
 scale = Vector2(0.09995351, 0.10539274)
-texture = ExtResource("4_7oxc0")
 script = ExtResource("5_sd73c")
 
 [node name="Interractable" parent="RawPluginGun" index="0" unique_id=19942530 node_paths=PackedStringArray("player_detector", "glowing_area") instance=ExtResource("6_3alcq")]
@@ -226,7 +225,14 @@ glowing_area = NodePath("../Polygon2D")
 position = Vector2(-23.074482, 10.082132)
 scale = Vector2(1.2286023, 1.2286023)
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(-148.36377, -18.544922, -111.27295, -55.635742, -18.54541, -55.635742, 37.09082, -55.635742, 74.18164, -92.72656, 111.27295, -92.72656, 166.90918, -55.635742, 166.90918, 0.0009765625, 129.81836, 0.0009765625, 148.36377, 18.545898, 148.36377, 55.63672, 111.27295, 92.72754, 55.63623, 92.72754, 55.63623, 55.63672, 18.54541, 55.63672, 0, 92.72754, -55.63623, 92.72754, -92.72754, 55.63672, -148.36377, 55.63672)
+polygon = PackedVector2Array(-89.57422, -61.782715, -73.28784, -84.95166, -24.4292, -84.95166, 32.57251, -84.95166, 81.43115, -84.95166, 97.71753, -84.95166, 114.00366, -69.50586, 130.29004, -61.782715, 130.29004, -38.614258, 114.00366, -30.891602, 114.00366, -15.445801, 130.29004, -7.7231445, 130.29004, 7.7226563, 114.00366, 23.168457, 114.00366, 46.336914, 97.71753, 46.336914, 48.858887, 46.336914, 16.286377, 46.336914, -8.143066, 46.336914, -73.28784, 46.336914, -89.57422, 23.168457)
+
+[node name="Sprite2D" type="Sprite2D" parent="RawPluginGun" index="2" unique_id=713019781]
+texture_filter = 1
+position = Vector2(-6.7836914, -14.106934)
+rotation = 1.5707964
+scale = Vector2(7.082948, 7.082948)
+texture = ExtResource("6_m6n2m")
 
 [node name="ResizableV2" parent="." index="7" unique_id=2113696681 instance=ExtResource("5_i3621")]
 position = Vector2(794.99994, 575.99994)

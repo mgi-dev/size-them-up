@@ -94,7 +94,7 @@ position = Vector2(3064, 418)
 [node name="ResizableV10" parent="." index="26" unique_id=319058247 instance=ExtResource("2_p0r41")]
 position = Vector2(2773, 622)
 
-[node name="Door" parent="." index="28" unique_id=8401334 instance=ExtResource("8_oachk")]
+[node name="Door2" parent="." index="28" unique_id=8401334 instance=ExtResource("8_oachk")]
 position = Vector2(2584, 586)
 
 [node name="Fenetrein" parent="." index="29" unique_id=886049238 instance=ExtResource("9_8dtf1")]

@@ -191,7 +191,7 @@ func update_mouse_position():
 		far_away_position = to_local(get_global_mouse_position()).normalized() * 5000
 	
 	resize_ray.set_ray_position(resize_ray.position, far_away_position)
-	
+	$SpriteGun.rotation = Vector2.RIGHT.angle_to(far_away_position)
 
 	
 func _input(event):
