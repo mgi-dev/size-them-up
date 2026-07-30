@@ -53,6 +53,13 @@ func _ready() -> void:
 	SignalBus.resize_ray_resize_down.connect(resize_down)
 	
 	parametrize_sprite_shader()
+	preload_particles()
+
+
+func preload_particles():
+	particles.emitting = true
+	await get_tree().process_frame
+	particles.emitting = false
 
 
 func debug():
