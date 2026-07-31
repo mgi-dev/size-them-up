@@ -204,6 +204,7 @@ shape = SubResource("RectangleShape2D_qd3e3")
 [node name="AudioFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1470378959]
 
 [node name="ResizeGun" parent="." unique_id=621160300 instance=ExtResource("4_qd3e3")]
+position = Vector2(2, 3)
 
 [node name="ResetSceneIndicator" type="AnimatedSprite2D" parent="." unique_id=701908042]
 position = Vector2(-23, -34.000004)
