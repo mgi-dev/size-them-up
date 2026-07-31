@@ -7,29 +7,22 @@
 
 [node name="TestCrane" type="Node2D" unique_id=1508773249]
 
-[node name="CranePlateform" parent="." unique_id=609829873 instance=ExtResource("1_fkj0n")]
-position = Vector2(136, 296)
-
 [node name="CranePlateform2" parent="." unique_id=1706880047 instance=ExtResource("1_fkj0n")]
 position = Vector2(584, 296)
 
 [node name="CranePlateform3" parent="." unique_id=1780229642 instance=ExtResource("1_fkj0n")]
 position = Vector2(1064, 304)
 
-[node name="ResizableV2" parent="." unique_id=2113696681 instance=ExtResource("2_yghb5")]
-position = Vector2(542, 88)
+[node name="ResizableV13" parent="." unique_id=955473479 instance=ExtResource("2_yghb5")]
+position = Vector2(83, 611)
 
-[node name="ResizableV3" parent="." unique_id=1273585215 instance=ExtResource("2_yghb5")]
-position = Vector2(161.23584, 448.6537)
-
-[node name="ResizableV6" parent="." unique_id=1216443113 instance=ExtResource("2_yghb5")]
-position = Vector2(528, 224)
-
-[node name="ResizableV4" parent="." unique_id=908986176 instance=ExtResource("2_yghb5")]
-position = Vector2(398, 452)
+[node name="ResizableV14" parent="." unique_id=1907782370 instance=ExtResource("2_yghb5")]
+position = Vector2(186, 611)
+scale = Vector2(1.5714285, 1.5714285)
 
 [node name="ResizableV5" parent="." unique_id=1529486043 instance=ExtResource("2_yghb5")]
-position = Vector2(533, 144)
+position = Vector2(636, 232)
+scale = Vector2(0.5222543, 0.5222543)
 
 [node name="CranePlateform4" parent="." unique_id=1042006403 instance=ExtResource("1_fkj0n")]
 position = Vector2(1584, 296)
@@ -38,8 +31,8 @@ position = Vector2(1584, 296)
 position = Vector2(1144, 600)
 zoom = Vector2(0.5, 0.5)
 
-[node name="FlyingRect" parent="." unique_id=116391965 instance=ExtResource("3_yghb5")]
-position = Vector2(270, 456)
+[node name="CranePlateform6" parent="." unique_id=1509549003 instance=ExtResource("1_fkj0n")]
+position = Vector2(136, 688)
 
 [node name="ResizableV7" parent="." unique_id=482267331 instance=ExtResource("2_yghb5")]
 position = Vector2(1606, 536)
@@ -57,7 +50,8 @@ position = Vector2(1718, 536)
 position = Vector2(1726, 464)
 
 [node name="ResizableV12" parent="." unique_id=1738758347 instance=ExtResource("2_yghb5")]
-position = Vector2(1198, 568)
+position = Vector2(1030.0001, 990)
+scale = Vector2(6.5818496, 4.249196)
 
 [node name="CranePlateform5" parent="." unique_id=733081715 instance=ExtResource("1_fkj0n")]
 position = Vector2(1048, 576)
@@ -67,3 +61,44 @@ position = Vector2(1000, 192)
 
 [node name="Box2" parent="." unique_id=507431343 instance=ExtResource("4_afmh4")]
 position = Vector2(1002.76215, 131.7497)
+
+[node name="FlyingRect" parent="." unique_id=116391965 instance=ExtResource("3_yghb5")]
+position = Vector2(1632, 192)
+
+[node name="CranePlateform" parent="." unique_id=609829873 instance=ExtResource("1_fkj0n")]
+position = Vector2(144, 248)
+
+[node name="ResizableV3" parent="." unique_id=1702491025 instance=ExtResource("2_yghb5")]
+position = Vector2(88, 184)
+
+[node name="ResizableV4" parent="." unique_id=178790033 instance=ExtResource("2_yghb5")]
+position = Vector2(192, 176)
+scale = Vector2(1.1762245, 1.1694331)
+
+[node name="ResizableV15" parent="." unique_id=1513162042 instance=ExtResource("2_yghb5")]
+position = Vector2(96, 1000)
+
+[node name="ResizableV16" parent="." unique_id=275894540 instance=ExtResource("2_yghb5")]
+position = Vector2(200, 979.99994)
+scale = Vector2(2.0092785, 2.0092785)
+
+[node name="CranePlateform7" parent="." unique_id=703491676 instance=ExtResource("1_fkj0n")]
+position = Vector2(144, 1056)
+
+[node name="CranePlateform8" parent="." unique_id=1690413560 instance=ExtResource("1_fkj0n")]
+position = Vector2(584, 688)
+
+[node name="ResizableV2" parent="." unique_id=2113696681 instance=ExtResource("2_yghb5")]
+position = Vector2(640, 624)
+
+[node name="ResizableV6" parent="." unique_id=1896369962 instance=ExtResource("2_yghb5")]
+position = Vector2(640, 984)
+scale = Vector2(3.2814417, 3.2814417)
+
+[node name="CranePlateform9" parent="." unique_id=1316663055 instance=ExtResource("1_fkj0n")]
+position = Vector2(552, 1096)
+debug = true
+
+[node name="CranePlateform10" parent="." unique_id=486036230 instance=ExtResource("1_fkj0n")]
+position = Vector2(936, 1120)
+debug = true

@@ -4,8 +4,8 @@ extends Label
 const MESSAGE_DISPLAY_DURATION = 0.5
 
 var messages_text = {
-	Enums.GAME_EVENT.EMPTY_GAUGE: "Gauge Vide",
-	Enums.GAME_EVENT.FULL_GAUGE: "Gauge Pleine",
+	Enums.GAME_EVENT.EMPTY_GAUGE: "Gauge Empty",
+	Enums.GAME_EVENT.FULL_GAUGE: "Gauge Full",
 	Enums.GAME_EVENT.PLAYER_CLOSE_TO_RESIZABLE: "Too close !",
 	
 }

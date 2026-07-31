@@ -26,14 +26,14 @@ region_rect = Rect2(191.54176, -0.121896744, 64.929, 16.367144)
 [node name="LeftArea2D" type="Area2D" parent="." unique_id=228691278]
 position = Vector2(-0.033130646, 0.034095764)
 
-[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="LeftArea2D" unique_id=1182825350]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea2D" unique_id=1182825350]
 position = Vector2(-51.966858, -152.03409)
 shape = SubResource("RectangleShape2D_cirwn")
 
 [node name="RightArea2D" type="Area2D" parent="." unique_id=1382544251]
 position = Vector2(-0.033130646, 0.034095764)
 
-[node name="RightCollisionShape2D" type="CollisionShape2D" parent="RightArea2D" unique_id=1393115609]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea2D" unique_id=1393115609]
 z_index = 2
 position = Vector2(52.033127, -152.03409)
 shape = SubResource("RectangleShape2D_1av8t")

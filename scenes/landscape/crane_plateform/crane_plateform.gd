@@ -2,9 +2,9 @@ extends Node2D
 
 class_name CranePlateform
 
-@onready var left_detector = $LeftArea2D
+@onready var left_detector: Area2D = $LeftArea2D
 @onready var right_detector = $RightArea2D
-
+@export var debug = false
 
 var left_colliders_registry: Dictionary[Node2D, int] = {}
 var right_colliders_registry: Dictionary[Node2D, int] = {}
@@ -35,27 +35,25 @@ func apply_rotate_tick(delta):
 		
 
 func set_target_rotation():
-	var left_colliders = get_colliders(left_detector)
-	var right_colliders = get_colliders(right_detector)
+	var left_area = get_area_sum(get_colliders(left_detector))
+	var right_area = get_area_sum(get_colliders(right_detector))
+	get_intersecting_area_sum(left_detector, get_colliders(left_detector))
 	
-	var left_area = get_area_sum(left_colliders)
-	var right_area = get_area_sum(right_colliders)
-	
-	var total_area = left_area + right_area
-	
-	var left_ratio = left_area / total_area  # 0.0 to 1.0
-	var right_ratio = right_area / total_area
-	
-	
-	if left_ratio > 0.5:
-		var _target_rotation = remap(left_ratio, 0.5, 1.0, 0.0, min_rotato)
-		target_rotation = deg_to_rad(_target_rotation)
-	elif right_ratio > 0.5:
-		var _target_rotation = remap(right_ratio, 0.5, 1.0, 0.0, max_rotato)
-		target_rotation = deg_to_rad(_target_rotation)
-	elif right_ratio == left_ratio:
-		target_rotation = deg_to_rad(0.0)
+	var area_needed_per_degree = 20.0
+	var unbalanced_right = right_area - left_area
 
+	var degres_to_right = unbalanced_right / area_needed_per_degree
+	# no clamp ?
+	target_rotation = deg_to_rad(degres_to_right)
+
+func get_intersecting_area_sum(detector: Area2D, colliders: Array):
+	return
+
+	for collider in colliders:
+
+		print(Geometry2D.intersect_polygons(
+			detector.get_node("CollisionShape2D").polygon, collider.get_polygon())
+		)
 
 func get_area_sum(colliders: Array[Node2D]) -> float:
 	var total = 0.0
@@ -68,7 +66,7 @@ func get_area_sum(colliders: Array[Node2D]) -> float:
 			total += collider.collision_shape.shape.size.x * collider.scale.x
 			total += collider.collision_shape.shape.size.y * collider.scale.y
 		else:
-			print("Well , so you're a dinosaure ?")
+			print("Unknown Collider in CranePlateform.")
 	return total
 
 
@@ -123,9 +121,9 @@ func populate_colliders_registry(detector):
 
 func add_to_colliders_registry(detector, collider):
 	if detector == left_detector:
-		left_colliders_registry[collider] = 60
+		left_colliders_registry[collider] = 30
 	elif detector == right_detector:
-		right_colliders_registry[collider] = 60
+		right_colliders_registry[collider] = 30
 			
 
 
@@ -135,11 +133,18 @@ func clean_colliders_registries():
 
 
 func clean_colliders_registry(registry):
+	# To avoid flicking when rotating, objets area considered in contact for about half a second
+	# even when no contact is detected anymore.
 	var to_delete = []
 	for key in registry:
 		registry[key] -= 1
 		if registry[key] <= 0:
-			to_delete = []
+			to_delete.append(key)
 
 	for element in to_delete:
 		registry.erase(element)
+
+
+
+# many small detector with fix area ?
+#
