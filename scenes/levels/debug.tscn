@@ -10,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="8_oachk"]
 [ext_resource type="PackedScene" uid="uid://jxhpisqacena" path="res://scenes/landscape/fenetrein/Fenetrein.tscn" id="9_8dtf1"]
 [ext_resource type="PackedScene" uid="uid://spxxfdamu8ks" path="res://scenes/landscape/ConveyorBelt.tscn" id="10_m3dw6"]
+[ext_resource type="PackedScene" uid="uid://cvy1j5p1esslm" path="res://scenes/landscape/crane_plateform/crane_plateform.tscn" id="11_twf3t"]
+[ext_resource type="PackedScene" uid="uid://dfaarpkbkoa45" path="res://scenes/landscape/fenetrein/BigFenetrein.tscn" id="12_b2erf"]
 
 [node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]
 
 [node name="Player" parent="." index="1" unique_id=217472232]
-position = Vector2(2448.9219, 542.2781)
+position = Vector2(482, -33)
 
 [node name="TileMap" parent="." index="2" unique_id=1431608523]
 layer_0/tile_data = PackedInt32Array(2686965, 0, 1, 2686966, 65536, 1, 2686967, 131072, 1, 2686968, 196608, 1, 2686969, 262144, 1, 2686970, 327680, 1, 2686971, 393216, 1, 2686972, 458752, 1, 2686973, 524288, 1, 2686974, 589824, 1, 2686975, 655360, 1, 2621440, 720896, 1, 2621441, 0, 1, 2621442, 65536, 1, 2621443, 131072, 1, 2621444, 196608, 1, 2621445, 262144, 1, 2621446, 327680, 1, 2621447, 393216, 1, 2621448, 458752, 1, 2621449, 524288, 1, 2621450, 589824, 1, 2621451, 655360, 1, 2621452, 720896, 1, 2621453, 0, 1, 2621454, 65536, 1, 2621455, 131072, 1, 2621456, 196608, 1, 2621457, 262144, 1, 2621458, 327680, 1, 2621459, 393216, 1, 2621460, 458752, 1, 2621461, 524288, 1, 2621462, 589824, 1, 2621463, 655360, 1, 2621464, 720896, 1, 2228232, 65536, 2, 2293768, 65536, 3, 2228233, 131072, 2, 2293769, 131072, 3, 2228234, 65536, 2, 2293770, 65536, 3, 2228235, 131072, 2, 2293771, 131072, 3, 2228247, 65536, 2, 2293783, 65536, 3, 2228248, 131072, 2, 2293784, 131072, 3, 1835034, 65536, 2, 1900570, 65536, 3, 1835035, 131072, 2, 1900571, 131072, 3, 2162751, 917504, 11, 2097215, 917504, 11, 2031679, 917504, 11, 1966143, 917504, 11, 1900607, 917504, 11, 1835071, 917504, 11, 1769535, 917504, 11, 1703999, 917504, 11, 1638463, 917504, 11, 1572927, 917504, 11, 1507391, 917504, 11, 1441855, 917504, 11, 1376319, 917504, 11, 1310783, 917504, 11, 1245247, 917504, 11, 1179711, 917504, 11, 1114175, 917504, 11, 1048639, 917504, 11, 983103, 917504, 11, 917567, 917504, 11, 852031, 917504, 11, 786495, 917504, 11, 720959, 917504, 11, 2097280, 917504, 12, 2162816, 917504, 12, 2228352, 917504, 12, 2293888, 917504, 12, 2359424, 917504, 12, 2424960, 917504, 12, 2490496, 917504, 12, 2556032, 917504, 12)
@@ -25,6 +27,9 @@ position = Vector2(1265, 351)
 [node name="GreyBloc2" parent="." index="5" unique_id=555845978 instance=ExtResource("4_xs65t")]
 position = Vector2(801, 687)
 scale = Vector2(14.404343, 0.2203301)
+
+[node name="TransitionSprite2D" parent="." index="6" unique_id=1077565752]
+visible = false
 
 [node name="GreyBloc" parent="." index="7" unique_id=679450733 instance=ExtResource("4_xs65t")]
 position = Vector2(1062, 592.00006)
@@ -37,7 +42,7 @@ position = Vector2(15, 607)
 position = Vector2(732, 512)
 
 [node name="GreyBloc3" parent="." index="10" unique_id=55723045 instance=ExtResource("4_xs65t")]
-position = Vector2(80.000244, 497)
+position = Vector2(82.00001, 237)
 scale = Vector2(0.19222409, 0.082630664)
 
 [node name="GreyBloc4" parent="." index="11" unique_id=418976502 instance=ExtResource("4_xs65t")]
@@ -45,77 +50,86 @@ position = Vector2(1311, 393.99997)
 scale = Vector2(0.15951553, 0.07498281)
 
 [node name="ResizableV3" parent="." index="12" unique_id=1559903800 instance=ExtResource("2_p0r41")]
-position = Vector2(1267, 288)
+position = Vector2(595.5165, 171.795)
 
-[node name="ResizableV4" parent="." index="13" unique_id=1720343838 instance=ExtResource("2_p0r41")]
-position = Vector2(80, 457)
+[node name="ResizableV11" parent="." index="13" unique_id=1948673471 instance=ExtResource("2_p0r41")]
+position = Vector2(447.09653, 124.07056)
 
-[node name="Reflector2" parent="." index="14" unique_id=1993275435 instance=ExtResource("4_04m7m")]
+[node name="ResizableV4" parent="." index="14" unique_id=1720343838 instance=ExtResource("2_p0r41")]
+position = Vector2(446, 173)
+
+[node name="Reflector2" parent="." index="15" unique_id=1993275435 instance=ExtResource("4_04m7m")]
 position = Vector2(732, 380)
 rotation = 1.5707964
 
-[node name="FlyingRect" parent="." index="15" unique_id=116391965 instance=ExtResource("5_04m7m")]
-position = Vector2(964, 376)
+[node name="FlyingRect" parent="." index="16" unique_id=116391965 instance=ExtResource("5_04m7m")]
+position = Vector2(823.1096, 90.98613)
 
-[node name="Reflector3" parent="." index="16" unique_id=476079582 instance=ExtResource("4_04m7m")]
+[node name="Reflector3" parent="." index="17" unique_id=476079582 instance=ExtResource("4_04m7m")]
 position = Vector2(865, 376)
 
-[node name="Reflector4" parent="." index="17" unique_id=749309140 instance=ExtResource("4_04m7m")]
+[node name="Reflector4" parent="." index="18" unique_id=749309140 instance=ExtResource("4_04m7m")]
 position = Vector2(266, 448)
 rotation = -3.1415927
 
-[node name="ReflectorContainer" parent="." index="18" unique_id=1333145977 instance=ExtResource("6_h7x1a")]
+[node name="ReflectorContainer" parent="." index="19" unique_id=1333145977 instance=ExtResource("6_h7x1a")]
 position = Vector2(1273, 527)
 rotation = -1.8325958
 
-[node name="ResizableV6" parent="." index="19" unique_id=573920479 instance=ExtResource("2_p0r41")]
+[node name="ResizableV6" parent="." index="20" unique_id=573920479 instance=ExtResource("2_p0r41")]
 position = Vector2(1605, -165)
 scale = Vector2(8.301366, 33.69438)
 
-[node name="ResizableV7" parent="." index="20" unique_id=1156906580 instance=ExtResource("2_p0r41")]
+[node name="ResizableV7" parent="." index="21" unique_id=1156906580 instance=ExtResource("2_p0r41")]
 position = Vector2(2284.9998, 487)
 scale = Vector2(0.21573542, 0.25560883)
 
-[node name="ResizableV8" parent="." index="21" unique_id=2031042338 instance=ExtResource("2_p0r41")]
+[node name="ResizableV8" parent="." index="22" unique_id=2031042338 instance=ExtResource("2_p0r41")]
 position = Vector2(2454, 598)
 
-[node name="ResizableV9" parent="." index="22" unique_id=2025474938 instance=ExtResource("2_p0r41")]
+[node name="ResizableV9" parent="." index="23" unique_id=2025474938 instance=ExtResource("2_p0r41")]
 position = Vector2(2506, 598)
 
-[node name="Ladder" parent="." index="23" unique_id=1163521122 instance=ExtResource("7_gd5e8")]
+[node name="Ladder" parent="." index="24" unique_id=1163521122 instance=ExtResource("7_gd5e8")]
 position = Vector2(2088, 539)
 
-[node name="Ladder2" parent="." index="24" unique_id=388181933 instance=ExtResource("7_gd5e8")]
+[node name="Ladder2" parent="." index="25" unique_id=388181933 instance=ExtResource("7_gd5e8")]
 position = Vector2(2088, 320)
 
-[node name="GreyBloc5" parent="." index="25" unique_id=571486958 instance=ExtResource("4_xs65t")]
+[node name="GreyBloc5" parent="." index="26" unique_id=571486958 instance=ExtResource("4_xs65t")]
 position = Vector2(3064, 418)
 
-[node name="ResizableV10" parent="." index="26" unique_id=319058247 instance=ExtResource("2_p0r41")]
+[node name="ResizableV10" parent="." index="27" unique_id=319058247 instance=ExtResource("2_p0r41")]
 position = Vector2(2773, 622)
 
-[node name="Door2" parent="." index="28" unique_id=8401334 instance=ExtResource("8_oachk")]
+[node name="Door2" parent="." index="29" unique_id=8401334 instance=ExtResource("8_oachk")]
 position = Vector2(2584, 586)
 
-[node name="Fenetrein" parent="." index="29" unique_id=886049238 instance=ExtResource("9_8dtf1")]
+[node name="Fenetrein" parent="." index="30" unique_id=886049238 instance=ExtResource("9_8dtf1")]
 position = Vector2(2745, 590)
 rotation = 1.5707964
 
-[node name="Fenetrein2" parent="." index="30" unique_id=1944671441 instance=ExtResource("9_8dtf1")]
+[node name="Fenetrein2" parent="." index="31" unique_id=1944671441 instance=ExtResource("9_8dtf1")]
 position = Vector2(2745, 636)
 rotation = 1.5707964
 
-[node name="Fenetrein3" parent="." index="31" unique_id=1468105364 instance=ExtResource("9_8dtf1")]
+[node name="Fenetrein3" parent="." index="32" unique_id=1468105364 instance=ExtResource("9_8dtf1")]
 position = Vector2(2745, 621)
 rotation = 1.5707964
 
-[node name="Fenetrein4" parent="." index="32" unique_id=1464868278 instance=ExtResource("9_8dtf1")]
+[node name="Fenetrein4" parent="." index="33" unique_id=1464868278 instance=ExtResource("9_8dtf1")]
 position = Vector2(2745, 574)
 rotation = 1.5707964
 
-[node name="Fenetrein5" parent="." index="33" unique_id=2120619671 instance=ExtResource("9_8dtf1")]
+[node name="Fenetrein5" parent="." index="34" unique_id=2120619671 instance=ExtResource("9_8dtf1")]
 position = Vector2(2745, 605)
 rotation = 1.5707964
 
-[node name="ConveyorBelt" parent="." index="34" unique_id=848348934 instance=ExtResource("10_m3dw6")]
+[node name="ConveyorBelt" parent="." index="35" unique_id=848348934 instance=ExtResource("10_m3dw6")]
 position = Vector2(2303, 616)
+
+[node name="CranePlateform" parent="." index="37" unique_id=407148987 instance=ExtResource("11_twf3t")]
+position = Vector2(508.84912, 220.69647)
+
+[node name="BigFenetrein" parent="." index="38" unique_id=1718770781 instance=ExtResource("12_b2erf")]
+position = Vector2(482, 0)
