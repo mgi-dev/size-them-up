@@ -53,10 +53,10 @@ scale = Vector2(0.15951553, 0.07498281)
 position = Vector2(595.5165, 171.795)
 
 [node name="ResizableV11" parent="." index="13" unique_id=1948673471 instance=ExtResource("2_p0r41")]
-position = Vector2(447.09653, 124.07056)
+position = Vector2(79.896645, 195.73038)
 
 [node name="ResizableV4" parent="." index="14" unique_id=1720343838 instance=ExtResource("2_p0r41")]
-position = Vector2(446, 173)
+position = Vector2(82.38033, 139.22655)
 
 [node name="Reflector2" parent="." index="15" unique_id=1993275435 instance=ExtResource("4_04m7m")]
 position = Vector2(732, 380)

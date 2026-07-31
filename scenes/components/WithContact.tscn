@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cis4eijyotlw2"]
+
+[ext_resource type="Script" uid="uid://c0xv84ww1elqg" path="res://scenes/components/with_contact.gd" id="1_eu6k2"]
+
+[node name="WithContact" type="Node2D" unique_id=1254185901]
+script = ExtResource("1_eu6k2")

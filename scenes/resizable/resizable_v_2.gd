@@ -2,10 +2,13 @@ extends RigidBody2D
 
 class_name Resizable 
 
+
 @export var sprite: Sprite2D
 @export var hitbox: CollisionShape2D
 @export var collision_detector: QuadriDetector
 @export var ignore_collision_for: Node2D
+
+var contacts = []
 
 var PIXEL_PER_STEP: float = 0.5
 var PERCENT_PER_STEP: float = 0.01
@@ -175,6 +178,7 @@ func process_sprite_resize() -> void:
 	else:
 		particles.emitting = false
 
+
 func trigger_particles(resize: Enums.RESIZE):
 	if resize == Enums.RESIZE.UP:
 		particles.process_material.color = Color(0.829, 0.0, 0.0, 1.0)
@@ -196,8 +200,10 @@ func is_shape_blocked(resize_mode: Enums.RESIZE_MODE):
 		return collision_detector.is_shape_blocked(resize_mode)
 	return false
 
+
 func get_size() -> Vector2:
 	return sprite.texture.get_size() * sprite.scale
+
 
 func parametrize_sprite_shader() -> void:
 	var gradiant_config = {
@@ -208,3 +214,8 @@ func parametrize_sprite_shader() -> void:
 	sprite.material = sprite.material.duplicate()
 	# What to do with this shader ? dynamic change ? link current resize to component ?
 	sprite.material.set_shader_parameter("mode", 2)
+
+
+func _integrate_forces(state):
+	if $WithContact:
+		$WithContact.delegated_integrate_forces(state)

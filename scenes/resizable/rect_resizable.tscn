@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bbvqq5xavboub" path="res://scenes/resizable/rect_resizable.gdshader" id="2_qowmo"]
 [ext_resource type="Texture2D" uid="uid://fjjnlavafjin" path="res://assets/images/glowing_circle.png" id="5_ova4c"]
 [ext_resource type="Script" uid="uid://cf2m3cbgm1y61" path="res://scenes/resizable/resizable_info_label.gd" id="6_kaa7u"]
+[ext_resource type="PackedScene" uid="uid://cis4eijyotlw2" path="res://scenes/components/WithContact.tscn" id="7_w2r6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27yq0"]
 size = Vector2(48, 48)
@@ -96,3 +97,5 @@ label_settings = SubResource("LabelSettings_w2r6q")
 horizontal_alignment = 1
 autowrap_mode = 3
 script = ExtResource("6_kaa7u")
+
+[node name="WithContact" parent="." unique_id=1254185901 instance=ExtResource("7_w2r6q")]

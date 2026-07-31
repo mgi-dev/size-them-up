@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://by3g64uwynajr"]
+
+[ext_resource type="PackedScene" uid="uid://cvy1j5p1esslm" path="res://scenes/landscape/crane_plateform/crane_plateform.tscn" id="1_fkj0n"]
+[ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_yghb5"]
+[ext_resource type="PackedScene" uid="uid://bvdw55jt5odq4" path="res://scenes/resizable/flying_rect.tscn" id="3_yghb5"]
+[ext_resource type="PackedScene" uid="uid://dmo3siywfanyf" path="res://scenes/landscape/Box.tscn" id="4_afmh4"]
+
+[node name="TestCrane" type="Node2D" unique_id=1508773249]
+
+[node name="CranePlateform" parent="." unique_id=609829873 instance=ExtResource("1_fkj0n")]
+position = Vector2(136, 296)
+
+[node name="CranePlateform2" parent="." unique_id=1706880047 instance=ExtResource("1_fkj0n")]
+position = Vector2(584, 296)
+
+[node name="CranePlateform3" parent="." unique_id=1780229642 instance=ExtResource("1_fkj0n")]
+position = Vector2(1064, 304)
+
+[node name="ResizableV2" parent="." unique_id=2113696681 instance=ExtResource("2_yghb5")]
+position = Vector2(542, 88)
+
+[node name="ResizableV3" parent="." unique_id=1273585215 instance=ExtResource("2_yghb5")]
+position = Vector2(161.23584, 448.6537)
+
+[node name="ResizableV6" parent="." unique_id=1216443113 instance=ExtResource("2_yghb5")]
+position = Vector2(528, 224)
+
+[node name="ResizableV4" parent="." unique_id=908986176 instance=ExtResource("2_yghb5")]
+position = Vector2(398, 452)
+
+[node name="ResizableV5" parent="." unique_id=1529486043 instance=ExtResource("2_yghb5")]
+position = Vector2(533, 144)
+
+[node name="CranePlateform4" parent="." unique_id=1042006403 instance=ExtResource("1_fkj0n")]
+position = Vector2(1584, 296)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1054115501]
+position = Vector2(1144, 600)
+zoom = Vector2(0.5, 0.5)
+
+[node name="FlyingRect" parent="." unique_id=116391965 instance=ExtResource("3_yghb5")]
+position = Vector2(270, 456)
+
+[node name="ResizableV7" parent="." unique_id=482267331 instance=ExtResource("2_yghb5")]
+position = Vector2(1606, 536)
+
+[node name="ResizableV8" parent="." unique_id=35640040 instance=ExtResource("2_yghb5")]
+position = Vector2(1598, 456)
+
+[node name="ResizableV9" parent="." unique_id=1940524025 instance=ExtResource("2_yghb5")]
+position = Vector2(1606, 376)
+
+[node name="ResizableV10" parent="." unique_id=1303171774 instance=ExtResource("2_yghb5")]
+position = Vector2(1718, 536)
+
+[node name="ResizableV11" parent="." unique_id=1088152009 instance=ExtResource("2_yghb5")]
+position = Vector2(1726, 464)
+
+[node name="ResizableV12" parent="." unique_id=1738758347 instance=ExtResource("2_yghb5")]
+position = Vector2(1198, 568)
+
+[node name="CranePlateform5" parent="." unique_id=733081715 instance=ExtResource("1_fkj0n")]
+position = Vector2(1048, 576)
+
+[node name="Box" parent="." unique_id=1110912954 instance=ExtResource("4_afmh4")]
+position = Vector2(1000, 192)
+
+[node name="Box2" parent="." unique_id=507431343 instance=ExtResource("4_afmh4")]
+position = Vector2(1002.76215, 131.7497)
