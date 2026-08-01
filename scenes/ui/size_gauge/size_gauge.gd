@@ -75,3 +75,7 @@ func change_gauge_style():
 	
 func to_percentage(value: float) -> float:
 	return value * 100 / max_value
+
+
+func _on_texture_button_button_up():
+	get_parent().get_parent().get_parent().toggle_menu()

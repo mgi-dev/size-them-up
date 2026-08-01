@@ -46,7 +46,7 @@ offset_left = 51.608963
 offset_top = 475.85733
 offset_right = 239.0
 offset_bottom = 528.0
-text = "WASD / ZQSD to move
+text = "WASD to move
 Space to jump"
 
 [node name="Arrow" parent="." index="6" unique_id=693014094 instance=ExtResource("2_sprda")]

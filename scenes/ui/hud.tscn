@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cdtat8xupelfn" path="res://scenes/ui/size_gauge/size_gauge.tscn" id="1_bo48s"]
 [ext_resource type="PackedScene" uid="uid://ce4p0x7jmejpa" path="res://scenes/ui/debug_display/scene_info.tscn" id="2_8qguk"]
 [ext_resource type="PackedScene" uid="uid://bfmf272pkq14c" path="res://scenes/ui/weapon_selection_info/weapon_selection_info.tscn" id="3_136eg"]
+[ext_resource type="Texture2D" uid="uid://bpe47dcx77br6" path="res://assets/images/UI/gear.png" id="4_136eg"]
+[ext_resource type="Texture2D" uid="uid://bbq830f3oyql3" path="res://assets/images/UI/gear_hover.png" id="5_oj5la"]
 
 [node name="Hud" type="Node2D" unique_id=1601095639]
 z_index = 50
@@ -18,3 +20,14 @@ position = Vector2(-33, 388)
 texture_filter = 1
 position = Vector2(-55.1, -136.5)
 scale = Vector2(0.116000004, 0.116)
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=708701565]
+offset_left = -70.34296
+offset_top = -188.24321
+offset_right = 279.65704
+offset_bottom = 161.75679
+scale = Vector2(0.07758504, 0.07758504)
+texture_normal = ExtResource("4_136eg")
+texture_hover = ExtResource("5_oj5la")
+
+[connection signal="button_up" from="TextureButton" to="SizeGauge" method="_on_texture_button_button_up"]
