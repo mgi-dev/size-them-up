@@ -1,33 +1,33 @@
 [gd_scene format=3 uid="uid://cvy1j5p1esslm"]
 
-[ext_resource type="Script" uid="uid://mkwbx5waoyjt" path="res://scenes/landscape/crane_plateform/crane_plateform.gd" id="1_5xitl"]
-[ext_resource type="Texture2D" uid="uid://batv8bihw6xkq" path="res://assets/tileset/darker_industrial.v2.png" id="2_agbtw"]
+[ext_resource type="Script" uid="uid://mkwbx5waoyjt" path="res://scenes/landscape/crane_plateform/rotating_plateform.gd" id="1_5xitl"]
+[ext_resource type="Texture2D" uid="uid://c7dxx7wt4jds1" path="res://assets/images/rotating_platforms.png.png" id="2_5xitl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cirwn"]
-size = Vector2(88, 352)
+size = Vector2(139.00002, 346)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1av8t"]
-size = Vector2(88, 352)
+size = Vector2(139, 346)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xitl"]
-size = Vector2(192, 47.999985)
+size = Vector2(294, 36)
 
-[node name="CranePlateform" type="AnimatableBody2D" unique_id=609829873]
+[node name="RotatingPlateform" type="AnimatableBody2D" unique_id=609829873]
 script = ExtResource("1_5xitl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=960125096]
 texture_filter = 1
 position = Vector2(-0.033130646, 0.034095764)
 scale = Vector2(2.9999995, 2.9999995)
-texture = ExtResource("2_agbtw")
+texture = ExtResource("2_5xitl")
 region_enabled = true
-region_rect = Rect2(191.54176, -0.121896744, 64.929, 16.367144)
+region_rect = Rect2(0.061153412, 96.068504, 97.94414, 11.935326)
 
 [node name="LeftArea2D" type="Area2D" parent="." unique_id=228691278]
 position = Vector2(-0.033130646, 0.034095764)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea2D" unique_id=1182825350]
-position = Vector2(-51.966858, -152.03409)
+position = Vector2(-77.46687, -155.03409)
 shape = SubResource("RectangleShape2D_cirwn")
 
 [node name="RightArea2D" type="Area2D" parent="." unique_id=1382544251]
@@ -35,9 +35,9 @@ position = Vector2(-0.033130646, 0.034095764)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea2D" unique_id=1393115609]
 z_index = 2
-position = Vector2(52.033127, -152.03409)
+position = Vector2(77.53313, -155.03409)
 shape = SubResource("RectangleShape2D_1av8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2014604316]
-position = Vector2(-0.033130646, 0.034095764)
+position = Vector2(7.6293945e-06, 0)
 shape = SubResource("RectangleShape2D_5xitl")

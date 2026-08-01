@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="8_oachk"]
 [ext_resource type="PackedScene" uid="uid://jxhpisqacena" path="res://scenes/landscape/fenetrein/Fenetrein.tscn" id="9_8dtf1"]
 [ext_resource type="PackedScene" uid="uid://spxxfdamu8ks" path="res://scenes/landscape/ConveyorBelt.tscn" id="10_m3dw6"]
-[ext_resource type="PackedScene" uid="uid://cvy1j5p1esslm" path="res://scenes/landscape/crane_plateform/crane_plateform.tscn" id="11_twf3t"]
+[ext_resource type="PackedScene" uid="uid://cvy1j5p1esslm" path="res://scenes/landscape/crane_plateform/rotating_plateform.tscn" id="11_twf3t"]
 [ext_resource type="PackedScene" uid="uid://dfaarpkbkoa45" path="res://scenes/landscape/fenetrein/BigFenetrein.tscn" id="12_b2erf"]
 
 [node name="DEBUG8LEVEL" unique_id=1818539085 instance=ExtResource("1_nwlxf")]

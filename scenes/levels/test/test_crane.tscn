@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://by3g64uwynajr"]
 
-[ext_resource type="PackedScene" uid="uid://cvy1j5p1esslm" path="res://scenes/landscape/crane_plateform/crane_plateform.tscn" id="1_fkj0n"]
+[ext_resource type="PackedScene" uid="uid://cvy1j5p1esslm" path="res://scenes/landscape/crane_plateform/rotating_plateform.tscn" id="1_fkj0n"]
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="2_yghb5"]
 [ext_resource type="PackedScene" uid="uid://bvdw55jt5odq4" path="res://scenes/resizable/flying_rect.tscn" id="3_yghb5"]
 [ext_resource type="PackedScene" uid="uid://dmo3siywfanyf" path="res://scenes/landscape/Box.tscn" id="4_afmh4"]
+[ext_resource type="PackedScene" uid="uid://dolyu31t53k65" path="res://scenes/landscape/GreyBloc.tscn" id="5_pyiss"]
+[ext_resource type="PackedScene" uid="uid://bldfpa3blq6jy" path="res://scenes/characters/player/player.tscn" id="6_mithw"]
 
 [node name="TestCrane" type="Node2D" unique_id=1508773249]
 
@@ -102,3 +104,10 @@ debug = true
 [node name="CranePlateform10" parent="." unique_id=486036230 instance=ExtResource("1_fkj0n")]
 position = Vector2(936, 1120)
 debug = true
+
+[node name="GreyBloc" parent="." unique_id=555845978 instance=ExtResource("5_pyiss")]
+position = Vector2(784.0002, 511.00003)
+scale = Vector2(0.41206396, 0.41206396)
+
+[node name="Player" parent="." unique_id=217472232 instance=ExtResource("6_mithw")]
+position = Vector2(776, 400)

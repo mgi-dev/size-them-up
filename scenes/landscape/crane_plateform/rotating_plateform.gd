@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name CranePlateform
+class_name RotatingPlateform
 
 @onready var left_detector: Area2D = $LeftArea2D
 @onready var right_detector = $RightArea2D
@@ -66,7 +66,7 @@ func get_area_sum(colliders: Array[Node2D]) -> float:
 			total += collider.collision_shape.shape.size.x * collider.scale.x
 			total += collider.collision_shape.shape.size.y * collider.scale.y
 		else:
-			print("Unknown Collider in CranePlateform.")
+			print("Unknown Collider in RotatingPlateform.")
 	return total
 
 

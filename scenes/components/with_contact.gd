@@ -13,6 +13,6 @@ func delegated_integrate_forces(parent_state):
 	for i in range(parent_state.get_contact_count()):
 		
 		var _contact = parent_state.get_contact_collider_object(i)
-		if _contact is Resizable or _contact is CranePlateform or _contact is Box:
+		if _contact is Resizable or _contact is RotatingPlateform or _contact is Box:
 			get_parent().contacts.append(_contact)
 	
