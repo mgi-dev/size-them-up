@@ -98,6 +98,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionsMenu" parent="." unique_id=124309110 instance=ExtResource("4_2ysvc")]
+visible = false
 z_index = 201
 layout_mode = 0
 

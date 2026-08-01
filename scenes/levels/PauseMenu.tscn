@@ -2010,9 +2010,9 @@ texture_hover = ExtResource("10_lxphx")
 
 [node name="StartLabel" type="Label" parent="Node2D" unique_id=2054753239]
 layout_mode = 0
-offset_left = 174.00006
+offset_left = 161.42804
 offset_top = 56.0
-offset_right = 296.00006
+offset_right = 301.42804
 offset_bottom = 108.0
 theme_override_colors/font_color = Color(0.7921569, 0.7764706, 1, 1)
 theme_override_constants/outline_size = 10
