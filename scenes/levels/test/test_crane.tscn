@@ -78,7 +78,7 @@ position = Vector2(192, 176)
 scale = Vector2(1.1762245, 1.1694331)
 
 [node name="ResizableV15" parent="." unique_id=1513162042 instance=ExtResource("2_yghb5")]
-position = Vector2(96, 1000)
+position = Vector2(80, 1000)
 
 [node name="ResizableV16" parent="." unique_id=275894540 instance=ExtResource("2_yghb5")]
 position = Vector2(200, 979.99994)

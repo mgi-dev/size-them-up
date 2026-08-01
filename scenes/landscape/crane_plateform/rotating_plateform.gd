@@ -2,8 +2,13 @@ extends Node2D
 
 class_name RotatingPlateform
 
+
 @onready var left_detector: Area2D = $LeftArea2D
 @onready var right_detector = $RightArea2D
+
+@onready var left_detector_grid = $LeftDetector
+@onready var right_detector_grid = $RightDetector
+
 @export var debug = false
 
 var left_colliders_registry: Dictionary[Node2D, int] = {}
@@ -12,61 +17,57 @@ var right_colliders_registry: Dictionary[Node2D, int] = {}
 var target_rotation = rotation
 var min_rotato = -20
 var max_rotato = 20
-var rotato_speed = 1.0
+var rotato_speed = 0.2
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+""" The flow:
+- populate_colliders_registries use left_detector and right detector to find overlapping bodies touching the plateform
+(detectors are the two big area 2D.) Code is trash, but it works.
 
+- Then in set_target_rotation each sub detector of detector grid check if they overlaps previously detected shape
+If so we add "10.0" to detected area.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+- The we compute rotation based on this numbers
+
+Abstract:
+	
+- is touching plateform --> go into registry 
+- Is sub detector touched by bloc in registry ? --> Yeah --> compute weight
+- apply rotato.
+"""
+
 func _process(delta):
 	populate_colliders_registries()
 	set_target_rotation()
 	apply_rotate_tick(delta)
 	clean_colliders_registries()
+	
 
 
 func apply_rotate_tick(delta):
 	if target_rotation == rotation:
 		return
-	rotation = lerp(rotation, target_rotation, rotato_speed * delta)
+	rotation = move_toward(rotation, target_rotation, rotato_speed * delta)
 		
 
 func set_target_rotation():
-	var left_area = get_area_sum(get_colliders(left_detector))
-	var right_area = get_area_sum(get_colliders(right_detector))
-	get_intersecting_area_sum(left_detector, get_colliders(left_detector))
+	var intersecting_left = get_intersecting_area_sum(left_detector_grid, get_colliders(left_detector))
+	var intersecting_right = get_intersecting_area_sum(right_detector_grid, get_colliders(right_detector))
 	
-	var area_needed_per_degree = 20.0
-	var unbalanced_right = right_area - left_area
-
+	# edges detector could be "heavier" than center detectors :big_plan:
+	var area_needed_per_degree = 30.0
+	var unbalanced_right = intersecting_right - intersecting_left
+	
 	var degres_to_right = unbalanced_right / area_needed_per_degree
-	# no clamp ?
+	# no clamp ? no clamp.
 	target_rotation = deg_to_rad(degres_to_right)
 
-func get_intersecting_area_sum(detector: Area2D, colliders: Array):
-	return
-
-	for collider in colliders:
-
-		print(Geometry2D.intersect_polygons(
-			detector.get_node("CollisionShape2D").polygon, collider.get_polygon())
-		)
-
-func get_area_sum(colliders: Array[Node2D]) -> float:
+func get_intersecting_area_sum(detector_grid: Node2D, colliders: Array) -> float:
 	var total = 0.0
-	
-	for collider in colliders:
-		if collider is Resizable:
-			total += collider.hitbox.shape.size.x * collider.hitbox.scale.x
-			total += collider.hitbox.shape.size.y * collider.hitbox.scale.y
-		elif collider is Box:
-			total += collider.collision_shape.shape.size.x * collider.scale.x
-			total += collider.collision_shape.shape.size.y * collider.scale.y
-		else:
-			print("Unknown Collider in RotatingPlateform.")
+	for sub_detector in detector_grid.get_children():
+		for _collider in sub_detector.get_overlapping_bodies():
+			if _collider in colliders:
+				total += 10.0
 	return total
 
 
@@ -143,8 +144,3 @@ func clean_colliders_registry(registry):
 
 	for element in to_delete:
 		registry.erase(element)
-
-
-
-# many small detector with fix area ?
-#
