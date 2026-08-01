@@ -41,7 +41,11 @@ Just imagine! Reflecting resizing rays all over the place! I'm sure there are to
 If this doesn't get me a promotion, I don't know what will.
 
 Dave Allar
-Vertical Integration Executive Coordinator"
+Vertical Integration Executive Coordinator
+
+PS: Doesn't it look amazing ? 
+
+[img  width=64 height=64]res://assets//images/mirror.png[/img]"
 
 [node name="Player" parent="." index="1" unique_id=217472232]
 position = Vector2(32.2166, 624.7585)
