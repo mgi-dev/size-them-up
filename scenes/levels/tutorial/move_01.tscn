@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://cvkdnibthft57"]
 
 [ext_resource type="PackedScene" uid="uid://dfqw1xr5wsq0q" path="res://scenes/levels/base_level.tscn" id="1_dt453"]
+[ext_resource type="PackedScene" uid="uid://brcppoqy7g8s5" path="res://scenes/landscape/computer/Email.tscn" id="2_202va"]
 [ext_resource type="PackedScene" uid="uid://cj1w1b0ghswrx" path="res://scenes/embelish/arrow.tscn" id="2_sprda"]
+[ext_resource type="PackedScene" uid="uid://cjsq31sficx8s" path="res://scenes/landscape/computer/EmailBody.tscn" id="3_2pdqf"]
 [ext_resource type="Texture2D" uid="uid://dbl1702baiqa8" path="res://assets/images/clker-free-vector-images-mouse-24187.svg" id="3_r31qt"]
 [ext_resource type="Script" uid="uid://cdek2ebnq31ik" path="res://scenes/levels/tutorial/mouse_right_light.gd" id="4_7nbbt"]
 [ext_resource type="PackedScene" uid="uid://c513vd3w5aj6j" path="res://scenes/resizable/rect_resizable.tscn" id="5_7nbbt"]
@@ -9,9 +11,29 @@
 [ext_resource type="PackedScene" uid="uid://dcob4prj3ngv" path="res://scenes/landscape/door.tscn" id="7_53ba7"]
 [ext_resource type="PackedScene" uid="uid://y2msguum3ox0" path="res://scenes/levels/tutorial/tuto_stair_02.tscn" id="8_bolu4"]
 [ext_resource type="PackedScene" uid="uid://b0sv7aiuhimj3" path="res://scenes/landscape/HalfLadder.tscn" id="9_bolu4"]
+[ext_resource type="PackedScene" uid="uid://cx21ak7djiktk" path="res://scenes/landscape/computer/Computer.tscn" id="12_6jml2"]
 
 [node name="tutorial_move_01" unique_id=1818539085 instance=ExtResource("1_dt453")]
 enable_plugin_1 = false
+
+[node name="Email" parent="Camera" parent_id_path=PackedInt32Array(1438112420) index="2" unique_id=1835343870 instance=ExtResource("2_202va")]
+visible = false
+display = false
+recipient = "Eric Eccert"
+sender = "Jeremy Beremy"
+subject = "[EMERGENCY][P1] Unplanned subject escape "
+
+[node name="RichTextLabel2" parent="Camera/Email" index="7" unique_id=24024372 instance=ExtResource("3_2pdqf")]
+text = "Hello Eric,
+
+We have some kind of a situation at Lab 5. We were performing some tests on last subject and ... to keep things short, the chicken escaped.
+
+This is already kinda problematic, but the real issue is the chicken stole the [i]Prototype[/i]. I don't know how it's possible but it managed to activate the [i]Prototype[/i] and use it to get into the facility.
+
+I don't know what to do, it's friday and there is almost no one on site. Should we call reinforcement or something ? 
+
+Jeremy Beremy
+Research Field Lead Officer"
 
 [node name="Player" parent="." index="1" unique_id=217472232]
 position = Vector2(64.266235, 615.55396)
@@ -133,3 +155,6 @@ text = "Aim the laser with the mouse"
 
 [node name="Door" parent="." index="17" unique_id=8401334]
 visible = false
+
+[node name="Computer" parent="." index="18" unique_id=1859006309 instance=ExtResource("12_6jml2")]
+position = Vector2(1036, 483)
